@@ -1,0 +1,2997 @@
+{
+  "note": "Starting points, not an inventory. Every organisation is different: take what fits, change the wording, and delete the rest. Scores are a first guess to argue with, not an answer. The controls shown against each one are the Annex A controls that usually treat it.",
+  "assets": [
+    {
+      "id": "process",
+      "name": "Business processes",
+      "items": [
+        {
+          "name": "Customer onboarding process",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cross-functional",
+          "refs": [
+            "A.5.9"
+          ]
+        },
+        {
+          "name": "Order fulfilment / service delivery",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Operations",
+          "refs": [
+            "A.5.9"
+          ]
+        },
+        {
+          "name": "Payroll processing",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Finance / HR",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Financial reporting & close",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Finance",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "name": "Incident response process",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Security operations",
+          "refs": [
+            "A.5.24"
+          ]
+        },
+        {
+          "name": "Software development lifecycle",
+          "type": "Business Process",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Engineering",
+          "refs": [
+            "A.8.25"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Data & information assets",
+      "items": [
+        {
+          "name": "Customer database",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud database",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Employee personal records",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "HR system",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Financial records & statements",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Accounting system",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "name": "Intellectual property & trade secrets",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Document management",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "name": "Source code repository",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (GitHub / GitLab)",
+          "refs": [
+            "A.8.4"
+          ]
+        },
+        {
+          "name": "Contracts & legal agreements",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Document management",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "name": "Security & audit logs",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Log platform",
+          "refs": [
+            "A.8.15"
+          ]
+        },
+        {
+          "name": "Data warehouse / analytics store",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud data platform",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "Customer support tickets & communications",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Support platform",
+          "refs": [
+            "A.8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "devices",
+      "name": "End-user devices",
+      "items": [
+        {
+          "name": "Employee laptops",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Distributed (staff-assigned)",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "name": "Desktop workstations",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Office premises",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "name": "Employee mobile phones",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Internal",
+          "location": "Distributed (staff-assigned)",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "name": "Tablets",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Internal",
+          "location": "Distributed (staff-assigned)",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "name": "Office printers & scanners",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Internal",
+          "location": "Office premises",
+          "refs": [
+            "A.7.8"
+          ]
+        },
+        {
+          "name": "Removable storage media (USB drives)",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Distributed",
+          "refs": [
+            "A.7.10"
+          ]
+        },
+        {
+          "name": "Hardware MFA tokens / security keys",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Distributed (staff-assigned)",
+          "refs": [
+            "A.5.17"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "infra",
+      "name": "Infrastructure & network",
+      "items": [
+        {
+          "name": "Cloud hosting account (AWS / Azure / GCP)",
+          "type": "Cloud Provider",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.23"
+          ]
+        },
+        {
+          "name": "Production servers",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud / data centre",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Database servers",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud / data centre",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Virtualisation platform (VMware / Hyper-V)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Data centre",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Container platform (Kubernetes / Docker)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud / data centre",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Office network / LAN",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Office premises",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "Network switches & routers",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Office / data centre",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "Firewall / perimeter security",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Office / data centre",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "Office Wi-Fi",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Office premises",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "VPN / remote access gateway",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Cloud / on-premises",
+          "refs": [
+            "A.6.7"
+          ]
+        },
+        {
+          "name": "Backup storage",
+          "type": "Cloud Provider",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud / off-site",
+          "refs": [
+            "A.8.13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud & SaaS",
+      "items": [
+        {
+          "name": "Email platform (Microsoft 365 / Google Workspace)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "name": "File storage / collaboration (SharePoint, Drive)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "name": "Chat & collaboration (Slack / Teams)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "name": "Video conferencing platform",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "CRM system",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "HR / HRIS system",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Payroll system",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Accounting / finance system",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Ticketing / ITSM (Jira, ServiceNow)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.32"
+          ]
+        },
+        {
+          "name": "CI/CD pipeline (GitHub Actions, Jenkins)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.25"
+          ]
+        },
+        {
+          "name": "Customer support platform (Zendesk)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "E-signature platform (DocuSign)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security tooling",
+      "items": [
+        {
+          "name": "Identity provider / SSO (Entra ID, Okta)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.16"
+          ]
+        },
+        {
+          "name": "SIEM / log management platform",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud / on-premises",
+          "refs": [
+            "A.8.15"
+          ]
+        },
+        {
+          "name": "Endpoint protection (EDR / antivirus)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Distributed (all endpoints)",
+          "refs": [
+            "A.8.7"
+          ]
+        },
+        {
+          "name": "Secrets vault / key management (KMS)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud / on-premises",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Password manager",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.17"
+          ]
+        },
+        {
+          "name": "Vulnerability scanner",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud / on-premises",
+          "refs": [
+            "A.8.8"
+          ]
+        },
+        {
+          "name": "Email security gateway",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.23"
+          ]
+        },
+        {
+          "name": "Backup & recovery software",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud / on-premises",
+          "refs": [
+            "A.8.13"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "software",
+      "name": "Software & digital",
+      "items": [
+        {
+          "name": "Company website",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Public",
+          "location": "Cloud hosting",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "Company mobile application",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Public",
+          "location": "App stores / cloud",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "Public APIs",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud hosting",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "DNS & domain registrations",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Domain registrar",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "TLS/SSL certificates",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Certificate authority",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Code-signing certificates",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Certificate authority",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Internal wiki / knowledge base",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Internal",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.37"
+          ]
+        },
+        {
+          "name": "Social media accounts",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Public",
+          "location": "Vendor platforms",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "name": "Software licences & subscriptions",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Vendor portals",
+          "refs": [
+            "A.5.32"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "name": "People",
+      "items": [
+        {
+          "name": "Key personnel / single points of knowledge",
+          "type": "People",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Internal",
+          "location": "Organisation-wide",
+          "refs": [
+            "A.6.1"
+          ]
+        },
+        {
+          "name": "System administrators (privileged users)",
+          "type": "People",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "IT team",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "name": "Contractors & third-party staff",
+          "type": "People",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Distributed",
+          "refs": [
+            "A.6.1"
+          ]
+        },
+        {
+          "name": "Security & compliance team",
+          "type": "People",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Security function",
+          "refs": [
+            "A.5.2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "facilities",
+      "name": "Facilities",
+      "items": [
+        {
+          "name": "Office premises",
+          "type": "Facility",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Physical office address",
+          "refs": [
+            "A.7.1"
+          ]
+        },
+        {
+          "name": "Server room / comms room",
+          "type": "Facility",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "On-premises",
+          "refs": [
+            "A.7.3"
+          ]
+        },
+        {
+          "name": "Data centre / colocation space",
+          "type": "Facility",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Third-party facility",
+          "refs": [
+            "A.7.1"
+          ]
+        },
+        {
+          "name": "Physical access control system (badges)",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Office premises",
+          "refs": [
+            "A.7.2"
+          ]
+        },
+        {
+          "name": "CCTV / surveillance system",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Office premises",
+          "refs": [
+            "A.7.4"
+          ]
+        },
+        {
+          "name": "Physical archive / records storage",
+          "type": "Facility",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Confidential",
+          "location": "On-premises / off-site",
+          "refs": [
+            "A.7.10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "items": [
+        {
+          "name": "Electronic Health Record (EHR) system",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Clinical systems",
+          "refs": [
+            "A.8.14"
+          ]
+        },
+        {
+          "name": "Networked medical devices (pumps, monitors)",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Clinical wards",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "name": "Medical imaging system (PACS)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Radiology department",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Laboratory Information System (LIS)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Laboratory",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Pharmacy management system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Pharmacy",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Patient portal",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "Medical billing & claims system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Finance systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Telehealth platform",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Clinical research data store",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Research systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Controlled substances register",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Pharmacy systems",
+          "refs": [
+            "A.8.15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Insurance",
+      "items": [
+        {
+          "name": "Core banking / policy administration system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Data centre / cloud",
+          "refs": [
+            "A.8.14"
+          ]
+        },
+        {
+          "name": "Payment processing gateway",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Vendor-hosted",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "Trading platform",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Data centre",
+          "refs": [
+            "A.8.14"
+          ]
+        },
+        {
+          "name": "Mobile banking application",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "App stores / cloud",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "Customer KYC / identity records",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Compliance system",
+          "refs": [
+            "A.5.16"
+          ]
+        },
+        {
+          "name": "Loan origination system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Core systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "AML / transaction monitoring system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Compliance systems",
+          "refs": [
+            "A.8.16"
+          ]
+        },
+        {
+          "name": "Credit scoring / decisioning engine",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Core systems",
+          "refs": [
+            "A.8.29"
+          ]
+        },
+        {
+          "name": "ATM / POS terminal network",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Branch / retail locations",
+          "refs": [
+            "A.7.4"
+          ]
+        },
+        {
+          "name": "Customer statements archive",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Restricted",
+          "location": "Records storage",
+          "refs": [
+            "A.5.33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "items": [
+        {
+          "name": "Industrial control systems (PLCs/SCADA)",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Plant floor",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "name": "Manufacturing Execution System (MES)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Plant network",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Safety instrumented systems",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Plant floor",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "name": "IoT sensors & plant telemetry",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Plant floor",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "name": "Plant historian database",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Plant network",
+          "refs": [
+            "A.8.15"
+          ]
+        },
+        {
+          "name": "CAD / product design file store",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Engineering systems",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "Product Lifecycle Management (PLM)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Engineering systems",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "ERP system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Data centre / cloud",
+          "refs": [
+            "A.8.13"
+          ]
+        },
+        {
+          "name": "Warehouse Management System (WMS)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Logistics systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Quality Management System (QMS)",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Quality function",
+          "refs": [
+            "A.5.36"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "government",
+      "name": "Government",
+      "items": [
+        {
+          "name": "Citizen records registry",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Government data centre",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Case management system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Agency systems",
+          "refs": [
+            "A.8.15"
+          ]
+        },
+        {
+          "name": "Public-facing service portal",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Public",
+          "location": "Cloud hosting",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "Classified information systems",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Secure facility",
+          "refs": [
+            "A.5.12"
+          ]
+        },
+        {
+          "name": "Inter-agency data exchange platform",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Restricted",
+          "location": "Government network",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "name": "Tax / revenue collection system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Government data centre",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Licensing & permits system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Agency systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Emergency services dispatch",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Operations centre",
+          "refs": [
+            "A.5.30"
+          ]
+        },
+        {
+          "name": "GIS / mapping systems",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Agency systems",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "Public records archive",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Public",
+          "location": "Records storage",
+          "refs": [
+            "A.5.33"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "items": [
+        {
+          "name": "Student Information System (SIS)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Learning Management System (LMS)",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "name": "Admissions & enrolment system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Campus systems",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Examination & assessment platform",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Research computing systems",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Campus data centre",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "Campus Wi-Fi network",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Campus-wide",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "name": "Library management system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Low",
+          "classification": "Internal",
+          "location": "Campus systems",
+          "refs": [
+            "A.5.37"
+          ]
+        },
+        {
+          "name": "Student financial aid records",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Finance systems",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Child-safeguarding records",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Safeguarding system",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "name": "Alumni & donor database",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Advancement systems",
+          "refs": [
+            "A.8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "items": [
+        {
+          "name": "Vehicle telematics platform",
+          "type": "SaaS",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "name": "Connected-vehicle cloud backend",
+          "type": "Cloud Provider",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.5.23"
+          ]
+        },
+        {
+          "name": "Over-the-air (OTA) update system",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "Cloud (vendor-hosted)",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "name": "In-vehicle infotainment systems",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "In-vehicle",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "name": "Vehicle diagnostic systems",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Service centres",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "name": "Factory assembly-line control systems",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "High",
+          "classification": "Confidential",
+          "location": "Plant floor",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "name": "EV charging infrastructure",
+          "type": "Hardware",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Internal",
+          "location": "Charging stations",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "name": "Prototype & test vehicle data",
+          "type": "Data / Information",
+          "category": "Primary asset",
+          "criticality": "High",
+          "classification": "Restricted",
+          "location": "R&D systems",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "name": "Supplier / parts management system",
+          "type": "Software",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Supply chain systems",
+          "refs": [
+            "A.5.21"
+          ]
+        },
+        {
+          "name": "Dealer network systems",
+          "type": "Service",
+          "category": "Supporting asset",
+          "criticality": "Medium",
+          "classification": "Confidential",
+          "location": "Dealer locations",
+          "refs": [
+            "A.5.19"
+          ]
+        }
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "id": "common",
+      "name": "Common to most organisations",
+      "items": [
+        {
+          "title": "Unpatched critical vulnerability exploited",
+          "description": "A known flaw in an internet-facing system is not patched in time and is exploited before anyone notices it was outstanding.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.8",
+            "A.8.19",
+            "A.8.9"
+          ]
+        },
+        {
+          "title": "Staff credentials taken by phishing",
+          "description": "An employee enters their password and one-time code on a convincing fake sign-in page, handing an attacker a working session.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.6.3",
+            "A.8.5",
+            "A.8.23",
+            "A.5.17"
+          ]
+        },
+        {
+          "title": "Ransomware encrypts servers and backups",
+          "description": "Ransomware spreads to file servers and reaches the backups as well, so recovery takes weeks instead of hours.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.7",
+            "A.8.13",
+            "A.5.29"
+          ]
+        },
+        {
+          "title": "Supplier breach exposes your information",
+          "description": "A supplier holding or processing your data is compromised, and your customers are affected by an incident that never touched your network.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of Procurement",
+          "refs": [
+            "A.5.19",
+            "A.5.20",
+            "A.5.22"
+          ]
+        },
+        {
+          "title": "Cloud storage or service left publicly accessible",
+          "description": "A misconfiguration exposes a storage bucket, database or admin console to the internet, usually discovered by somebody outside the organisation.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of Cloud Engineering",
+          "refs": [
+            "A.5.23",
+            "A.8.9",
+            "A.8.3"
+          ]
+        },
+        {
+          "title": "Privileged administrator misuses their access",
+          "description": "Someone with unrestricted rights reads, changes or deletes what they should not, and without logging nobody can prove what happened.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.2",
+            "A.8.18",
+            "A.8.15"
+          ]
+        },
+        {
+          "title": "Leaver keeps access after departure",
+          "description": "Accounts and equipment are not taken back when someone leaves, so a former employee or contractor still has a working way in.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Human Resources",
+          "refs": [
+            "A.5.18",
+            "A.6.5",
+            "A.5.11"
+          ]
+        },
+        {
+          "title": "Malware spreads across a flat network",
+          "description": "An infection on one laptop reaches servers and other offices because the network is not divided, turning one machine into an organisation-wide incident.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Network Manager",
+          "refs": [
+            "A.8.22",
+            "A.8.20",
+            "A.8.7"
+          ]
+        },
+        {
+          "title": "Vulnerable third-party library shipped to production",
+          "description": "An open-source component with a known flaw is built into an application because nothing checks what the software is made of.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Engineering",
+          "refs": [
+            "A.8.25",
+            "A.8.28",
+            "A.8.8"
+          ]
+        },
+        {
+          "title": "Sensitive data leaves by email or removable media",
+          "description": "A member of staff sends or copies confidential information out of the organisation, whether by mistake or on purpose.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.8.12",
+            "A.7.10",
+            "A.5.14"
+          ]
+        },
+        {
+          "title": "Intrusion goes undetected for months",
+          "description": "An attacker is inside the network but nothing raises an alarm, and logs from different systems cannot be lined up to work out what happened.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Security Operations Lead",
+          "refs": [
+            "A.8.16",
+            "A.8.15",
+            "A.8.17"
+          ]
+        },
+        {
+          "title": "Recovery fails when it is actually needed",
+          "description": "Recovery plans exist on paper but have never been tested, and the systems do not come back when the main site or cloud region is lost.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.5.30",
+            "A.8.14",
+            "A.5.29"
+          ]
+        },
+        {
+          "title": "Expired certificate takes a service down",
+          "description": "Nobody owns a certificate or is warned before it lapses, and a public service stops working for reasons that look like an attack.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.24",
+            "A.8.21"
+          ]
+        },
+        {
+          "title": "Untested change breaks production",
+          "description": "A change is made straight in the live environment without testing or a way back, causing an outage. More outages come from changes than from attackers.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Change Manager",
+          "refs": [
+            "A.8.32",
+            "A.8.31",
+            "A.8.29"
+          ]
+        },
+        {
+          "title": "Systems in use that nobody knows about",
+          "description": "Teams buy or build their own tools, so information sits outside every control the organisation believes it has.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Chief Technology Officer",
+          "refs": [
+            "A.5.9",
+            "A.5.10",
+            "A.8.19"
+          ]
+        },
+        {
+          "title": "Information security has no clear owner or backing",
+          "description": "Responsibility is spread across roles with nobody accountable and no support from management, so nothing improves between audits.",
+          "category": "Strategic",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Chief Executive Officer",
+          "refs": [
+            "A.5.1",
+            "A.5.2",
+            "A.5.4"
+          ]
+        },
+        {
+          "title": "Incident handled badly because nobody knows the plan",
+          "description": "When something goes wrong, people do not know who to call or what to do first, so the damage grows while roles are argued over.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.5.24",
+            "A.5.26",
+            "A.6.8"
+          ]
+        },
+        {
+          "title": "Breach not reported to authorities in time",
+          "description": "A personal data breach is not recognised or escalated quickly enough, and the deadline to tell the regulator or the people affected is missed.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Data Protection Officer",
+          "refs": [
+            "A.5.25",
+            "A.5.5",
+            "A.5.34"
+          ]
+        },
+        {
+          "title": "Evidence destroyed while responding to an incident",
+          "description": "In the rush to restore service, logs are overwritten and machines rebuilt, so the cause cannot be proved and legal action or an insurance claim fails.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Security Operations Lead",
+          "refs": [
+            "A.5.28",
+            "A.5.26"
+          ]
+        },
+        {
+          "title": "The same incident keeps happening",
+          "description": "Incidents are closed as soon as service is back, nobody looks for the cause, and the same weakness is exploited again months later.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.5.27",
+            "A.5.24"
+          ]
+        },
+        {
+          "title": "Laptop lost or stolen with unencrypted data",
+          "description": "A laptop or phone is left on a train or taken from a car, and the information on it is readable by whoever has it.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Service Desk Manager",
+          "refs": [
+            "A.8.1",
+            "A.7.9",
+            "A.8.24"
+          ]
+        },
+        {
+          "title": "Home working exposes confidential information",
+          "description": "People work from home or in public places on shared devices and open screens, with papers left out and conversations overheard.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.6.7",
+            "A.7.7",
+            "A.8.1"
+          ]
+        },
+        {
+          "title": "Person hired on false credentials given access",
+          "description": "Someone joins with a faked history or undisclosed conflicts, and receives access to sensitive information before any checks are done.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Human Resources",
+          "refs": [
+            "A.6.1",
+            "A.6.2",
+            "A.6.6"
+          ]
+        },
+        {
+          "title": "Staff mishandle information because nothing says how sensitive it is",
+          "description": "Documents and data carry no classification or label, so confidential material is shared, printed and stored like everything else.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Information Security Manager",
+          "refs": [
+            "A.5.12",
+            "A.5.13",
+            "A.5.10"
+          ]
+        },
+        {
+          "title": "Staff ignore security rules because nothing happens when they do",
+          "description": "Rules are published but breaking them has no consequence, so shortcuts become normal practice and the policy is ignored.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of Human Resources",
+          "refs": [
+            "A.6.4",
+            "A.6.2",
+            "A.5.36"
+          ]
+        },
+        {
+          "title": "Unauthorised person gets into the office or server room",
+          "description": "Someone gets in by following staff through a door, using an old badge or walking in unescorted, and reaches equipment or papers.",
+          "category": "Physical",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Facilities Manager",
+          "refs": [
+            "A.7.1",
+            "A.7.2",
+            "A.7.3",
+            "A.7.6"
+          ]
+        },
+        {
+          "title": "Fire, flood or power loss in the server room",
+          "description": "Equipment in a poorly protected room is damaged by water, heat or an electrical fault, or stops when the power fails.",
+          "category": "Physical",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Facilities Manager",
+          "refs": [
+            "A.7.5",
+            "A.7.11",
+            "A.7.8"
+          ]
+        },
+        {
+          "title": "Equipment or cabling fails for lack of care",
+          "description": "Unmaintained equipment breaks down and exposed cabling is damaged or tapped, taking systems down without warning.",
+          "category": "Physical",
+          "likelihood": 2,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Facilities Manager",
+          "refs": [
+            "A.7.12",
+            "A.7.13"
+          ]
+        },
+        {
+          "title": "Old equipment disposed of with data still on it",
+          "description": "Laptops, disks and phones are sold, recycled or thrown away without being wiped, and the information on them is recovered by someone else.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Service Desk Manager",
+          "refs": [
+            "A.7.14",
+            "A.8.10"
+          ]
+        },
+        {
+          "title": "Real customer data exposed in test environments",
+          "description": "Copies of live data are used for development and testing, where access is loose and nobody treats it as sensitive.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Engineering",
+          "refs": [
+            "A.8.33",
+            "A.8.11",
+            "A.8.31"
+          ]
+        },
+        {
+          "title": "Source code or secrets stolen from the repository",
+          "description": "Source code, passwords or keys in a code repository are copied by someone who should not have access, exposing products and systems.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of Engineering",
+          "refs": [
+            "A.8.4",
+            "A.5.17"
+          ]
+        },
+        {
+          "title": "An audit or test disrupts live systems",
+          "description": "A vulnerability scan, penetration test or audit query runs against production without planning, and slows or stops a live service.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.34"
+          ]
+        },
+        {
+          "title": "Unlicensed software or copied material in use",
+          "description": "Software, fonts, images or documents are used without the right licence, leading to fines, legal claims or forced removal.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Legal Counsel",
+          "refs": [
+            "A.5.32",
+            "A.5.31"
+          ]
+        },
+        {
+          "title": "Warnings about new threats not acted on",
+          "description": "Alerts from suppliers, industry groups or authorities about an active threat arrive, but nobody reads them or checks whether they apply.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Security Operations Lead",
+          "refs": [
+            "A.5.7",
+            "A.5.6"
+          ]
+        },
+        {
+          "title": "Security left out of new projects",
+          "description": "Projects and new systems are designed and bought without security requirements, so weaknesses are built in and costly to fix later.",
+          "category": "Strategic",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Projects",
+          "refs": [
+            "A.5.8",
+            "A.8.26",
+            "A.8.27"
+          ]
+        },
+        {
+          "title": "Systems run out of capacity at peak times",
+          "description": "Storage, processing or network capacity is not watched, and a service slows or fails at the busiest moment.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.8.6",
+            "A.8.14"
+          ]
+        },
+        {
+          "title": "Controls exist on paper but nobody checks they work",
+          "description": "Policies and procedures are written but never independently reviewed, so gaps are only found by an external auditor or an attacker.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Internal Audit",
+          "refs": [
+            "A.5.35",
+            "A.5.36"
+          ]
+        },
+        {
+          "title": "Key tasks only one person knows how to do",
+          "description": "Backups, restores and admin tasks are done from memory by one person, and nobody else can do them when that person is away or leaves.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.5.37",
+            "A.5.2"
+          ]
+        },
+        {
+          "title": "Access granted without approval and never reviewed",
+          "description": "People collect access as they move between roles because requests are not approved and nobody reviews who has what.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of IT Operations",
+          "refs": [
+            "A.5.15",
+            "A.5.18",
+            "A.5.16"
+          ]
+        },
+        {
+          "title": "Weak or shared passwords",
+          "description": "Shared accounts, default passwords and simple passwords reused across systems let one leaked password open many doors.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Service Desk Manager",
+          "refs": [
+            "A.5.17",
+            "A.8.5",
+            "A.5.16"
+          ]
+        },
+        {
+          "title": "Legal or contractual requirement missed",
+          "description": "A law, regulation or customer contract sets a security or privacy obligation that nobody has listed, and it is breached without anyone knowing.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Legal Counsel",
+          "refs": [
+            "A.5.31",
+            "A.5.34",
+            "A.5.33"
+          ]
+        },
+        {
+          "title": "Records lost or destroyed too early",
+          "description": "Records that must be kept for legal or business reasons are deleted, damaged or cannot be found when a regulator or court asks for them.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Records Manager",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "title": "Supplier changes its service without telling you",
+          "description": "A cloud or managed service provider changes how its service works, where data is held or who subcontracts it, and nobody reviews the effect.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of Procurement",
+          "refs": [
+            "A.5.22",
+            "A.5.21",
+            "A.5.23"
+          ]
+        },
+        {
+          "title": "Harmful websites and downloads reach staff",
+          "description": "Staff browse to malicious or compromised websites and download infected files, because nothing filters where they can go.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Network Manager",
+          "refs": [
+            "A.8.23",
+            "A.8.7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "items": [
+        {
+          "title": "Ransomware Disrupting Clinical Operations",
+          "description": "Ransomware encrypts hospital systems and clinical applications, forcing a shift to manual processes and delaying or cancelling patient procedures.",
+          "category": "Operational",
+          "likelihood": 4,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Chief Information Security Officer (CISO)",
+          "refs": [
+            "A.8.13"
+          ]
+        },
+        {
+          "title": "Unsupported Legacy Medical Devices",
+          "description": "Medical devices such as infusion pumps and imaging systems run outdated, unpatchable software, giving attackers a stable foothold inside clinical networks.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Biomedical Engineering Lead",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "title": "Unauthorized Staff Access to Patient Records",
+          "description": "Employees browse or share patient records outside their care responsibilities, breaching patient confidentiality and triggering regulatory reporting obligations.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Privacy Officer",
+          "refs": [
+            "A.8.15"
+          ]
+        },
+        {
+          "title": "Tampering with Networked Medical Devices",
+          "description": "An attacker on the clinical network alters settings on a networked medical device, risking incorrect dosing or device malfunction that directly endangers patients.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Clinical Systems Manager",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "title": "Electronic Health Record (EHR) Downtime",
+          "description": "The EHR system becomes unavailable during patient care, leaving clinicians without access to allergies, medication history or care plans.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "IT Operations Manager",
+          "refs": [
+            "A.8.14"
+          ]
+        },
+        {
+          "title": "Breach at a Medical Billing or Transcription Vendor",
+          "description": "A third-party billing or transcription vendor is breached, exposing patient and payment data the organisation shared with them.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Transfer",
+          "owner": "Vendor Risk Manager",
+          "refs": [
+            "A.5.19"
+          ]
+        },
+        {
+          "title": "Interception of Telehealth Sessions",
+          "description": "Telehealth consultations or their recordings are intercepted or accessed without authorization, exposing sensitive clinical conversations.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Security Manager",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "title": "Theft of Clinical Research Data",
+          "description": "Confidential clinical trial or research data is accessed or exfiltrated by unauthorized parties, undermining trial integrity and competitive position.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Research Data Officer",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "title": "Non-Compliance with Health Data Privacy Regulations",
+          "description": "Patient data is processed without meeting applicable health-privacy regulatory requirements, exposing the organisation to fines and mandatory breach notification.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Data Privacy Officer (DPO)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "title": "Hospital IoT as a Network Entry Point",
+          "description": "Connected hospital equipment (infusion pumps, building systems, patient monitors) with weak security is used by an attacker as an entry point into the wider network.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Network Security Manager",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "title": "Unauthorized Alteration of Patient Records",
+          "description": "A user with write access to the EHR system alters a patient record — such as an allergy, medication or dosage entry — without authorization, creating a direct risk to patient safety.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Clinical Systems Manager",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "title": "Medical Identity Theft",
+          "description": "Stolen patient identity information is used to fraudulently obtain medical treatment, prescriptions or insurance payouts under the victim's name.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Fraud Prevention Officer",
+          "refs": [
+            "A.5.16"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Insurance",
+      "items": [
+        {
+          "title": "Business Email Compromise / Wire Fraud",
+          "description": "Attackers impersonate executives or vendors to trick finance staff into redirecting a wire transfer, resulting in direct financial loss.",
+          "category": "Financial",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Finance Director",
+          "refs": [
+            "A.6.3"
+          ]
+        },
+        {
+          "title": "Core Banking or Trading System Outage",
+          "description": "A failure or attack on core banking or trading systems halts customer transactions, triggering financial loss and regulatory scrutiny.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "VP of Operations",
+          "refs": [
+            "A.8.14"
+          ]
+        },
+        {
+          "title": "Cardholder Data Breach",
+          "description": "Payment card data held or processed by the organisation is exposed, triggering PCI DSS non-compliance findings and card-scheme penalties.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "PCI Compliance Manager",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "title": "Large-Scale Customer Account Takeover",
+          "description": "Credential-stuffing attacks compromise customer accounts at scale, resulting in fraudulent transactions and reimbursement costs.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Fraud Prevention Manager",
+          "refs": [
+            "A.8.5"
+          ]
+        },
+        {
+          "title": "Insider Misuse of Financial Data",
+          "description": "An employee with privileged access to financial systems misuses customer or market data for personal gain, including potential insider trading.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Compliance Officer",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "title": "Gaps in Anti-Money-Laundering Screening",
+          "description": "Weaknesses in transaction monitoring or customer screening allow money-laundering activity to pass undetected, creating regulatory and criminal exposure.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "AML Officer",
+          "refs": [
+            "A.5.31"
+          ]
+        },
+        {
+          "title": "Abuse of Open Banking APIs",
+          "description": "Poorly secured open-banking APIs are exploited to scrape customer data or perform unauthorized transactions.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Engineering",
+          "refs": [
+            "A.8.28"
+          ]
+        },
+        {
+          "title": "Physical Skimming at ATMs or POS Terminals",
+          "description": "Card-skimming devices installed on ATMs or point-of-sale terminals capture customer card data for later fraud.",
+          "category": "Physical",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Facilities & Security Manager",
+          "refs": [
+            "A.7.4"
+          ]
+        },
+        {
+          "title": "Tampering with Financial Reporting Data",
+          "description": "Financial records are altered without authorization, undermining the integrity of statutory financial reporting.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Financial Controller",
+          "refs": [
+            "A.8.32"
+          ]
+        },
+        {
+          "title": "Regulatory Non-Compliance Fines",
+          "description": "The organisation fails to meet financial-sector regulatory requirements, resulting in fines, sanctions or licence restrictions.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Chief Compliance Officer",
+          "refs": [
+            "A.5.31"
+          ]
+        },
+        {
+          "title": "Synthetic Identity Fraud at Onboarding",
+          "description": "Criminals create accounts using fabricated or stolen-and-blended identity details that pass basic verification, enabling fraud that is difficult to trace to a real victim.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "KYC / Onboarding Manager",
+          "refs": [
+            "A.5.16"
+          ]
+        },
+        {
+          "title": "Errors in Automated Credit or Trading Decision Models",
+          "description": "Flaws or drift in automated credit-scoring or trading algorithms produce incorrect decisions, causing financial loss or unfair customer outcomes and regulatory scrutiny.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Model Risk",
+          "refs": [
+            "A.8.29"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manufacturing",
+      "name": "Manufacturing",
+      "items": [
+        {
+          "title": "OT/ICS Compromise Halting Production",
+          "description": "An attacker gains access to industrial control systems on the plant floor, forcing an emergency production shutdown.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "OT Security Lead",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "title": "IT-to-OT Network Pivot",
+          "description": "An attacker who compromises office IT systems pivots across an insufficiently segmented network into operational technology.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Network Security Manager",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "title": "Unpatchable Legacy PLCs and SCADA Systems",
+          "description": "Programmable logic controllers and SCADA systems run outdated firmware that cannot be patched without a full production outage.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Plant Engineering Manager",
+          "refs": [
+            "A.8.9"
+          ]
+        },
+        {
+          "title": "Tampering with Safety Instrumented Systems",
+          "description": "An attacker alters settings on a safety system, creating a risk of physical harm to workers or equipment damage.",
+          "category": "Physical",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Health & Safety Manager",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "title": "Theft of Product Designs and Formulas",
+          "description": "CAD files, product formulas or process documentation are exfiltrated, giving competitors or counterfeiters access to proprietary designs.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of R&D",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "title": "Key Supplier Breach Halting Material Supply",
+          "description": "A critical raw-material or component supplier suffers an outage or breach, interrupting the organisation's production schedule.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Supply Chain Director",
+          "refs": [
+            "A.5.21"
+          ]
+        },
+        {
+          "title": "Counterfeit Components Entering Production",
+          "description": "Counterfeit or substandard components enter the supply chain undetected, creating product quality and safety risks.",
+          "category": "Third-party",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Procurement Manager",
+          "refs": [
+            "A.5.20"
+          ]
+        },
+        {
+          "title": "Ransomware on ERP/MES Systems",
+          "description": "Ransomware encrypts enterprise resource planning or manufacturing execution systems, halting scheduling, shipping and invoicing.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Director",
+          "refs": [
+            "A.8.13"
+          ]
+        },
+        {
+          "title": "Falsification of Quality or Test Records",
+          "description": "Quality assurance or compliance test records are altered to conceal defects, risking product recalls and regulatory action.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Quality Assurance Manager",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "title": "Unauthorized Physical Access to Production Areas",
+          "description": "Individuals without authorization gain physical access to production floors, risking sabotage, theft or safety incidents.",
+          "category": "Physical",
+          "likelihood": 2,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Facilities Manager",
+          "refs": [
+            "A.7.2"
+          ]
+        },
+        {
+          "title": "Uncontrolled Third-Party Remote Access to OT Systems",
+          "description": "External maintenance vendors keep persistent or poorly monitored remote-access connections into plant equipment, providing an unmonitored entry point into operational technology.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "OT Security Lead",
+          "refs": [
+            "A.8.20"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "government",
+      "name": "Government",
+      "items": [
+        {
+          "title": "Nation-State Targeted Intrusion",
+          "description": "A state-sponsored threat actor conducts a sustained campaign against government systems to steal sensitive information or disrupt services.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Chief Information Security Officer (CISO)",
+          "refs": [
+            "A.8.16"
+          ]
+        },
+        {
+          "title": "Large-Scale Citizen Data Registry Breach",
+          "description": "A breach of a citizen records system exposes personal data for a large portion of the population, triggering mass notification obligations.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Data Protection Officer",
+          "refs": [
+            "A.8.3"
+          ]
+        },
+        {
+          "title": "Leakage of Classified or Sensitive Information",
+          "description": "An insider or mishandling incident results in classified or sensitive government information being disclosed outside authorized channels.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Information Security Officer",
+          "refs": [
+            "A.5.12"
+          ]
+        },
+        {
+          "title": "Disruption of Critical Public Services",
+          "description": "An attack or system failure disrupts a critical public service (e.g. benefits, permits, emergency systems), affecting citizens directly.",
+          "category": "Operational",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Director of IT Services",
+          "refs": [
+            "A.5.30"
+          ]
+        },
+        {
+          "title": "Legacy Systems Supporting Essential Services",
+          "description": "Core government services run on ageing, unsupported systems that are increasingly difficult to secure or maintain.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Modernisation Lead",
+          "refs": [
+            "A.8.8"
+          ]
+        },
+        {
+          "title": "Uncontrolled Cross-Agency Data Sharing",
+          "description": "Citizen data is shared between agencies without consistent controls, increasing the risk of misuse or unauthorized secondary use.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Data Governance Lead",
+          "refs": [
+            "A.5.14"
+          ]
+        },
+        {
+          "title": "Excessive Contractor Access to Sensitive Systems",
+          "description": "External contractors retain broad access to sensitive government systems beyond what their engagement requires.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "IT Director",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "title": "Website Defacement or Disinformation",
+          "description": "A public-facing government website is defaced or used to spread disinformation, damaging public trust in official communications.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Digital Services Manager",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "title": "Records Management and Freedom-of-Information Failures",
+          "description": "Poor records management results in the organisation being unable to meet statutory records-retention or freedom-of-information obligations.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Records Manager",
+          "refs": [
+            "A.5.33"
+          ]
+        },
+        {
+          "title": "Procurement Fraud via System Manipulation",
+          "description": "Procurement or payment systems are manipulated to divert public funds to fraudulent suppliers.",
+          "category": "Financial",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Procurement",
+          "refs": [
+            "A.5.3"
+          ]
+        },
+        {
+          "title": "Unauthorized Staff Lookups of Citizen Records",
+          "description": "Government employees access citizen records out of curiosity or for personal reasons without a legitimate case-related need, breaching citizens' privacy.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Data Protection Officer",
+          "refs": [
+            "A.8.15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "items": [
+        {
+          "title": "Ransomware Closing School or Campus Operations",
+          "description": "Ransomware encrypts administrative and learning systems, forcing campus closures or a shift to manual operations.",
+          "category": "Operational",
+          "likelihood": 4,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "IT Director",
+          "refs": [
+            "A.8.13"
+          ]
+        },
+        {
+          "title": "Breach of Student Data, Including Minors",
+          "description": "Student records, including data belonging to children, are exposed, creating heightened legal and reputational consequences.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Data Protection Officer",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "title": "Uncontrolled Personal Devices on Campus Networks",
+          "description": "Thousands of unmanaged student and staff devices connect to campus networks, creating a large and inconsistent attack surface.",
+          "category": "Security",
+          "likelihood": 4,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "IT Security Manager",
+          "refs": [
+            "A.8.1"
+          ]
+        },
+        {
+          "title": "Tampering with Grades or Examination Records",
+          "description": "A student or staff member gains unauthorized access to alter grades or examination results.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Registrar / Academic Systems Manager",
+          "refs": [
+            "A.8.2"
+          ]
+        },
+        {
+          "title": "Theft of Research Data by External Actors",
+          "description": "State-linked or competitive actors target university research systems to steal valuable research data or intellectual property.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Research Computing",
+          "refs": [
+            "A.8.12"
+          ]
+        },
+        {
+          "title": "EdTech / Learning Platform Vendor Breach",
+          "description": "A third-party learning platform or EdTech vendor is breached, exposing student data shared with them.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Transfer",
+          "owner": "IT Procurement Lead",
+          "refs": [
+            "A.5.19"
+          ]
+        },
+        {
+          "title": "Payroll-Redirect Phishing Against Staff",
+          "description": "Phishing emails trick payroll or HR staff into redirecting employee salary payments to attacker-controlled accounts.",
+          "category": "Financial",
+          "likelihood": 4,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "HR Director",
+          "refs": [
+            "A.6.3"
+          ]
+        },
+        {
+          "title": "Open Campus Wi-Fi as an Attack Surface",
+          "description": "Open or weakly secured campus wireless networks are used to intercept traffic or attack connected devices.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Network Security Manager",
+          "refs": [
+            "A.8.20"
+          ]
+        },
+        {
+          "title": "Online Examination Fraud",
+          "description": "Weaknesses in online exam platforms allow impersonation, unauthorized assistance or answer leakage during remote assessments.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Head of Digital Learning",
+          "refs": [
+            "A.8.26"
+          ]
+        },
+        {
+          "title": "Unauthorized Access to Child-Safeguarding Records",
+          "description": "Sensitive child-welfare or safeguarding records are accessed by staff without a legitimate need, breaching duty-of-care obligations.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Designated Safeguarding Lead",
+          "refs": [
+            "A.8.3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "automotive",
+      "name": "Automotive",
+      "items": [
+        {
+          "title": "Remote Exploitation of Connected Vehicles",
+          "description": "A vulnerability in a vehicle's connected systems is exploited remotely, potentially allowing unauthorized control of vehicle functions.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Vehicle Cybersecurity Lead",
+          "refs": [
+            "A.8.27"
+          ]
+        },
+        {
+          "title": "Compromised Over-the-Air Update Channel",
+          "description": "An attacker compromises the over-the-air update mechanism, allowing malicious firmware to be pushed to the vehicle fleet.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Head of Connected Services",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "title": "Factory OT Compromise Halting Assembly",
+          "description": "Industrial control systems on the vehicle assembly line are compromised, forcing a production stoppage.",
+          "category": "Operational",
+          "likelihood": 3,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Plant IT/OT Manager",
+          "refs": [
+            "A.8.22"
+          ]
+        },
+        {
+          "title": "Vehicle Telematics Privacy Breach",
+          "description": "Location and driving-behaviour data collected via vehicle telematics is exposed or misused, breaching customer privacy expectations.",
+          "category": "Compliance",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Data Privacy Officer (DPO)",
+          "refs": [
+            "A.5.34"
+          ]
+        },
+        {
+          "title": "Key-Fob Relay Attacks Enabling Vehicle Theft",
+          "description": "Attackers use relay devices to capture and replay key-fob signals, allowing a vehicle to be unlocked and stolen without the physical key.",
+          "category": "Security",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Product Security Engineer",
+          "refs": [
+            "A.8.24"
+          ]
+        },
+        {
+          "title": "Infotainment System as a Pivot to Vehicle Controls",
+          "description": "A vulnerability in the infotainment system is used to pivot into safety-critical vehicle control networks (e.g. CAN bus).",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Vehicle Cybersecurity Lead",
+          "refs": [
+            "A.8.27"
+          ]
+        },
+        {
+          "title": "Compromised Component or Software from a Supplier",
+          "description": "A tier-1 or tier-2 supplier delivers a component or embedded software containing a vulnerability or malicious code.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Supplier Quality & Security Manager",
+          "refs": [
+            "A.8.30"
+          ]
+        },
+        {
+          "title": "Data or Model Poisoning in Autonomous Driving Systems",
+          "description": "Training data or models used in driver-assistance or autonomous-driving features are manipulated, degrading safety-critical decision-making.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "AI/ML Systems Lead",
+          "refs": [
+            "A.8.28"
+          ]
+        },
+        {
+          "title": "Dealer Network Data Breach",
+          "description": "A breach at a dealership exposes customer, finance or vehicle-ownership data shared through the dealer network.",
+          "category": "Third-party",
+          "likelihood": 3,
+          "impact": 3,
+          "treatment": "Mitigate",
+          "owner": "Dealer Network Security Lead",
+          "refs": [
+            "A.5.19"
+          ]
+        },
+        {
+          "title": "Non-Compliance with Automotive Cybersecurity Regulations",
+          "description": "The organisation fails to meet automotive cybersecurity regulatory requirements (e.g. UNECE R155 / ISO 21434), risking type-approval or market-access loss.",
+          "category": "Compliance",
+          "likelihood": 2,
+          "impact": 5,
+          "treatment": "Mitigate",
+          "owner": "Regulatory Compliance Manager",
+          "refs": [
+            "A.5.31"
+          ]
+        },
+        {
+          "title": "Attacks on EV Charging Infrastructure and Fleet Cloud Backend",
+          "description": "Vulnerabilities in electric-vehicle charging stations or the fleet management cloud backend are exploited to disrupt charging services, commit payment fraud, or pivot into connected-vehicle systems.",
+          "category": "Security",
+          "likelihood": 2,
+          "impact": 4,
+          "treatment": "Mitigate",
+          "owner": "Head of Connected Services",
+          "refs": [
+            "A.8.9"
+          ]
+        }
+      ]
+    }
+  ]
+}

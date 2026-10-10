@@ -1,0 +1,399 @@
+{
+  "title": "Getting ISO 27001 ready",
+  "intro": "Eight stages, from a fresh install to your certification audit, in the order most organisations find easiest. You do not have to follow it. Anything you can already do, do now; the order is advice, not a rule. A stage turns green when everything in it is done or marked as not applying to you. The clause numbers are there so you can find the requirement in your copy of the standard.",
+  "stages": [
+    {
+      "id": "setup",
+      "name": "Set the product up",
+      "aim": "Get the tool ready and the right people into it. An hour's work, and nothing else goes well without it.",
+      "tasks": [
+        {
+          "id": "setup.people",
+          "title": "Add the people who will do the work",
+          "do": "Go to Users and add everyone who will record work here. Give them the smallest role that lets them do their job: Contributor to record work, Auditor or Read only for people who just need to see it.",
+          "why": "An ISMS run by one person alone stalls the first time that person is busy. It also means every change is recorded against a real name, which is what an auditor expects to see.",
+          "check": "users.beyondAdmin",
+          "goto": "people"
+        },
+        {
+          "id": "setup.email",
+          "title": "Turn on email",
+          "do": "In Settings, put in your mail server details and send yourself a test message.",
+          "why": "Without it nobody gets reminders about overdue work, and an administrator who forgets their password cannot get back in on their own. You will not notice this until you need it.",
+          "check": "settings.smtp",
+          "goto": "settings"
+        },
+        {
+          "id": "setup.branding",
+          "title": "Put your logo on reports",
+          "do": "In Reports, upload your organisation's logo.",
+          "why": "Your Statement of Applicability and every other PDF goes to management and to your auditor with your name on it. Takes a minute.",
+          "check": "settings.logo",
+          "goto": "reports"
+        },
+        {
+          "id": "setup.backup",
+          "title": "Keep a copy of the backup somewhere else",
+          "do": "A backup runs every night on its own; the line below says when it last ran. Open Backups, press Download on the newest one, and keep that file somewhere other than this server.",
+          "why": "Everything you build here is ISMS evidence. A backup that only exists on the same machine protects you from very little, and ISO 27001 expects you to back up your own information too (A.8.13).",
+          "check": "jobs.backupRan",
+          "goto": "backups"
+        }
+      ]
+    },
+    {
+      "id": "scope",
+      "name": "Set your ISMS scope",
+      "aim": "Clause 4. Say what the management system covers and what shapes it. Everything after this hangs off it.",
+      "tasks": [
+        {
+          "id": "scope.context",
+          "title": "Write down what affects your security",
+          "do": "Make a short list of the things inside and outside the organisation that affect information security: your market, laws, how you are organised, what technology you depend on. Then list who cares about your security and what they need from you: customers, regulators, staff, suppliers, owners. A page is enough. Keep it as a document in Policies.",
+          "why": "Clauses 4.1 and 4.2 ask for this, and it is how you explain later why certain controls matter to you. Auditors ask for it at Stage 1, and a missing one is a common finding.",
+          "goto": "policies",
+          "clause": "4.1",
+          "template": "Context_of_the_Organisation_Clause4.docx"
+        },
+        {
+          "id": "scope.parties",
+          "title": "List who cares about your security, and what they expect",
+          "do": "Open Interested parties and add each one: customers, your regulator, staff, owners, key suppliers. For each, write what they need from you and how you meet it.",
+          "why": "Clause 4.2 asks who has an interest in your security and what they require. An auditor asks this early, and the answer shapes your scope and your risks.",
+          "check": "registers.parties",
+          "goto": "parties",
+          "clause": "4.2",
+          "template": "Context_of_the_Organisation_Clause4.docx"
+        },
+        {
+          "id": "scope.written",
+          "title": "Write your ISMS scope",
+          "do": "Open ISMS and fill in the scope. Write what the ISMS covers: which parts of the organisation, which services, which locations, which systems. Say plainly what is left out and where your scope touches things outside it, such as a supplier or a head office.",
+          "why": "Clause 4.3 requires a written scope, and the certificate you get will quote it. A vague scope turns every later question into an argument, and it is the first thing an auditor reads.",
+          "check": "programme.scope",
+          "goto": "isms",
+          "clause": "4.3",
+          "template": "01_Scope_of_the_ISMS.docx"
+        },
+        {
+          "id": "scope.assets",
+          "title": "List the information and systems you have",
+          "do": "In Assets, record your information, systems, applications, devices and places. Start with the ones that matter most, give each one an owner, and say how critical and how sensitive it is. The Sample library tab has over a hundred to start from.",
+          "why": "Control A.5.9 asks for an inventory with owners, and your risk assessment is built on this list. You cannot protect what nobody has written down.",
+          "check": "registers.assets",
+          "goto": "assets",
+          "clause": "4.3"
+        }
+      ]
+    },
+    {
+      "id": "lead",
+      "name": "Get leadership behind it",
+      "aim": "Clause 5. Top management has to own the ISMS, not just allow it. This stage is where that gets written down.",
+      "tasks": [
+        {
+          "id": "lead.policy",
+          "title": "Write an information security policy",
+          "do": "In Policies, add your information security policy. It should say what you protect and why, commit to meeting your requirements and to keep improving, and either set security objectives or say how they are set. Two pages is plenty.",
+          "why": "Clause 5.2 requires it and control A.5.1 builds on it. Almost every other document you write will point back to this one.",
+          "check": "registers.policies",
+          "goto": "policies",
+          "clause": "5.2",
+          "template": "02_ISMS_Policy.docx"
+        },
+        {
+          "id": "lead.approved",
+          "title": "Get your policies approved by top management",
+          "do": "Take each policy to whoever can approve it: your managing director, board or owner. When they have, set the policy to Approved and record who approved it and when.",
+          "why": "An auditor will ask who approved the policy and when. A policy on the intranet with no approval behind it shows that leadership has not committed, which is what clause 5.1 is about.",
+          "check": "policies.approved",
+          "goto": "policies",
+          "clause": "5.1",
+          "template": "Master_Information_Security_Policy.docx"
+        },
+        {
+          "id": "lead.roles",
+          "title": "Name who is responsible for what",
+          "do": "Decide who runs the ISMS day to day, who reports on it to top management, and who owns each area. Write it down, get it agreed, and record the ISMS owner on control A.5.2.",
+          "why": "Clause 5.3 asks top management to assign these responsibilities and make them known. 'Everyone is responsible' means nobody is, and an auditor will say so.",
+          "goto": "controls",
+          "clause": "5.3",
+          "template": "03_Roles_Responsibilities_and_Authorities.docx"
+        },
+        {
+          "id": "lead.objectives",
+          "title": "Set security objectives you can measure",
+          "do": "Agree three to five objectives, such as 'every leaver's access removed within one working day' or 'all staff trained each year'. For each one, raise a task in Tasks with an owner and a due date.",
+          "why": "Clause 6.2 asks for objectives that can be measured, with a plan, an owner and a date. Objectives nobody tracks are a common Stage 1 finding.",
+          "goto": "tasks",
+          "clause": "6.2",
+          "template": "10_Information_Security_Objectives_Plan.docx"
+        }
+      ]
+    },
+    {
+      "id": "risk",
+      "name": "Assess and treat your risks",
+      "aim": "Clauses 6.1 and 8. ISO 27001 is built on risk. Your controls are supposed to follow from this stage, not come before it.",
+      "tasks": [
+        {
+          "id": "risk.method",
+          "title": "Write down how you assess risk",
+          "do": "Open ISMS and fill in the risk assessment method (there is a suggested one to start from). Say how you score risks (this product uses likelihood times impact, each 1 to 5), which score is acceptable without action, and who is allowed to accept a risk.",
+          "why": "Clause 6.1.2 requires a method that gives consistent results when repeated. Writing it down first stops every risk turning into a debate about scoring.",
+          "check": "programme.methodology",
+          "goto": "isms",
+          "clause": "6.1.2",
+          "template": "04_Risk_Assessment_and_Risk_Treatment_Process.docx"
+        },
+        {
+          "id": "risk.register",
+          "title": "Record your risks",
+          "do": "In Risks, write down what could realistically go wrong with the information in scope. Score each one. The Sample library tab has around a hundred to react to; take what fits and change the wording.",
+          "why": "The risk register is what clauses 6.1.2 and 8.2 produce, and it is one of the first documents an auditor asks to see.",
+          "check": "registers.risks",
+          "goto": "risks",
+          "clause": "6.1.2"
+        },
+        {
+          "id": "risk.owners",
+          "title": "Give every risk an owner and a decision",
+          "do": "For each risk, name who owns it and choose what you are doing: reduce it, accept it, transfer it or avoid it.",
+          "why": "ISO 27001 expects each risk to have an owner with the authority to decide about it. A risk with no owner is a list entry, not risk management.",
+          "check": "risks.owned",
+          "goto": "risks",
+          "clause": "6.1.2"
+        },
+        {
+          "id": "risk.linked",
+          "title": "Link each risk to the controls that reduce it",
+          "do": "Open each risk you are reducing and attach the Annex A controls that deal with it.",
+          "why": "This link is what justifies including a control in your Statement of Applicability. It also shows at once when a serious risk has nothing behind it.",
+          "check": "risks.linked",
+          "goto": "risks",
+          "clause": "6.1.3"
+        },
+        {
+          "id": "risk.accepted",
+          "title": "Get risk owners to approve the plan and what is left",
+          "do": "Show each risk owner the treatment plan and the risk that will remain afterwards. Record the residual score, and on any risk you accept, who accepted it and when.",
+          "why": "Clause 6.1.3 asks risk owners to approve the treatment plan and accept the residual risk. Auditors look for that sign-off by name.",
+          "goto": "risks",
+          "clause": "8.3",
+          "template": "13_Risk_Treatment_Plan.docx"
+        }
+      ]
+    },
+    {
+      "id": "soa",
+      "name": "Write the Statement of Applicability",
+      "aim": "Clause 6.1.3. Go through all 93 Annex A controls and say which apply, why, and how far along each one is.",
+      "tasks": [
+        {
+          "id": "soa.read",
+          "title": "Read what each control is asking",
+          "do": "Open a few controls and read the guidance in each one: what it is for, what to do, and what an auditor checks.",
+          "why": "Deciding without reading produces a Statement of Applicability you cannot defend. Ten minutes here saves you redoing it.",
+          "goto": "controls",
+          "clause": "6.1.3"
+        },
+        {
+          "id": "soa.justified",
+          "title": "Decide for every control, and write why",
+          "do": "In Statement of Applicability, mark each control Applies or Excluded and write the reason in a few words. Included controls need a reason too: a risk it treats, a law, a contract, or a business need. Exclude only what genuinely does not apply to you.",
+          "why": "Clause 6.1.3 asks for the reasons for including controls as well as for excluding them. Convenient exclusions are the fastest way to lose an auditor's trust, and they are easy to spot.",
+          "check": "soa.justified",
+          "goto": "soa",
+          "clause": "6.1.3"
+        },
+        {
+          "id": "soa.owners",
+          "title": "Give every control that applies an owner",
+          "do": "In Controls, set an owner on each control that applies. Add their email address if you want the product to remind them about due dates.",
+          "why": "Someone has to answer for each control when the auditor asks. An owner is also who keeps the evidence current.",
+          "check": "controls.owned",
+          "goto": "controls",
+          "clause": "5.3"
+        },
+        {
+          "id": "soa.status",
+          "title": "Record honestly how far along each control is",
+          "do": "For each control that applies, set its status: not started, in progress or implemented. Record what is true today, not what you intend.",
+          "why": "The Statement of Applicability has to say whether each control is implemented. An honest 'in progress' you can explain is far better than an 'implemented' you cannot prove.",
+          "goto": "controls",
+          "clause": "8.1"
+        },
+        {
+          "id": "soa.export",
+          "title": "Export the Statement of Applicability and get it approved",
+          "do": "In Reports, download the Statement of Applicability. Have it approved by the ISMS owner, and keep the approved copy as a document in Evidence.",
+          "why": "It is the document a certification auditor asks for first, and the certificate itself refers to its version.",
+          "check": "reports.soaExported",
+          "goto": "reports",
+          "clause": "6.1.3"
+        }
+      ]
+    },
+    {
+      "id": "prove",
+      "name": "Put it in place and prove it",
+      "aim": "Clauses 7 and 8. Do the work, then make sure you can show it. Saying you do something is not the same as being able to prove it.",
+      "tasks": [
+        {
+          "id": "prove.gaps",
+          "title": "Turn your gaps into tasks",
+          "do": "Export the Gap report, then raise a task in Tasks for each control that is not in place yet, with an owner and a due date. Link the task to the control.",
+          "why": "This is your risk treatment plan being carried out. Tasks with names and dates are what actually move a control from 'not started' to 'implemented'.",
+          "check": "registers.tasks",
+          "goto": "tasks",
+          "clause": "8.1"
+        },
+        {
+          "id": "prove.awareness",
+          "title": "Train people, and keep the records",
+          "do": "Make sure everyone in scope knows the policy, their part in it and how to report a problem. Keep the training records, attendance lists or completion reports, and add them to Evidence.",
+          "why": "Clauses 7.2 and 7.3 and control A.6.3 ask for competence and awareness. Auditors often interview staff at random, and they sample training records.",
+          "goto": "evidence",
+          "clause": "7.2, 7.3",
+          "template": "Employee_Handbook_HR_Security.docx"
+        },
+        {
+          "id": "prove.evidence",
+          "title": "Collect proof for the controls you have in place",
+          "do": "In Evidence, record what proves each control and attach the file: approved documents, access reviews, backup tests, screenshots, reports. Start with the controls you marked implemented.",
+          "why": "At Stage 2 the auditor picks controls and asks you to show them working. Have the proof ready before they ask, not after.",
+          "check": "evidence.any",
+          "goto": "evidence",
+          "clause": "7.5"
+        },
+        {
+          "id": "prove.linked",
+          "title": "Link each piece of proof to its control",
+          "do": "Open each evidence item and attach the controls it supports.",
+          "why": "Unlinked evidence is a folder of files. Linked evidence answers 'show me' in one click while the auditor is waiting.",
+          "check": "evidence.linked",
+          "goto": "evidence",
+          "clause": "7.5"
+        },
+        {
+          "id": "prove.dated",
+          "title": "Put a date on every piece of proof",
+          "do": "Record when each item was collected. Anything older than ninety days shows as needing a refresh.",
+          "why": "Proof goes stale. An access review from two years ago proves you did one two years ago.",
+          "check": "evidence.dated",
+          "goto": "evidence",
+          "clause": "7.5"
+        },
+        {
+          "id": "prove.review",
+          "title": "Put a review date on every document",
+          "do": "Give each policy and procedure a review date, normally a year out. When you change one, raise its version; the product keeps the earlier version.",
+          "why": "Clause 7.5 asks you to control your documents: approved, versioned and kept current. A policy nobody has reviewed in years tells the auditor more than its contents do.",
+          "check": "policies.reviewDates",
+          "goto": "policies",
+          "clause": "7.5",
+          "template": "05_Procedure_for_the_Control_of_Documented_Information.docx"
+        },
+        {
+          "id": "prove.communication",
+          "title": "Plan what you tell people, and when",
+          "do": "Open Communications and add each arrangement: the policy to all staff on joining and yearly, phishing reminders quarterly, supplier duties at contract, incident reporting to the board. Put a next-due date on each.",
+          "why": "Clause 7.4 asks what you communicate about security, to whom, when and how. A folder of sent emails does not answer it; a short plan does, and the dates land in your calendar.",
+          "check": "registers.communications",
+          "goto": "communications",
+          "clause": "7.4",
+          "template": "06_Information_Security_Communication_Plan.docx"
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "name": "Check that it works",
+      "aim": "Clause 9. Before any certification audit you need at least one round of measuring, internal audit and management review. There is no way round this one.",
+      "tasks": [
+        {
+          "id": "check.measure",
+          "title": "Decide what you measure, and look at it regularly",
+          "do": "Choose a few things to measure, such as your objectives, incidents, overdue tasks and how fresh your evidence is. Look at them every month or quarter and keep a note of what you found.",
+          "why": "Clause 9.1 asks what you monitor, how, when and who looks at the results. The dashboard gives you most of the numbers; the part that counts is someone looking at them and acting.",
+          "goto": "dashboard",
+          "clause": "9.1"
+        },
+        {
+          "id": "check.incidents",
+          "title": "Record incidents as they happen",
+          "do": "When something goes wrong, log it in Incidents: what happened, how serious it was, and what was done. Afterwards, note what you learned and what you changed.",
+          "why": "Controls A.5.24 to A.5.27 ask you to handle incidents and learn from them. An auditor will ask to see the log. An empty one after a year usually means nobody is reporting, not that nothing happened.",
+          "goto": "incidents",
+          "clause": "10.2",
+          "template": "Incident_Response_and_BCP.docx"
+        },
+        {
+          "id": "check.audit",
+          "title": "Run an internal audit",
+          "do": "Plan an internal audit that covers the whole ISMS over time, done by someone who does not audit their own work. Record what they find in Findings, as a major or minor nonconformity, an observation, or an opportunity to improve.",
+          "why": "Clause 9.2 makes internal audit mandatory, and certification bodies expect to see at least one full round before Stage 2.",
+          "check": "registers.findings",
+          "goto": "findings",
+          "clause": "9.2",
+          "template": "07_Procedure_for_Internal_Audits.docx"
+        },
+        {
+          "id": "check.review",
+          "title": "Hold a management review",
+          "do": "Meet with top management to review the ISMS: changes, objectives, incidents, audit results, risks and what needs to change. Export the Executive summary and the Risk register as inputs, and minute the decisions.",
+          "why": "Clause 9.3 requires it, and the minutes are one of the records an auditor always asks for. Decisions recorded here are how leadership shows it is in charge.",
+          "check": "reports.exported",
+          "goto": "reports",
+          "clause": "9.3",
+          "template": "08_Procedure_for_Management_Review.docx"
+        }
+      ]
+    },
+    {
+      "id": "certify",
+      "name": "Fix gaps and get certified",
+      "aim": "Clause 10 and the certification audit itself. Being certified once is not the end: the audits come back every year.",
+      "tasks": [
+        {
+          "id": "certify.corrective",
+          "title": "Give every finding an owner, a date and a fix",
+          "do": "For each open finding, set an owner and a due date. Work out the root cause, fix it, and check the fix worked before you close it.",
+          "why": "Clause 10.2 asks for exactly this. An auditor will pick a nonconformity and follow it from cause to verified fix, and an open major nonconformity will stop certification.",
+          "check": "findings.owned",
+          "goto": "findings",
+          "clause": "10.2",
+          "template": "09_Procedure_for_Corrective_Action_and_Continual_Improvement.docx"
+        },
+        {
+          "id": "certify.body",
+          "title": "Choose a certification body",
+          "do": "Pick a certification body accredited to audit ISO 27001, ideally by your country's accreditation body. Ask for a quote, agree dates for Stage 1 and Stage 2, and confirm the scope they will certify.",
+          "why": "A certificate from a body without accreditation is often not accepted by the customers who asked you for it. Checking first costs nothing."
+        },
+        {
+          "id": "certify.stage1",
+          "title": "Pass Stage 1: the document review",
+          "do": "Give the auditor your scope, policy, risk method, risk register, Statement of Applicability, internal audit results and management review minutes. Create an Auditor account in Users so they can look for themselves.",
+          "why": "Stage 1 checks that the ISMS is designed properly and that you are ready for Stage 2. Anything it raises must be fixed before Stage 2.",
+          "goto": "people"
+        },
+        {
+          "id": "certify.stage2",
+          "title": "Pass Stage 2: the implementation audit",
+          "do": "The auditor samples controls and asks to see them working, and talks to staff. Record anything they raise in Findings and fix it within the time they give you.",
+          "why": "Stage 2 decides whether you are certified. Evidence that is linked, dated and current is what makes it a calm few days rather than a scramble.",
+          "goto": "findings"
+        },
+        {
+          "id": "certify.routine",
+          "title": "Put the yearly routine in the diary",
+          "do": "Book next year's internal audit, management review, risk review and policy reviews now, as tasks with owners and dates.",
+          "why": "Surveillance audits come every year and recertification every three. The ISMS has to keep running between them, and a date in the diary is the cheapest part of that.",
+          "goto": "tasks",
+          "clause": "10.1"
+        }
+      ]
+    }
+  ]
+}

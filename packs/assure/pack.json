@@ -1,0 +1,32 @@
+{
+  "id": "assure",
+  "product": "Offset Assure",
+  "edition": "",
+  "framework": "ISO/IEC 27001:2022",
+  "frameworkShort": "ISO 27001",
+  "source": "Control references and titles from ISO/IEC 27001:2022 Annex A. Guidance wording is original to Offset Security; it is not the standard text.",
+  "disclaimer": "Offset Assure is not affiliated with, endorsed by, or certified by ISO or any certification body.",
+  "contact": "info@offsetsecurity.net",
+  "themeLabel": "Theme",
+  "itemLabel": "Control",
+  "features": {
+    "statementOfApplicability": true,
+    "certificationTracking": true,
+    "journey": true,
+    "ismsRegisters": true,
+    "ismsScreen": true,
+    "isoClauses": true,
+    "calendar": true,
+    "policyTemplates": true,
+    "controlTesting": true,
+    "help": true,
+    "gapAnalysis": true,
+    "demoData": true,
+    "csv": true
+  },
+  "counts": {
+    "themes": 4,
+    "controls": 93,
+    "withGuidance": 93
+  }
+}
