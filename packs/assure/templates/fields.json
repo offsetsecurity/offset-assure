@@ -1,0 +1,6270 @@
+{
+ "version": 1,
+ "groups": [
+  {
+   "id": "company",
+   "title": "About your company",
+   "note": "Answered once, and used in every document that needs it."
+  },
+  {
+   "id": "choices",
+   "title": "Your choices",
+   "note": "These already have the usual answer. Change any that do not fit how you work."
+  }
+ ],
+ "shared": [
+  {
+   "name": "company",
+   "group": "company",
+   "label": "Company name",
+   "hint": "As it should appear in the documents, for example Acme"
+  },
+  {
+   "name": "legal_name",
+   "group": "company",
+   "label": "Legal name",
+   "hint": "The registered name, for example Acme Private Limited",
+   "default": "@company"
+  },
+  {
+   "name": "address",
+   "group": "company",
+   "label": "Registered address",
+   "long": true
+  },
+  {
+   "name": "what_we_do",
+   "group": "company",
+   "label": "What the organisation does",
+   "hint": "One or two sentences about your products or services",
+   "long": true
+  },
+  {
+   "name": "size",
+   "group": "company",
+   "label": "Size",
+   "hint": "For example 120 employees and 15 contractors"
+  },
+  {
+   "name": "customers",
+   "group": "company",
+   "label": "Main customers",
+   "hint": "Types of customer, for example banks, hospitals, retailers"
+  },
+  {
+   "name": "structure",
+   "group": "company",
+   "label": "Departments or teams, and who leads them",
+   "long": true
+  },
+  {
+   "name": "top_mgmt",
+   "group": "company",
+   "label": "Top management",
+   "hint": "Names and job titles, for example Priya Shah, CEO; Tom Lee, CFO",
+   "long": true
+  },
+  {
+   "name": "isms_manager",
+   "group": "company",
+   "label": "ISMS Manager: name",
+   "hint": "The person who runs the ISMS day to day"
+  },
+  {
+   "name": "isms_manager_title",
+   "group": "company",
+   "label": "ISMS Manager: job title",
+   "hint": "For example Head of IT, or Information Security Manager"
+  },
+  {
+   "name": "isms_manager_email",
+   "group": "company",
+   "label": "ISMS Manager: email"
+  },
+  {
+   "name": "isms_manager_phone",
+   "group": "company",
+   "label": "ISMS Manager: phone"
+  },
+  {
+   "name": "doc_approver",
+   "group": "company",
+   "label": "Who approves the ISMS documents",
+   "hint": "Name and job title, usually the CEO or managing director"
+  },
+  {
+   "name": "security_contact",
+   "group": "company",
+   "label": "Where people report incidents",
+   "hint": "An email address or mailbox, for example security@acme.com"
+  },
+  {
+   "name": "publish_location",
+   "group": "company",
+   "label": "Where staff can read the policies",
+   "hint": "For example the intranet, or the HR portal"
+  },
+  {
+   "name": "doc_location",
+   "group": "company",
+   "label": "Where the ISMS documents are kept",
+   "hint": "A folder, a wiki or a tool, for example SharePoint > ISMS"
+  },
+  {
+   "name": "records_location",
+   "group": "company",
+   "label": "Where the ISMS records are kept",
+   "hint": "For example Offset Assure and SharePoint > ISMS records"
+  },
+  {
+   "name": "doc_classification",
+   "group": "choices",
+   "label": "Classification of the ISMS documents",
+   "default": "Internal"
+  },
+  {
+   "name": "records_period",
+   "group": "choices",
+   "label": "How long records are kept",
+   "default": "at least three years"
+  },
+  {
+   "name": "reporting_frequency",
+   "group": "choices",
+   "label": "How often the ISMS Manager reports to top management",
+   "default": "quarterly"
+  },
+  {
+   "name": "forum_frequency",
+   "group": "choices",
+   "label": "How often the information security forum meets",
+   "default": "quarterly"
+  },
+  {
+   "name": "risk_review",
+   "group": "choices",
+   "label": "How often risk owners review their risks",
+   "default": "quarterly"
+  },
+  {
+   "name": "ca_major_plan",
+   "group": "choices",
+   "label": "Major nonconformity: action plan agreed within (working days)",
+   "default": "5"
+  },
+  {
+   "name": "ca_major_days",
+   "group": "choices",
+   "label": "Major nonconformity: corrected within (days)",
+   "default": "60"
+  },
+  {
+   "name": "ca_minor_contain",
+   "group": "choices",
+   "label": "Minor nonconformity: contained within (working days)",
+   "default": "5"
+  },
+  {
+   "name": "ca_minor_plan",
+   "group": "choices",
+   "label": "Minor nonconformity: action plan agreed within (working days)",
+   "default": "10"
+  },
+  {
+   "name": "ca_minor_days",
+   "group": "choices",
+   "label": "Minor nonconformity: corrected within (days)",
+   "default": "90"
+  }
+ ],
+ "library": {
+  "12.laws": [
+   {
+    "label": "EU General Data Protection Regulation (GDPR)",
+    "row": [
+     "",
+     "General Data Protection Regulation (EU) 2016/679",
+     "National data protection authority",
+     "Personal data of people in the EU",
+     "Lawful basis, security, breach notification within 72 hours, rights of individuals",
+     "Privacy policy, A.5.34, incident procedure",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "UK GDPR and Data Protection Act 2018",
+    "row": [
+     "",
+     "UK GDPR and Data Protection Act 2018",
+     "Information Commissioner's Office",
+     "Personal data of people in the UK",
+     "Lawful basis, security, breach notification within 72 hours, rights of individuals",
+     "Privacy policy, A.5.34, incident procedure",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "India Digital Personal Data Protection Act, 2023",
+    "row": [
+     "",
+     "Digital Personal Data Protection Act, 2023 (India)",
+     "Data Protection Board of India",
+     "Digital personal data processed in India, or about people in India",
+     "Notice and consent, security safeguards, breach intimation, rights of data principals",
+     "Privacy policy, A.5.34, incident procedure",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "India Information Technology Act, 2000",
+    "row": [
+     "",
+     "Information Technology Act, 2000 (India)",
+     "Ministry of Electronics and Information Technology; CERT-In",
+     "Computer systems, electronic records and cyber incidents in India",
+     "Reasonable security practices, reporting of cyber incidents to CERT-In",
+     "Incident procedure, A.5.24 to A.5.28, A.5.31",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "US HIPAA Security and Privacy Rules",
+    "row": [
+     "",
+     "Health Insurance Portability and Accountability Act (HIPAA)",
+     "US Department of Health and Human Services, Office for Civil Rights",
+     "Protected health information",
+     "Administrative, physical and technical safeguards, breach notification",
+     "Risk assessment, access control, A.5.34",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "California Consumer Privacy Act (CCPA / CPRA)",
+    "row": [
+     "",
+     "California Consumer Privacy Act as amended by the CPRA",
+     "California Privacy Protection Agency",
+     "Personal information of California residents",
+     "Notice, consumer rights, reasonable security",
+     "Privacy policy, A.5.34",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "EU NIS2 Directive",
+    "row": [
+     "",
+     "NIS2 Directive (EU) 2022/2555",
+     "National competent authority",
+     "Essential and important entities in the EU",
+     "Risk management measures, incident reporting, supply chain security",
+     "ISMS, incident procedure, supplier policy",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "EU Digital Operational Resilience Act (DORA)",
+    "row": [
+     "",
+     "Digital Operational Resilience Act (EU) 2022/2554",
+     "Financial supervisory authority",
+     "Financial entities in the EU and their ICT providers",
+     "ICT risk management, incident reporting, resilience testing, third-party risk",
+     "ISMS, business continuity, supplier policy",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Saudi Personal Data Protection Law (PDPL)",
+    "row": [
+     "",
+     "Personal Data Protection Law (Saudi Arabia)",
+     "Saudi Data and AI Authority (SDAIA)",
+     "Personal data of people in Saudi Arabia",
+     "Lawful processing, security, breach notification, rights of individuals",
+     "Privacy policy, A.5.34, incident procedure",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Saudi SAMA Cyber Security Framework",
+    "row": [
+     "",
+     "SAMA Cyber Security Framework",
+     "Saudi Central Bank (SAMA)",
+     "Financial institutions regulated by SAMA",
+     "Cyber security governance, risk, operations and third party controls",
+     "ISMS, Statement of Applicability",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Singapore Personal Data Protection Act (PDPA)",
+    "row": [
+     "",
+     "Personal Data Protection Act 2012 (Singapore)",
+     "Personal Data Protection Commission",
+     "Personal data of people in Singapore",
+     "Consent, protection of data, breach notification",
+     "Privacy policy, A.5.34, incident procedure",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Computer misuse law",
+    "row": [
+     "",
+     "Computer misuse and cybercrime law of each country where we operate",
+     "Law enforcement",
+     "Our systems and communications",
+     "No unauthorised access; lawful monitoring and logging",
+     "Acceptable use policy, A.5.10, A.8.15",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Employment and monitoring law",
+    "row": [
+     "",
+     "Employment law of each country where we have staff",
+     "Labour authority",
+     "Staff data, monitoring, background checks",
+     "Fair processing of staff data, notice of monitoring, lawful checks",
+     "HR security, A.6.1 to A.6.6",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Intellectual property and software licensing law",
+    "row": [
+     "",
+     "Copyright and intellectual property law",
+     "Courts and rights holders",
+     "Software and content we use",
+     "Use only licensed software and content",
+     "Licence register, A.5.32",
+     "",
+     ""
+    ]
+   },
+   {
+    "label": "Record keeping and tax law",
+    "row": [
+     "",
+     "Company, accounting and tax record keeping law",
+     "Tax and company authorities",
+     "Financial and business records",
+     "Keep records for the required period",
+     "Records retention schedule, ISMS-05",
+     "",
+     ""
+    ]
+   }
+  ],
+  "12.standards": [
+   {
+    "label": "PCI DSS",
+    "row": [
+     "",
+     "PCI DSS",
+     "PCI Security Standards Council",
+     "Protect payment card data",
+     "Evidence of compliance",
+     ""
+    ]
+   },
+   {
+    "label": "SOC 2",
+    "row": [
+     "",
+     "SOC 2 (AICPA Trust Services Criteria)",
+     "Independent auditor",
+     "Report on security controls",
+     "SOC 2 report",
+     ""
+    ]
+   },
+   {
+    "label": "Cyber Essentials",
+    "row": [
+     "",
+     "Cyber Essentials",
+     "National Cyber Security Centre (UK)",
+     "Certification against five technical controls",
+     "Certificate",
+     ""
+    ]
+   },
+   {
+    "label": "ISO/IEC 27701",
+    "row": [
+     "",
+     "ISO/IEC 27701",
+     "Certification body",
+     "Privacy information management extension",
+     "Certificate, audit reports",
+     ""
+    ]
+   },
+   {
+    "label": "ISO 22301",
+    "row": [
+     "",
+     "ISO 22301",
+     "Certification body",
+     "Business continuity management",
+     "Certificate, audit reports",
+     ""
+    ]
+   }
+  ]
+ },
+ "listHelp": {
+  "01.units": "Teams or departments, and whether each is inside the scope.",
+  "01.locations": "Offices, data centres and cloud regions, and whether each is inside the scope.",
+  "01.exclusions": "Anything left out of the scope, and why. If nothing is left out, leave this empty and say so in the document.",
+  "12.laws": "The laws and regulations that apply to you. Pick from the common ones, then check them with a lawyer.",
+  "12.contracts": "Customer and supplier contracts that set security rules for you.",
+  "12.standards": "Standards and certifications you have committed to."
+ },
+ "documents": [
+  {
+   "file": "00_ISMS_Master_List_of_Documents.docx",
+   "no": "00",
+   "title": "ISMS Master List of Documents",
+   "id": "ISMS-00",
+   "items": [
+    {
+     "t": "grid",
+     "section": "4. Records the standard requires",
+     "header": [
+      "Record",
+      "Clause",
+      "Owner",
+      "Where kept",
+      "Kept for"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Evidence of competence of people who affect information security"
+        }
+       ],
+       [
+        {
+         "text": "7.2"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r0.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Results of risk assessments"
+        }
+       ],
+       [
+        {
+         "text": "8.2"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r1.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Results of risk treatment, and the approval of residual risk"
+        }
+       ],
+       [
+        {
+         "text": "8.3"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r2.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Results of monitoring, measurement, analysis and evaluation"
+        }
+       ],
+       [
+        {
+         "text": "9.1"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r3.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Internal audit programme and audit reports"
+        }
+       ],
+       [
+        {
+         "text": "9.2"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r4.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Management review minutes and decisions"
+        }
+       ],
+       [
+        {
+         "text": "9.3"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r5.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Nonconformities, corrective actions and their results"
+        }
+       ],
+       [
+        {
+         "text": "10.2"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r6.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Records needed to show that the ISMS works as planned"
+        }
+       ],
+       [
+        {
+         "text": "8.1"
+        }
+       ],
+       [
+        {
+         "name": "00.t4.r7.c2"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "source",
+     "section": "5. Policies and procedures that support the controls",
+     "header": [
+      "Ref",
+      "Document",
+      "Controls it supports",
+      "Owner",
+      "Version",
+      "Next review",
+      "Location"
+     ],
+     "source": "policies"
+    },
+    {
+     "t": "grid",
+     "section": "6. External documents",
+     "header": [
+      "Document",
+      "Source",
+      "Version or date",
+      "Used for",
+      "Owner",
+      "Location"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "ISO/IEC 27001:2022"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r0.c1"
+        }
+       ],
+       [
+        {
+         "text": "2022"
+        }
+       ],
+       [
+        {
+         "text": "Requirements of the ISMS"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r0.c4"
+        }
+       ],
+       [
+        {
+         "name": "doc_location",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "ISO/IEC 27002:2022"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r1.c1"
+        }
+       ],
+       [
+        {
+         "text": "2022"
+        }
+       ],
+       [
+        {
+         "text": "Guidance on the Annex A controls"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r1.c4"
+        }
+       ],
+       [
+        {
+         "name": "doc_location",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "name": "00.t6.r2.c0"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r2.c1"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r2.c2"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r2.c3"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r2.c4"
+        }
+       ],
+       [
+        {
+         "name": "00.t6.r2.c5"
+        }
+       ]
+      ]
+     ]
+    }
+   ],
+   "fields": {
+    "00.t4.r0.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r1.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r2.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r3.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r4.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r5.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r6.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t4.r7.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r0.c1": {
+     "label": "",
+     "hint": "ISO or a national standards body",
+     "default": "ISO or a national standards body",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r0.c4": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r1.c1": {
+     "label": "",
+     "hint": "ISO or a national standards body",
+     "default": "ISO or a national standards body",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r1.c4": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c0": {
+     "label": "",
+     "hint": "Certificate or report",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c1": {
+     "label": "",
+     "hint": "Supplier",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c2": {
+     "label": "",
+     "hint": "Date",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c3": {
+     "label": "",
+     "hint": "Why it is kept",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c4": {
+     "label": "",
+     "hint": "Owner",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "00.t6.r2.c5": {
+     "label": "",
+     "hint": "Location",
+     "default": "",
+     "long": false,
+     "context": "..."
+    }
+   },
+   "shared": [
+    "company",
+    "isms_manager_title",
+    "doc_location",
+    "records_location",
+    "records_period"
+   ]
+  },
+  {
+   "file": "01_Scope_of_the_ISMS.docx",
+   "no": "01",
+   "title": "Scope of the ISMS",
+   "id": "ISMS-01",
+   "items": [
+    {
+     "t": "source",
+     "section": "3. What the scope was based on - Issues that affect information security",
+     "header": [
+      "Type",
+      "Issue",
+      "Why it matters to information security"
+     ],
+     "source": "issues"
+    },
+    {
+     "t": "source",
+     "section": "3. What the scope was based on - Interested parties and what they require",
+     "header": [
+      "Interested party",
+      "What they need from us",
+      "How the ISMS meets it"
+     ],
+     "source": "parties"
+    },
+    {
+     "t": "field",
+     "name": "01.scope",
+     "section": "4. Scope statement"
+    },
+    {
+     "t": "list",
+     "section": "5. Boundaries - Organisational units",
+     "header": [
+      "Unit or team",
+      "Inside the scope?",
+      "Notes"
+     ],
+     "id": "01.units",
+     "rows": [
+      [
+       [
+        {
+         "hint": "Unit"
+        }
+       ],
+       [
+        {
+         "hint": "Yes / No"
+        }
+       ],
+       [
+        {
+         "hint": "Notes"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "hint": "Unit"
+        }
+       ],
+       [
+        {
+         "hint": "Yes / No"
+        }
+       ],
+       [
+        {
+         "hint": "Notes"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "list",
+     "section": "5. Boundaries - Locations",
+     "header": [
+      "Location",
+      "Address",
+      "What happens there",
+      "Inside the scope?"
+     ],
+     "id": "01.locations",
+     "rows": [
+      [
+       [
+        {
+         "suggest": "Head office"
+        }
+       ],
+       [
+        {
+         "hint": "Address"
+        }
+       ],
+       [
+        {
+         "hint": "Activities"
+        }
+       ],
+       [
+        {
+         "hint": "Yes / No"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "suggest": "Data centre or cloud region"
+        }
+       ],
+       [
+        {
+         "hint": "Provider and region"
+        }
+       ],
+       [
+        {
+         "hint": "Activities"
+        }
+       ],
+       [
+        {
+         "hint": "Yes / No"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "suggest": "Remote workers"
+        }
+       ],
+       [
+        {
+         "text": "Home and other locations"
+        }
+       ],
+       [
+        {
+         "hint": "Activities"
+        }
+       ],
+       [
+        {
+         "hint": "Yes / No"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "01.products",
+     "section": "5. Boundaries - Services, processes and information"
+    },
+    {
+     "t": "field",
+     "name": "01.processes",
+     "section": "5. Boundaries - Services, processes and information"
+    },
+    {
+     "t": "field",
+     "name": "01.information",
+     "section": "5. Boundaries - Services, processes and information"
+    },
+    {
+     "t": "field",
+     "name": "01.systems",
+     "section": "5. Boundaries - Services, processes and information"
+    },
+    {
+     "t": "field",
+     "name": "01.people",
+     "section": "5. Boundaries - Services, processes and information"
+    },
+    {
+     "t": "source",
+     "section": "6. Interfaces and dependencies",
+     "header": [
+      "Dependency",
+      "Who provides it",
+      "How information security is managed"
+     ],
+     "source": "vendors"
+    },
+    {
+     "t": "list",
+     "section": "7. Exclusions",
+     "header": [
+      "Excluded",
+      "Reason",
+      "Effect on information security",
+      "Approved by"
+     ],
+     "id": "01.exclusions",
+     "rows": [
+      [
+       [
+        {
+         "hint": "Unit, location, service or system"
+        }
+       ],
+       [
+        {
+         "hint": "Why it is excluded"
+        }
+       ],
+       [
+        {
+         "hint": "Why this does not matter"
+        }
+       ],
+       [
+        {
+         "hint": "Name"
+        }
+       ]
+      ]
+     ]
+    }
+   ],
+   "fields": {
+    "01.scope": {
+     "label": "Scope statement",
+     "hint": "The wording that will appear on your certificate. Taken from the ISMS screen when you have written it there.",
+     "default": "",
+     "long": true,
+     "context": "..."
+    },
+    "01.products": {
+     "label": "Products and services in scope",
+     "hint": "list",
+     "default": "",
+     "long": false,
+     "context": "Products and services in scope: ...."
+    },
+    "01.processes": {
+     "label": "Business processes in scope",
+     "hint": "list, for example sales, development, support, finance, HR",
+     "default": "",
+     "long": false,
+     "context": "Business processes in scope: ...."
+    },
+    "01.information": {
+     "label": "Types of information in scope",
+     "hint": "for example customer data, source code, employee records, financial records",
+     "default": "",
+     "long": false,
+     "context": "Types of information in scope: ...."
+    },
+    "01.systems": {
+     "label": "Systems and technology in scope",
+     "hint": "list the main systems, networks, applications and cloud services",
+     "default": "",
+     "long": true,
+     "context": "Systems and technology in scope: ...."
+    },
+    "01.people": {
+     "label": "People in scope",
+     "hint": "employees, contractors, temporary staff, and anybody else with access",
+     "default": "employees, contractors, temporary staff, and anybody else with access",
+     "long": false,
+     "context": "People in scope: ...."
+    }
+   },
+   "shared": [
+    "company",
+    "legal_name",
+    "address",
+    "what_we_do",
+    "size",
+    "customers",
+    "structure"
+   ]
+  },
+  {
+   "file": "02_ISMS_Policy.docx",
+   "no": "02",
+   "title": "Information Security Management System (ISMS) Policy",
+   "id": "ISMS-02",
+   "items": [
+    {
+     "t": "field",
+     "name": "02.exceptions",
+     "section": "8. Compliance and exceptions"
+    }
+   ],
+   "fields": {
+    "02.exceptions": {
+     "label": "Who approves an exception to the policy",
+     "hint": "the ISMS Manager",
+     "default": "the ISMS Manager",
+     "long": false,
+     "context": "An exception to this policy must be requested in writing, assessed for risk, approved by ... and recorded with an end date."
+    }
+   },
+   "shared": [
+    "company",
+    "isms_manager_title",
+    "security_contact",
+    "publish_location"
+   ]
+  },
+  {
+   "file": "03_Roles_Responsibilities_and_Authorities.docx",
+   "no": "03",
+   "title": "Roles, Responsibilities and Authorities",
+   "id": "ISMS-03",
+   "items": [
+    {
+     "t": "grid",
+     "section": "3. Roles",
+     "header": [
+      "Role",
+      "Held by",
+      "Deputy"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Top management"
+        }
+       ],
+       [
+        {
+         "name": "top_mgmt",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r0.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "ISMS Manager"
+        }
+       ],
+       [
+        {
+         "name": "isms_manager",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r1.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Information security forum or committee"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r2.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r2.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Risk owners"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r3.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r3.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Asset owners"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r4.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r4.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "IT and operations lead"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r5.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r5.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "HR lead"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r6.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r6.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Legal, privacy or data protection lead"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r7.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r7.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Internal audit lead"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r8.c1"
+        }
+       ],
+       [
+        {
+         "name": "03.t3.r8.c2"
+        }
+       ]
+      ]
+     ]
+    }
+   ],
+   "fields": {
+    "03.t3.r0.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r1.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r2.c1": {
+     "label": "",
+     "hint": "Members",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r2.c2": {
+     "label": "",
+     "hint": "Chair's deputy",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r3.c1": {
+     "label": "",
+     "hint": "Named per risk in the risk register",
+     "default": "Named per risk in the risk register",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r3.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r4.c1": {
+     "label": "",
+     "hint": "Named per asset in the asset register",
+     "default": "Named per asset in the asset register",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r4.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r5.c1": {
+     "label": "",
+     "hint": "Name and title",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r5.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r6.c1": {
+     "label": "",
+     "hint": "Name and title",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r6.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r7.c1": {
+     "label": "",
+     "hint": "Name and title",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r7.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r8.c1": {
+     "label": "",
+     "hint": "Name and title, or the external provider",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "03.t3.r8.c2": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    }
+   },
+   "shared": [
+    "company",
+    "top_mgmt",
+    "isms_manager",
+    "forum_frequency",
+    "reporting_frequency",
+    "publish_location"
+   ]
+  },
+  {
+   "file": "04_Risk_Assessment_and_Risk_Treatment_Process.docx",
+   "no": "04",
+   "title": "Risk Assessment and Risk Treatment Process",
+   "id": "ISMS-04",
+   "items": [
+    {
+     "t": "grid",
+     "section": "5. Risk criteria - Likelihood",
+     "header": [
+      "Score",
+      "Level",
+      "Meaning"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "1"
+        }
+       ],
+       [
+        {
+         "text": "Rare"
+        }
+       ],
+       [
+        {
+         "text": "Not expected to happen in the next "
+        },
+        {
+         "name": "04.rare"
+        },
+        {
+         "text": " years."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "2"
+        }
+       ],
+       [
+        {
+         "text": "Unlikely"
+        }
+       ],
+       [
+        {
+         "text": "Could happen once in "
+        },
+        {
+         "name": "04.unlikely"
+        },
+        {
+         "text": " years."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "3"
+        }
+       ],
+       [
+        {
+         "text": "Possible"
+        }
+       ],
+       [
+        {
+         "text": "Could happen once in "
+        },
+        {
+         "name": "04.possible"
+        },
+        {
+         "text": " years."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "4"
+        }
+       ],
+       [
+        {
+         "text": "Likely"
+        }
+       ],
+       [
+        {
+         "text": "Could happen several times a year."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "5"
+        }
+       ],
+       [
+        {
+         "text": "Almost certain"
+        }
+       ],
+       [
+        {
+         "text": "Expected to happen monthly or more often."
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "grid",
+     "section": "5. Risk criteria - Impact",
+     "header": [
+      "Score",
+      "Level",
+      "Effect on the organisation"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "1"
+        }
+       ],
+       [
+        {
+         "text": "Minor"
+        }
+       ],
+       [
+        {
+         "text": "No lasting effect. Fixed within normal work. Cost below "
+        },
+        {
+         "name": "04.cost1"
+        },
+        {
+         "text": "."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "2"
+        }
+       ],
+       [
+        {
+         "text": "Moderate"
+        }
+       ],
+       [
+        {
+         "text": "Short disruption or limited data exposed. Cost up to "
+        },
+        {
+         "name": "04.cost2"
+        },
+        {
+         "text": ". No contract or legal breach."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "3"
+        }
+       ],
+       [
+        {
+         "text": "Significant"
+        }
+       ],
+       [
+        {
+         "text": "Noticeable disruption, or personal data of a few people exposed. Cost up to "
+        },
+        {
+         "name": "04.cost3"
+        },
+        {
+         "text": ". Possible contract breach."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "4"
+        }
+       ],
+       [
+        {
+         "text": "Major"
+        }
+       ],
+       [
+        {
+         "text": "Serious disruption or large amounts of data exposed. Cost up to "
+        },
+        {
+         "name": "04.cost4"
+        },
+        {
+         "text": ". Likely legal or regulatory action. Customers lost."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "5"
+        }
+       ],
+       [
+        {
+         "text": "Severe"
+        }
+       ],
+       [
+        {
+         "text": "Loss of the ability to operate, or exposure that threatens the organisation. Cost above "
+        },
+        {
+         "name": "04.cost5"
+        },
+        {
+         "text": ". Lasting reputational damage."
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "04.threat_sources",
+     "section": "6. Identifying risks"
+    }
+   ],
+   "fields": {
+    "04.rare": {
+     "label": "Rare: not expected in the next ... years",
+     "hint": "five",
+     "default": "five",
+     "long": false,
+     "context": "Not expected to happen in the next ... years."
+    },
+    "04.unlikely": {
+     "label": "Unlikely: could happen once in ... years",
+     "hint": "two to five",
+     "default": "two to five",
+     "long": false,
+     "context": "Could happen once in ... years."
+    },
+    "04.possible": {
+     "label": "Possible: could happen once in ... years",
+     "hint": "one to two",
+     "default": "one to two",
+     "long": false,
+     "context": "Could happen once in ... years."
+    },
+    "04.cost1": {
+     "label": "Minor impact: cost below",
+     "hint": "An amount in your currency",
+     "default": "",
+     "long": false,
+     "context": "No lasting effect. Fixed within normal work. Cost below ...."
+    },
+    "04.cost2": {
+     "label": "Moderate impact: cost up to",
+     "hint": "An amount in your currency",
+     "default": "",
+     "long": false,
+     "context": "Short disruption or limited data exposed. Cost up to .... No contract or legal breach."
+    },
+    "04.cost3": {
+     "label": "Significant impact: cost up to",
+     "hint": "An amount in your currency",
+     "default": "",
+     "long": false,
+     "context": "Noticeable disruption, or personal data of a few people exposed. Cost up to .... Possible contract breach."
+    },
+    "04.cost4": {
+     "label": "Major impact: cost up to",
+     "hint": "An amount in your currency",
+     "default": "",
+     "long": false,
+     "context": "Serious disruption or large amounts of data exposed. Cost up to .... Likely legal or regulatory action. Customers lost."
+    },
+    "04.cost5": {
+     "label": "Severe impact: cost above",
+     "hint": "An amount in your currency",
+     "default": "",
+     "long": false,
+     "context": "Loss of the ability to operate, or exposure that threatens the organisation. Cost above .... Lasting reputational damage."
+    },
+    "04.threat_sources": {
+     "label": "Where threat information comes from",
+     "hint": "national cyber agencies, vendors and industry groups",
+     "default": "national cyber agencies, vendors and industry groups",
+     "long": false,
+     "context": "Threat information from ...."
+    }
+   },
+   "shared": [
+    "company",
+    "risk_review",
+    "records_period",
+    "records_location"
+   ]
+  },
+  {
+   "file": "05_Procedure_for_the_Control_of_Documented_Information.docx",
+   "no": "05",
+   "title": "Procedure for the Control of Documented Information",
+   "id": "ISMS-05",
+   "items": [
+    {
+     "t": "grid",
+     "section": "4. Types of document",
+     "header": [
+      "Type",
+      "Purpose",
+      "Approved by"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Policy"
+        }
+       ],
+       [
+        {
+         "text": "States what the organisation intends and requires, in general terms."
+        }
+       ],
+       [
+        {
+         "name": "05.t4.r0.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Procedure"
+        }
+       ],
+       [
+        {
+         "text": "Describes how a process is carried out, and who does what."
+        }
+       ],
+       [
+        {
+         "name": "05.t4.r1.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Standard or guideline"
+        }
+       ],
+       [
+        {
+         "text": "Sets a technical rule or gives advice, for example a configuration standard."
+        }
+       ],
+       [
+        {
+         "name": "05.t4.r2.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Work instruction"
+        }
+       ],
+       [
+        {
+         "text": "Step-by-step detail for one task."
+        }
+       ],
+       [
+        {
+         "name": "05.t4.r3.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Form or template"
+        }
+       ],
+       [
+        {
+         "text": "A blank document used to make a record."
+        }
+       ],
+       [
+        {
+         "name": "05.t4.r4.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Record"
+        }
+       ],
+       [
+        {
+         "text": "Evidence that an activity was done."
+        }
+       ],
+       [
+        {
+         "text": "Not applicable"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "05.id_format",
+     "section": "5. Identifying documents"
+    },
+    {
+     "t": "grid",
+     "section": "7. Classification and handling",
+     "header": [
+      "Classification",
+      "Who may see it",
+      "Handling"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Public"
+        }
+       ],
+       [
+        {
+         "text": "Anyone"
+        }
+       ],
+       [
+        {
+         "text": "May be published. Approved for release by "
+        },
+        {
+         "name": "05.release"
+        },
+        {
+         "text": "."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Internal"
+        }
+       ],
+       [
+        {
+         "text": "All personnel"
+        }
+       ],
+       [
+        {
+         "text": "Not shared outside the organisation without approval."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Confidential"
+        }
+       ],
+       [
+        {
+         "text": "Named people or groups"
+        }
+       ],
+       [
+        {
+         "text": "Stored with access limited to those people. Sent only by approved secure means."
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Restricted"
+        }
+       ],
+       [
+        {
+         "text": "A small named group"
+        }
+       ],
+       [
+        {
+         "text": "Encrypted when stored or sent. Every access is logged."
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "05.access",
+     "section": "8. Storage, access and distribution"
+    },
+    {
+     "t": "field",
+     "name": "05.archive",
+     "section": "11. Withdrawing documents"
+    },
+    {
+     "t": "grid",
+     "section": "13. Records",
+     "header": [
+      "Record",
+      "Owner",
+      "Where kept",
+      "Kept for",
+      "Disposal"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Risk assessments and treatment plans"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r0.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r0.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Management review minutes"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r1.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r1.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Internal audit reports"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r2.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r2.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Training and competence records"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r3.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r3.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Incident reports"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r4.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r4.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Corrective action records"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r5.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r5.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Access reviews"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r6.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r6.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "name": "05.t6.r7.c0"
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r7.c1"
+        }
+       ],
+       [
+        {
+         "name": "records_location",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "records_period",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "05.t6.r7.c4"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "05.backups",
+     "section": "14. Protection"
+    }
+   ],
+   "fields": {
+    "05.t4.r0.c2": {
+     "label": "",
+     "hint": "Top management",
+     "default": "Top management",
+     "long": false,
+     "context": "..."
+    },
+    "05.t4.r1.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t4.r2.c2": {
+     "label": "",
+     "hint": "Function head",
+     "default": "Function head",
+     "long": false,
+     "context": "..."
+    },
+    "05.t4.r3.c2": {
+     "label": "",
+     "hint": "Function head",
+     "default": "Function head",
+     "long": false,
+     "context": "..."
+    },
+    "05.t4.r4.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.id_format": {
+     "label": "Other document ID format allowed",
+     "hint": "another format agreed by the ISMS Manager",
+     "default": "another format agreed by the ISMS Manager",
+     "long": false,
+     "context": "Every ISMS document has an ID in the form ISMS-NN (or ...), a title, a version and a date."
+    },
+    "05.release": {
+     "label": "Who approves a document for public release",
+     "hint": "the ISMS Manager",
+     "default": "the ISMS Manager",
+     "long": false,
+     "context": "May be published. Approved for release by ...."
+    },
+    "05.access": {
+     "label": "How access to documents is requested",
+     "hint": "the access request process",
+     "default": "the access request process",
+     "long": false,
+     "context": "Changes to access are made through ...."
+    },
+    "05.archive": {
+     "label": "Where withdrawn documents are archived",
+     "hint": "archive location",
+     "default": "",
+     "long": false,
+     "context": "A document that is no longer needed or has been replaced is marked withdrawn, with the date, and moved to .... It is kept for period in case it is needed as evidence, and is then disposed of securely."
+    },
+    "05.t6.r0.c1": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r0.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r1.c1": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r1.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r2.c1": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r2.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r3.c1": {
+     "label": "",
+     "hint": "HR",
+     "default": "HR",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r3.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r4.c1": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r4.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r5.c1": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r5.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r6.c1": {
+     "label": "",
+     "hint": "IT lead",
+     "default": "IT lead",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r6.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r7.c0": {
+     "label": "",
+     "hint": "Other record",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r7.c1": {
+     "label": "",
+     "hint": "Owner",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "05.t6.r7.c4": {
+     "label": "",
+     "hint": "Secure deletion",
+     "default": "Secure deletion",
+     "long": false,
+     "context": "..."
+    },
+    "05.backups": {
+     "label": "The system the documents are backed up with",
+     "hint": "For example Microsoft 365, or the file server backup",
+     "default": "",
+     "long": false,
+     "context": "Documents and records are backed up with the rest of ..., and the backups are tested."
+    }
+   },
+   "shared": [
+    "company",
+    "doc_location",
+    "records_period",
+    "records_location"
+   ]
+  },
+  {
+   "file": "06_Information_Security_Communication_Plan.docx",
+   "no": "06",
+   "title": "Information Security Communication Plan",
+   "id": "ISMS-06",
+   "items": [
+    {
+     "t": "source",
+     "section": "4. Internal communication",
+     "header": [
+      "What",
+      "Why",
+      "Who receives it",
+      "When",
+      "How",
+      "Owner"
+     ],
+     "source": "communications"
+    },
+    {
+     "t": "grid",
+     "section": "5. External communication",
+     "header": [
+      "With",
+      "What",
+      "When",
+      "Who communicates",
+      "How"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Customers"
+        }
+       ],
+       [
+        {
+         "text": "Security commitments, certificates, answers to security questionnaires, incident notices that affect them"
+        }
+       ],
+       [
+        {
+         "text": "On request, at renewal, and within "
+        },
+        {
+         "name": "06.t4.r0.c2"
+        },
+        {
+         "text": " of an incident"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r0.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r0.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Suppliers"
+        }
+       ],
+       [
+        {
+         "text": "Security requirements, audit requests, incident notices"
+        }
+       ],
+       [
+        {
+         "text": "Before contracting, at review and as needed"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r1.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r1.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Regulators and authorities"
+        }
+       ],
+       [
+        {
+         "text": "Breach notifications and other legal reports"
+        }
+       ],
+       [
+        {
+         "text": "Within the time the law requires: "
+        },
+        {
+         "name": "06.t4.r2.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r2.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r2.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Certification body and auditors"
+        }
+       ],
+       [
+        {
+         "text": "Information needed for the audit"
+        }
+       ],
+       [
+        {
+         "text": "As agreed in the audit plan"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r3.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r3.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Insurers"
+        }
+       ],
+       [
+        {
+         "text": "Incidents that may lead to a claim"
+        }
+       ],
+       [
+        {
+         "text": "As the policy requires"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r4.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r4.c4"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "The public and the media"
+        }
+       ],
+       [
+        {
+         "text": "Statements about an incident or security matter"
+        }
+       ],
+       [
+        {
+         "text": "Only when approved by top management"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r5.c3"
+        }
+       ],
+       [
+        {
+         "name": "06.t4.r5.c4"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "grid",
+     "section": "7. Contacts",
+     "header": [
+      "Role",
+      "Name",
+      "Phone",
+      "Email"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "ISMS Manager"
+        }
+       ],
+       [
+        {
+         "name": "isms_manager",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "isms_manager_phone",
+         "shared": true
+        }
+       ],
+       [
+        {
+         "name": "isms_manager_email",
+         "shared": true
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Deputy ISMS Manager"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r1.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r1.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r1.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Top management contact"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r2.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r2.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r2.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "IT and operations lead"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r3.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r3.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r3.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Privacy or data protection lead"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r4.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r4.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r4.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Legal adviser"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r5.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r5.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r5.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Spokesperson"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r6.c1"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r6.c2"
+        }
+       ],
+       [
+        {
+         "name": "06.t5.r6.c3"
+        }
+       ]
+      ]
+     ]
+    }
+   ],
+   "fields": {
+    "06.t4.r0.c2": {
+     "label": "",
+     "hint": "timeframe in contract",
+     "default": "",
+     "long": false,
+     "context": "On request, at renewal, and within ... of an incident"
+    },
+    "06.t4.r0.c3": {
+     "label": "",
+     "hint": "Account manager with the ISMS Manager",
+     "default": "Account manager with the ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r0.c4": {
+     "label": "",
+     "hint": "Email, portal",
+     "default": "Email, portal",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r1.c3": {
+     "label": "",
+     "hint": "Procurement with the ISMS Manager",
+     "default": "Procurement with the ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r1.c4": {
+     "label": "",
+     "hint": "Contract, email",
+     "default": "Contract, email",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r2.c2": {
+     "label": "",
+     "hint": "72 hours for a personal data breach",
+     "default": "72 hours for a personal data breach",
+     "long": false,
+     "context": "Within the time the law requires: ..."
+    },
+    "06.t4.r2.c3": {
+     "label": "",
+     "hint": "Privacy lead or legal",
+     "default": "Privacy lead or legal",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r2.c4": {
+     "label": "",
+     "hint": "As the regulator requires",
+     "default": "As the regulator requires",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r3.c3": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r3.c4": {
+     "label": "",
+     "hint": "Email, meetings",
+     "default": "Email, meetings",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r4.c3": {
+     "label": "",
+     "hint": "Finance or legal",
+     "default": "Finance or legal",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r4.c4": {
+     "label": "",
+     "hint": "Email",
+     "default": "Email",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r5.c3": {
+     "label": "",
+     "hint": "Named spokesperson only",
+     "default": "Named spokesperson only",
+     "long": false,
+     "context": "..."
+    },
+    "06.t4.r5.c4": {
+     "label": "",
+     "hint": "Press release, website",
+     "default": "Press release, website",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r1.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r1.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r1.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r2.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r2.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r2.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r3.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r3.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r3.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r4.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r4.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r4.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r5.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r5.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r5.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r6.c1": {
+     "label": "",
+     "hint": "Name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r6.c2": {
+     "label": "",
+     "hint": "Phone",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "06.t5.r6.c3": {
+     "label": "",
+     "hint": "Email",
+     "default": "",
+     "long": false,
+     "context": "..."
+    }
+   },
+   "shared": [
+    "company",
+    "reporting_frequency",
+    "security_contact",
+    "isms_manager",
+    "isms_manager_phone",
+    "isms_manager_email"
+   ]
+  },
+  {
+   "file": "07_Procedure_for_Internal_Audits.docx",
+   "no": "07",
+   "title": "Procedure for Internal Audits",
+   "id": "ISMS-07",
+   "items": [
+    {
+     "t": "field",
+     "name": "07.course",
+     "section": "4. Auditors"
+    },
+    {
+     "t": "field",
+     "name": "07.period",
+     "section": "5. The audit programme"
+    },
+    {
+     "t": "field",
+     "name": "07.cycle",
+     "section": "5. The audit programme"
+    },
+    {
+     "t": "source",
+     "section": "5. The audit programme",
+     "header": [
+      "Audit",
+      "Scope",
+      "Lead auditor",
+      "Planned date",
+      "Status"
+     ],
+     "source": "audits"
+    },
+    {
+     "t": "field",
+     "name": "07.plan_days",
+     "section": "6. Carrying out an audit"
+    },
+    {
+     "t": "field",
+     "name": "07.report_days",
+     "section": "6. Carrying out an audit"
+    }
+   ],
+   "fields": {
+    "07.course": {
+     "label": "Auditor training, for example",
+     "hint": "an ISO/IEC 27001 internal auditor course",
+     "default": "an ISO/IEC 27001 internal auditor course",
+     "long": false,
+     "context": "Auditors are chosen for their knowledge of ISO/IEC 27001 and of the area being audited, and have been trained as auditors, for example ...."
+    },
+    "07.period": {
+     "label": "The audit programme covers one",
+     "hint": "year",
+     "default": "year",
+     "long": false,
+     "context": "The ISMS Manager prepares an audit programme for each ..., approved by top management. It takes into account the importance of the processes, the results of earlier audits, incidents, changes and risk."
+    },
+    "07.cycle": {
+     "label": "Every clause and control is audited once in each",
+     "hint": "three-year",
+     "default": "three-year",
+     "long": false,
+     "context": "Every clause of ISO/IEC 27001 (4 to 10) and every control in the Statement of Applicability is audited at least once in each ... cycle."
+    },
+    "07.plan_days": {
+     "label": "Audit plan sent this many working days before",
+     "hint": "five",
+     "default": "five",
+     "long": false,
+     "context": "1.  Plan. The lead auditor agrees the scope, the criteria, the people to see and the timing with the auditees, and sends an audit plan at least ... working days before."
+    },
+    "07.report_days": {
+     "label": "Audit report issued within (working days)",
+     "hint": "ten",
+     "default": "ten",
+     "long": false,
+     "context": "7.  Report. The lead auditor issues the report within ... working days."
+    }
+   },
+   "shared": [
+    "company",
+    "ca_major_plan",
+    "ca_major_days",
+    "ca_minor_plan",
+    "ca_minor_days",
+    "records_period",
+    "records_location"
+   ]
+  },
+  {
+   "file": "08_Procedure_for_Management_Review.docx",
+   "no": "08",
+   "title": "Procedure for Management Review",
+   "id": "ISMS-08",
+   "items": [
+    {
+     "t": "field",
+     "name": "08.frequency",
+     "section": "3. When and who"
+    },
+    {
+     "t": "field",
+     "name": "08.frequency_new",
+     "section": "3. When and who"
+    },
+    {
+     "t": "field",
+     "name": "08.chair",
+     "section": "3. When and who"
+    },
+    {
+     "t": "field",
+     "name": "08.heads",
+     "section": "3. When and who"
+    },
+    {
+     "t": "field",
+     "name": "08.quorum",
+     "section": "3. When and who"
+    },
+    {
+     "t": "field",
+     "name": "08.notice",
+     "section": "4. Preparation"
+    },
+    {
+     "t": "field",
+     "name": "08.pack_days",
+     "section": "4. Preparation"
+    },
+    {
+     "t": "grid",
+     "section": "5. Inputs to the review",
+     "header": [
+      "Input",
+      "What to bring",
+      "Source"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "a) The status of actions from earlier reviews"
+        }
+       ],
+       [
+        {
+         "text": "Each action, its owner, its due date and whether it is done"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r0.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "b) Changes in external and internal issues that matter to the ISMS"
+        }
+       ],
+       [
+        {
+         "text": "New laws, threats, customers, technology, structure, locations"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r1.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "c) Changes in the needs and expectations of interested parties"
+        }
+       ],
+       [
+        {
+         "text": "New customer or regulator requirements, complaints, contract changes"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r2.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "d) Information security performance, including trends in:"
+        }
+       ],
+       [],
+       []
+      ],
+      [
+       [
+        {
+         "text": "   1. Nonconformities and corrective actions"
+        }
+       ],
+       [
+        {
+         "text": "Number, causes, time to close, repeat issues"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r4.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "   2. Monitoring and measurement results"
+        }
+       ],
+       [
+        {
+         "text": "Performance against each measure, with trends"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r5.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "   3. Audit results"
+        }
+       ],
+       [
+        {
+         "text": "Findings from internal and external audits"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r6.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "   4. Fulfilment of information security objectives"
+        }
+       ],
+       [
+        {
+         "text": "Each objective: on track, at risk, met or missed"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r7.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "e) Feedback from interested parties"
+        }
+       ],
+       [
+        {
+         "text": "Customer and employee feedback, supplier reviews, questionnaires"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r8.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "f) Results of risk assessment and the status of the risk treatment plan"
+        }
+       ],
+       [
+        {
+         "text": "Top risks, new risks, treatment progress, accepted residual risks"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r9.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "g) Opportunities for continual improvement"
+        }
+       ],
+       [
+        {
+         "text": "Ideas and lessons from incidents and audits"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r10.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Also: security incidents"
+        }
+       ],
+       [
+        {
+         "text": "Number, type, impact and lessons learned"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r11.c2"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Also: resources"
+        }
+       ],
+       [
+        {
+         "text": "Whether people, tools and budget are sufficient"
+        }
+       ],
+       [
+        {
+         "name": "08.t3.r12.c2"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "field",
+     "name": "08.minutes_days",
+     "section": "8. Minutes"
+    }
+   ],
+   "fields": {
+    "08.frequency": {
+     "label": "Management review held at least",
+     "hint": "once a year",
+     "default": "once a year",
+     "long": false,
+     "context": "The management review is held at least ..., and quarterly where the ISMS is new or changing quickly. An extra review is held after a serious incident or a major change."
+    },
+    "08.frequency_new": {
+     "label": "... and more often while the ISMS is new",
+     "hint": "quarterly",
+     "default": "quarterly",
+     "long": false,
+     "context": "The management review is held at least once a year, and ... where the ISMS is new or changing quickly. An extra review is held after a serious incident or a major change."
+    },
+    "08.chair": {
+     "label": "Who chairs the management review",
+     "hint": "A member of top management, for example the CEO",
+     "default": "",
+     "long": false,
+     "context": "Chair: ...."
+    },
+    "08.heads": {
+     "label": "Heads of department who attend",
+     "hint": "IT, HR, legal or privacy, and operations",
+     "default": "IT, HR, legal or privacy, and operations",
+     "long": false,
+     "context": "Attendees: top management, the ISMS Manager, and the heads of .... Others are invited when their area is discussed."
+    },
+    "08.quorum": {
+     "label": "Quorum",
+     "hint": "the chair and at least two other members of top management",
+     "default": "the chair and at least two other members of top management",
+     "long": false,
+     "context": "A quorum is ...."
+    },
+    "08.notice": {
+     "label": "Date set this many weeks ahead",
+     "hint": "four",
+     "default": "four",
+     "long": false,
+     "context": "1.  The ISMS Manager sets the date at least ... weeks ahead and sends the agenda."
+    },
+    "08.pack_days": {
+     "label": "Review pack sent this many working days before",
+     "hint": "five",
+     "default": "five",
+     "long": false,
+     "context": "2.  The ISMS Manager collects the inputs listed in section 5 and prepares a review pack, which reaches attendees at least ... working days before the meeting."
+    },
+    "08.t3.r0.c2": {
+     "label": "",
+     "hint": "Previous minutes",
+     "default": "Previous minutes",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r1.c2": {
+     "label": "",
+     "hint": "Context review",
+     "default": "Context review",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r2.c2": {
+     "label": "",
+     "hint": "Register of requirements, ISMS-12",
+     "default": "Register of requirements, ISMS-12",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r4.c2": {
+     "label": "",
+     "hint": "Corrective action log",
+     "default": "Corrective action log",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r5.c2": {
+     "label": "",
+     "hint": "Objectives plan, ISMS-10",
+     "default": "Objectives plan, ISMS-10",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r6.c2": {
+     "label": "",
+     "hint": "Audit reports",
+     "default": "Audit reports",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r7.c2": {
+     "label": "",
+     "hint": "Objectives plan, ISMS-10",
+     "default": "Objectives plan, ISMS-10",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r8.c2": {
+     "label": "",
+     "hint": "Feedback records",
+     "default": "Feedback records",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r9.c2": {
+     "label": "",
+     "hint": "Risk register, ISMS-04",
+     "default": "Risk register, ISMS-04",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r10.c2": {
+     "label": "",
+     "hint": "Improvement register, ISMS-09",
+     "default": "Improvement register, ISMS-09",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r11.c2": {
+     "label": "",
+     "hint": "Incident log",
+     "default": "Incident log",
+     "long": false,
+     "context": "..."
+    },
+    "08.t3.r12.c2": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "08.minutes_days": {
+     "label": "Minutes sent within (working days)",
+     "hint": "ten",
+     "default": "ten",
+     "long": false,
+     "context": "The ISMS Manager keeps minutes, which are the record of the review. They are sent to attendees within ... working days, and the actions are added to the action tracker."
+    }
+   },
+   "shared": [
+    "company",
+    "records_period",
+    "records_location"
+   ]
+  },
+  {
+   "file": "09_Procedure_for_Corrective_Action_and_Continual_Improvement.docx",
+   "no": "09",
+   "title": "Procedure for Corrective Action and Continual Improvement",
+   "id": "ISMS-09",
+   "items": [
+    {
+     "t": "field",
+     "name": "09.check_after",
+     "section": "5. The corrective action process"
+    },
+    {
+     "t": "source",
+     "section": "10. Corrective action log and improvement register",
+     "header": [
+      "Ref",
+      "Date raised",
+      "Description",
+      "Owner",
+      "Status"
+     ],
+     "source": "findings"
+    },
+    {
+     "t": "source",
+     "section": "10. Corrective action log and improvement register",
+     "header": [
+      "Ref",
+      "Improvement",
+      "Raised by",
+      "Decision",
+      "Owner"
+     ],
+     "source": "improvements"
+    }
+   ],
+   "fields": {
+    "09.check_after": {
+     "label": "Effectiveness of an action is checked after",
+     "hint": "three months",
+     "default": "three months",
+     "long": false,
+     "context": "7.  Check that it worked. After ..., the ISMS Manager or an auditor checks that the action was carried out and that the problem has not come back. If it has, the action is reopened."
+    }
+   },
+   "shared": [
+    "company",
+    "ca_major_plan",
+    "ca_major_days",
+    "ca_minor_contain",
+    "ca_minor_plan",
+    "ca_minor_days",
+    "records_period",
+    "records_location"
+   ]
+  },
+  {
+   "file": "10_Information_Security_Objectives_Plan.docx",
+   "no": "10",
+   "title": "Information Security Objectives Plan",
+   "id": "ISMS-10",
+   "items": [
+    {
+     "t": "source",
+     "section": "3. The objectives",
+     "header": [
+      "Ref",
+      "Objective",
+      "Linked to",
+      "Measure and target",
+      "Owner",
+      "Due"
+     ],
+     "source": "objectives"
+    },
+    {
+     "t": "source",
+     "section": "4. How each objective will be achieved",
+     "header": [
+      "Ref",
+      "What will be done",
+      "Resources needed",
+      "Responsible",
+      "When",
+      "How it will be evaluated"
+     ],
+     "source": "objective_plans"
+    },
+    {
+     "t": "field",
+     "name": "10.measure",
+     "section": "5. Monitoring and reporting"
+    },
+    {
+     "t": "source",
+     "section": "5. Monitoring and reporting",
+     "header": [
+      "Ref",
+      "Period",
+      "Result",
+      "Status",
+      "Comment"
+     ],
+     "source": "objective_progress"
+    }
+   ],
+   "fields": {
+    "10.measure": {
+     "label": "How often owners measure their objectives",
+     "hint": "quarterly",
+     "default": "quarterly",
+     "long": false,
+     "context": "Each owner measures their objective ..., and records the result."
+    }
+   },
+   "shared": [
+    "company",
+    "reporting_frequency",
+    "publish_location"
+   ]
+  },
+  {
+   "file": "11_Statement_of_Applicability.xlsx",
+   "no": "11",
+   "title": "Statement of Applicability",
+   "id": "ISMS-11",
+   "items": [
+    {
+     "t": "source",
+     "source": "soa",
+     "section": "Statement of Applicability",
+     "header": [
+      "Ref",
+      "Control",
+      "Applicable?",
+      "Why",
+      "Status",
+      "How",
+      "Evidence",
+      "Owner",
+      "Last reviewed"
+     ]
+    }
+   ],
+   "fields": {},
+   "shared": [
+    "company"
+   ],
+   "sheet": {
+    "path": "xl/worksheets/sheet2.xml",
+    "cells": {
+     "C4": "company",
+     "C6": "$version",
+     "C8": "$approver",
+     "C9": "$approval_date",
+     "C10": "$next_review"
+    },
+    "rows": {
+     "A.5.1": 13,
+     "A.5.2": 14,
+     "A.5.3": 15,
+     "A.5.4": 16,
+     "A.5.5": 17,
+     "A.5.6": 18,
+     "A.5.7": 19,
+     "A.5.8": 20,
+     "A.5.9": 21,
+     "A.5.10": 22,
+     "A.5.11": 23,
+     "A.5.12": 24,
+     "A.5.13": 25,
+     "A.5.14": 26,
+     "A.5.15": 27,
+     "A.5.16": 28,
+     "A.5.17": 29,
+     "A.5.18": 30,
+     "A.5.19": 31,
+     "A.5.20": 32,
+     "A.5.21": 33,
+     "A.5.22": 34,
+     "A.5.23": 35,
+     "A.5.24": 36,
+     "A.5.25": 37,
+     "A.5.26": 38,
+     "A.5.27": 39,
+     "A.5.28": 40,
+     "A.5.29": 41,
+     "A.5.30": 42,
+     "A.5.31": 43,
+     "A.5.32": 44,
+     "A.5.33": 45,
+     "A.5.34": 46,
+     "A.5.35": 47,
+     "A.5.36": 48,
+     "A.5.37": 49,
+     "A.6.1": 50,
+     "A.6.2": 51,
+     "A.6.3": 52,
+     "A.6.4": 53,
+     "A.6.5": 54,
+     "A.6.6": 55,
+     "A.6.7": 56,
+     "A.6.8": 57,
+     "A.7.1": 58,
+     "A.7.2": 59,
+     "A.7.3": 60,
+     "A.7.4": 61,
+     "A.7.5": 62,
+     "A.7.6": 63,
+     "A.7.7": 64,
+     "A.7.8": 65,
+     "A.7.9": 66,
+     "A.7.10": 67,
+     "A.7.11": 68,
+     "A.7.12": 69,
+     "A.7.13": 70,
+     "A.7.14": 71,
+     "A.8.1": 72,
+     "A.8.2": 73,
+     "A.8.3": 74,
+     "A.8.4": 75,
+     "A.8.5": 76,
+     "A.8.6": 77,
+     "A.8.7": 78,
+     "A.8.8": 79,
+     "A.8.9": 80,
+     "A.8.10": 81,
+     "A.8.11": 82,
+     "A.8.12": 83,
+     "A.8.13": 84,
+     "A.8.14": 85,
+     "A.8.15": 86,
+     "A.8.16": 87,
+     "A.8.17": 88,
+     "A.8.18": 89,
+     "A.8.19": 90,
+     "A.8.20": 91,
+     "A.8.21": 92,
+     "A.8.22": 93,
+     "A.8.23": 94,
+     "A.8.24": 95,
+     "A.8.25": 96,
+     "A.8.26": 97,
+     "A.8.27": 98,
+     "A.8.28": 99,
+     "A.8.29": 100,
+     "A.8.30": 101,
+     "A.8.31": 102,
+     "A.8.32": 103,
+     "A.8.33": 104,
+     "A.8.34": 105
+    },
+    "columns": {
+     "applicable": "D",
+     "reason": "E",
+     "status": "F",
+     "how": "G",
+     "evidence": "H",
+     "owner": "I",
+     "reviewed": "J"
+    }
+   }
+  },
+  {
+   "file": "12_Relevant_Laws_Regulations_and_Contractual_Requirements.docx",
+   "no": "12",
+   "title": "Register of Relevant Laws, Regulations and Contractual Requirements",
+   "id": "ISMS-12",
+   "items": [
+    {
+     "t": "field",
+     "name": "12.owner",
+     "section": "3. How the register is kept"
+    },
+    {
+     "t": "field",
+     "name": "12.sources",
+     "section": "3. How the register is kept"
+    },
+    {
+     "t": "list",
+     "section": "4. Laws and regulations",
+     "header": [
+      "Ref",
+      "Law or regulation",
+      "Authority",
+      "Applies to",
+      "What it requires",
+      "How we meet it",
+      "Owner",
+      "Reviewed"
+     ],
+     "id": "12.laws",
+     "rows": [
+      [
+       [
+        {
+         "text": "L-01"
+        }
+       ],
+       [
+        {
+         "hint": "Data protection law, for example GDPR, UK GDPR, India DPDP Act"
+        }
+       ],
+       [
+        {
+         "hint": "Regulator"
+        }
+       ],
+       [
+        {
+         "hint": "Personal data of customers and staff"
+        }
+       ],
+       [
+        {
+         "hint": "Lawful basis, security, breach notification within 72 hours, rights of individuals"
+        }
+       ],
+       [
+        {
+         "hint": "Privacy policy, A.5.34, incident procedure"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-02"
+        }
+       ],
+       [
+        {
+         "hint": "Cyber security or sector law, for example NIS2, DORA, HIPAA, banking regulator rules"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Services in scope"
+        }
+       ],
+       [
+        {
+         "hint": "Obligations"
+        }
+       ],
+       [
+        {
+         "hint": "Controls and documents"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-03"
+        }
+       ],
+       [
+        {
+         "hint": "Employment and monitoring law"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Staff data, monitoring, checks"
+        }
+       ],
+       [
+        {
+         "hint": "Obligations"
+        }
+       ],
+       [
+        {
+         "hint": "Controls"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-04"
+        }
+       ],
+       [
+        {
+         "hint": "Computer misuse and electronic communications law"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Systems and communications"
+        }
+       ],
+       [
+        {
+         "hint": "Obligations"
+        }
+       ],
+       [
+        {
+         "hint": "Controls"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-05"
+        }
+       ],
+       [
+        {
+         "hint": "Intellectual property and software licensing law"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Software and content we use"
+        }
+       ],
+       [
+        {
+         "hint": "Obligations"
+        }
+       ],
+       [
+        {
+         "hint": "Licence register, A.5.32"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-06"
+        }
+       ],
+       [
+        {
+         "hint": "Record keeping and tax law"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Financial and business records"
+        }
+       ],
+       [
+        {
+         "hint": "Retention periods"
+        }
+       ],
+       [
+        {
+         "hint": "Records retention schedule, ISMS-05"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "L-07"
+        }
+       ],
+       [
+        {
+         "hint": "Other law"
+        }
+       ],
+       [
+        {
+         "hint": "Authority"
+        }
+       ],
+       [
+        {
+         "hint": "Applies to"
+        }
+       ],
+       [
+        {
+         "hint": "Obligations"
+        }
+       ],
+       [
+        {
+         "hint": "Controls"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "list",
+     "section": "5. Contractual requirements",
+     "header": [
+      "Ref",
+      "Contract or customer",
+      "Security requirement",
+      "Affected service",
+      "How we meet it",
+      "Owner",
+      "Review date"
+     ],
+     "id": "12.contracts",
+     "rows": [
+      [
+       [
+        {
+         "text": "C-01"
+        }
+       ],
+       [
+        {
+         "hint": "Customer name or standard terms"
+        }
+       ],
+       [
+        {
+         "hint": "For example: encryption, breach notice within 24 hours, annual penetration test, right to audit"
+        }
+       ],
+       [
+        {
+         "hint": "Service"
+        }
+       ],
+       [
+        {
+         "hint": "Controls and evidence"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "C-02"
+        }
+       ],
+       [
+        {
+         "hint": "Customer name"
+        }
+       ],
+       [
+        {
+         "hint": "Requirement"
+        }
+       ],
+       [
+        {
+         "hint": "Service"
+        }
+       ],
+       [
+        {
+         "hint": "How"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "C-03"
+        }
+       ],
+       [
+        {
+         "hint": "Supplier or cloud provider terms"
+        }
+       ],
+       [
+        {
+         "hint": "Our obligations under their terms"
+        }
+       ],
+       [
+        {
+         "hint": "Service"
+        }
+       ],
+       [
+        {
+         "hint": "How"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "C-04"
+        }
+       ],
+       [
+        {
+         "hint": "Insurance policy conditions"
+        }
+       ],
+       [
+        {
+         "hint": "Controls required to keep cover"
+        }
+       ],
+       [
+        {
+         "hint": "All"
+        }
+       ],
+       [
+        {
+         "hint": "How"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ],
+       [
+        {
+         "hint": "Date"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "list",
+     "section": "6. Standards and other requirements",
+     "header": [
+      "Ref",
+      "Standard or commitment",
+      "Source",
+      "What we have committed to",
+      "Evidence",
+      "Owner"
+     ],
+     "id": "12.standards",
+     "rows": [
+      [
+       [
+        {
+         "text": "S-01"
+        }
+       ],
+       [
+        {
+         "text": "ISO/IEC 27001:2022"
+        }
+       ],
+       [
+        {
+         "hint": "Certification body"
+        }
+       ],
+       [
+        {
+         "hint": "Certification of the ISMS and maintaining it"
+        }
+       ],
+       [
+        {
+         "hint": "Certificate, audit reports"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "S-02"
+        }
+       ],
+       [
+        {
+         "hint": "For example PCI DSS, SOC 2, Cyber Essentials"
+        }
+       ],
+       [
+        {
+         "hint": "Source"
+        }
+       ],
+       [
+        {
+         "hint": "Commitment"
+        }
+       ],
+       [
+        {
+         "hint": "Evidence"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "S-03"
+        }
+       ],
+       [
+        {
+         "hint": "Industry code of practice"
+        }
+       ],
+       [
+        {
+         "hint": "Source"
+        }
+       ],
+       [
+        {
+         "hint": "Commitment"
+        }
+       ],
+       [
+        {
+         "hint": "Evidence"
+        }
+       ],
+       [
+        {
+         "hint": "Owner"
+        }
+       ]
+      ]
+     ]
+    },
+    {
+     "t": "grid",
+     "section": "7. Notifications the organisation may have to make",
+     "header": [
+      "Event",
+      "Who must be told",
+      "Deadline",
+      "Who does it"
+     ],
+     "rows": [
+      [
+       [
+        {
+         "text": "Personal data breach"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r0.c1"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r0.c2"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r0.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Significant cyber incident"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r1.c1"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r1.c2"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r1.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "text": "Incident affecting a customer's data"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r2.c1"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r2.c2"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r2.c3"
+        }
+       ]
+      ],
+      [
+       [
+        {
+         "name": "12.t6.r3.c0"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r3.c1"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r3.c2"
+        }
+       ],
+       [
+        {
+         "name": "12.t6.r3.c3"
+        }
+       ]
+      ]
+     ]
+    }
+   ],
+   "fields": {
+    "12.owner": {
+     "label": "Who keeps this register",
+     "hint": "legal or privacy lead",
+     "default": "legal or privacy lead",
+     "long": false,
+     "context": "1.  The ... identifies requirements from legal advisers, regulator websites, trade bodies and contract reviews, and adds them here."
+    },
+    "12.sources": {
+     "label": "Where requirements are identified from",
+     "hint": "legal advisers, regulator websites, trade bodies and contract reviews",
+     "default": "legal advisers, regulator websites, trade bodies and contract reviews",
+     "long": false,
+     "context": "1.  The legal or privacy lead identifies requirements from ..., and adds them here."
+    },
+    "12.t6.r0.c1": {
+     "label": "",
+     "hint": "Data protection regulator, and the people affected where required",
+     "default": "Data protection regulator, and the people affected where required",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r0.c2": {
+     "label": "",
+     "hint": "72 hours from becoming aware",
+     "default": "72 hours from becoming aware",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r0.c3": {
+     "label": "",
+     "hint": "Privacy lead",
+     "default": "Privacy lead",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r1.c1": {
+     "label": "",
+     "hint": "Sector regulator or national authority",
+     "default": "Sector regulator or national authority",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r1.c2": {
+     "label": "",
+     "hint": "Deadline",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r1.c3": {
+     "label": "",
+     "hint": "ISMS Manager",
+     "default": "ISMS Manager",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r2.c1": {
+     "label": "",
+     "hint": "Customer, as the contract requires",
+     "default": "Customer, as the contract requires",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r2.c2": {
+     "label": "",
+     "hint": "As the contract requires",
+     "default": "As the contract requires",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r2.c3": {
+     "label": "",
+     "hint": "Account manager",
+     "default": "Account manager",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r3.c0": {
+     "label": "",
+     "hint": "Other",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r3.c1": {
+     "label": "",
+     "hint": "Who",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r3.c2": {
+     "label": "",
+     "hint": "Deadline",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "12.t6.r3.c3": {
+     "label": "",
+     "hint": "Who",
+     "default": "",
+     "long": false,
+     "context": "..."
+    }
+   },
+   "shared": [
+    "company"
+   ]
+  },
+  {
+   "file": "13_Risk_Treatment_Plan.docx",
+   "no": "13",
+   "title": "Risk Treatment Plan",
+   "id": "ISMS-13",
+   "items": [
+    {
+     "t": "source",
+     "section": "2. The plan",
+     "header": [
+      "Risk ref",
+      "Risk",
+      "Score before",
+      "Option",
+      "Controls to apply",
+      "Resources",
+      "Owner",
+      "Due",
+      "Score after"
+     ],
+     "source": "risk_plan"
+    },
+    {
+     "t": "source",
+     "section": "3. Progress",
+     "header": [
+      "Risk ref",
+      "Action",
+      "Owner",
+      "Due",
+      "Status",
+      "Evidence"
+     ],
+     "source": "risk_actions"
+    },
+    {
+     "t": "source",
+     "section": "4. Acceptance of residual risk",
+     "header": [
+      "Risk ref",
+      "Residual score",
+      "Accepted by (risk owner)",
+      "Date",
+      "Approved by top management (if required)",
+      "Date"
+     ],
+     "source": "risk_accepted"
+    }
+   ],
+   "fields": {},
+   "shared": [
+    "company",
+    "risk_review"
+   ]
+  },
+  {
+   "file": "Master_Information_Security_Policy.docx",
+   "no": "P1",
+   "title": "Master information security policy",
+   "id": "POL-01",
+   "items": [
+    {
+     "t": "field",
+     "name": "P1.b1",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b2",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b3",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b4",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b5",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b6",
+     "section": "4. Rules by topic"
+    },
+    {
+     "t": "field",
+     "name": "P1.b7",
+     "section": "6. Breaking the rules, and exceptions"
+    }
+   ],
+   "fields": {
+    "P1.b1": {
+     "label": "The rule: Information classification",
+     "hint": "Public / Internal / Confidential / Restricted",
+     "default": "",
+     "long": false,
+     "context": "Information is labelled ... and handled to match."
+    },
+    "P1.b2": {
+     "label": "Detail in: Information classification",
+     "hint": "document name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P1.b3": {
+     "label": "The rule: Access control",
+     "hint": "every quarter",
+     "default": "",
+     "long": false,
+     "context": "Access is by named person, by role, and by approval. Shared accounts are not allowed. Access is reviewed at least ...."
+    },
+    "P1.b4": {
+     "label": "Detail in: Physical security",
+     "hint": "document name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P1.b5": {
+     "label": "The rule: Data protection",
+     "hint": "the applicable law, for example GDPR or the DPDP Act",
+     "default": "",
+     "long": false,
+     "context": "Personal data is handled under ...."
+    },
+    "P1.b6": {
+     "label": "Detail in: Data protection",
+     "hint": "document name",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P1.b7": {
+     "label": "",
+     "hint": "role title",
+     "default": "",
+     "long": false,
+     "context": "An exception must be asked for in writing, judged for risk by ..., approved for a fixed period and recorded."
+    }
+   },
+   "shared": [
+    "company",
+    "isms_manager_title",
+    "security_contact"
+   ]
+  },
+  {
+   "file": "Acceptable_Use_Policy.docx",
+   "no": "P2",
+   "title": "Acceptable use policy",
+   "id": "POL-02",
+   "items": [
+    {
+     "t": "field",
+     "name": "P2.b1",
+     "section": "3. Devices"
+    },
+    {
+     "t": "field",
+     "name": "P2.b2",
+     "section": "3. Devices"
+    },
+    {
+     "t": "field",
+     "name": "P2.b3",
+     "section": "4. Working away from the office"
+    }
+   ],
+   "fields": {
+    "P2.b1": {
+     "label": "",
+     "hint": "device management tool",
+     "default": "",
+     "long": false,
+     "context": "Company laptops and phones stay enrolled in ..., with disk encryption and a screen lock turned on."
+    },
+    "P2.b2": {
+     "label": "",
+     "hint": "the personal device rule, for example 'they are enrolled and meet the same settings'",
+     "default": "",
+     "long": false,
+     "context": "Personal devices may be used for work only if ...."
+    },
+    "P2.b3": {
+     "label": "",
+     "hint": "the company VPN or secure access tool",
+     "default": "",
+     "long": false,
+     "context": "Use ... when working on sensitive information away from the office."
+    }
+   },
+   "shared": [
+    "company",
+    "security_contact"
+   ]
+  },
+  {
+   "file": "Employee_Handbook_HR_Security.docx",
+   "no": "P3",
+   "title": "HR security handbook",
+   "id": "POL-03",
+   "items": [
+    {
+     "t": "field",
+     "name": "P3.b1",
+     "section": "2. Before employment"
+    },
+    {
+     "t": "field",
+     "name": "P3.b2",
+     "section": "3. During employment"
+    },
+    {
+     "t": "field",
+     "name": "P3.b3",
+     "section": "1.  Tell IT. The manager tells <IT contact or mailbox> of the change or the leaving date at least <number> working days ahead."
+    },
+    {
+     "t": "field",
+     "name": "P3.b4",
+     "section": "7. Records"
+    }
+   ],
+   "fields": {
+    "P3.b1": {
+     "label": "",
+     "hint": "the applicable law",
+     "default": "",
+     "long": false,
+     "context": "Screening. Background and reference checks are done before access is given, in proportion to the role. Roles with privileged or financial access get more checks, as far as ... allows."
+    },
+    "P3.b2": {
+     "label": "",
+     "hint": "number",
+     "default": "",
+     "long": false,
+     "context": "Induction. Everybody completes security awareness training in their first ... days, and again at least once a year. Completion is recorded."
+    },
+    "P3.b3": {
+     "label": "",
+     "hint": "number",
+     "default": "",
+     "long": false,
+     "context": "1.  Tell IT. The manager tells IT contact or mailbox of the change or the leaving date at least ... working days ahead."
+    },
+    "P3.b4": {
+     "label": "",
+     "hint": "retention period",
+     "default": "",
+     "long": false,
+     "context": "HR keeps: screening results, signed confidentiality agreements, training records, disciplinary records and leaver checklists, for ... or as the law requires."
+    }
+   },
+   "shared": [
+    "company",
+    "security_contact"
+   ]
+  },
+  {
+   "file": "IT_Security_Operations_Manual.docx",
+   "no": "P4",
+   "title": "IT and security operations manual",
+   "id": "POL-04",
+   "items": [
+    {
+     "t": "field",
+     "name": "P4.b1",
+     "section": "2. Assets"
+    },
+    {
+     "t": "field",
+     "name": "P4.b2",
+     "section": "3. Access and identity"
+    },
+    {
+     "t": "field",
+     "name": "P4.b3",
+     "section": "3. Access and identity"
+    },
+    {
+     "t": "field",
+     "name": "P4.b4",
+     "section": "3. Access and identity"
+    },
+    {
+     "t": "field",
+     "name": "P4.b5",
+     "section": "4. Encryption"
+    },
+    {
+     "t": "field",
+     "name": "P4.b6",
+     "section": "4. Encryption"
+    },
+    {
+     "t": "field",
+     "name": "P4.b7",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b8",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b9",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b10",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b11",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b12",
+     "section": "5. Vulnerabilities and patching"
+    },
+    {
+     "t": "field",
+     "name": "P4.b13",
+     "section": "6. Backups"
+    },
+    {
+     "t": "field",
+     "name": "P4.b14",
+     "section": "6. Backups"
+    },
+    {
+     "t": "field",
+     "name": "P4.b15",
+     "section": "7. Logging and monitoring"
+    },
+    {
+     "t": "field",
+     "name": "P4.b16",
+     "section": "7. Logging and monitoring"
+    },
+    {
+     "t": "field",
+     "name": "P4.b17",
+     "section": "7. Logging and monitoring"
+    },
+    {
+     "t": "field",
+     "name": "P4.b18",
+     "section": "7. Logging and monitoring"
+    },
+    {
+     "t": "field",
+     "name": "P4.b19",
+     "section": "9. Building and changing software"
+    },
+    {
+     "t": "field",
+     "name": "P4.b20",
+     "section": "3.  Approve. <role title> approves, or the change is refused."
+    },
+    {
+     "t": "field",
+     "name": "P4.b21",
+     "section": "5.  Check. Confirm after the change that everything works."
+    }
+   ],
+   "fields": {
+    "P4.b1": {
+     "label": "",
+     "hint": "quarter",
+     "default": "",
+     "long": false,
+     "context": "The register is checked every .... Assets are added when they are bought and removed when they are safely disposed of."
+    },
+    "P4.b2": {
+     "label": "",
+     "hint": "remote access, administrators and cloud services",
+     "default": "",
+     "long": false,
+     "context": "Strong sign-in. Multi-factor authentication is required for ...."
+    },
+    "P4.b3": {
+     "label": "",
+     "hint": "quarter",
+     "default": "",
+     "long": false,
+     "context": "Privileged access. Limited to named administrators and reviewed every ...."
+    },
+    "P4.b4": {
+     "label": "",
+     "hint": "quarter",
+     "default": "",
+     "long": false,
+     "context": "Reviews. All access is reviewed at least every ... and whenever a role changes."
+    },
+    "P4.b5": {
+     "label": "",
+     "hint": "standard, for example AES-256",
+     "default": "",
+     "long": false,
+     "context": "Stored data. Laptops, servers and databases holding Confidential or Restricted information are encrypted, using ...."
+    },
+    "P4.b6": {
+     "label": "",
+     "hint": "secrets store or password manager",
+     "default": "",
+     "long": false,
+     "context": "Keys and secrets. Kept in ..., never in code or shared files. Who looks after each key, and when it is changed, is written down."
+    },
+    "P4.b7": {
+     "label": "",
+     "hint": "monthly",
+     "default": "",
+     "long": false,
+     "context": "Systems are scanned for weaknesses at least .... Fixes are made within these times, counted from when the weakness is found."
+    },
+    "P4.b8": {
+     "label": "Fix within: Critical",
+     "hint": "14 days",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P4.b9": {
+     "label": "Fix within: High",
+     "hint": "30 days",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P4.b10": {
+     "label": "Fix within: Medium",
+     "hint": "90 days",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P4.b11": {
+     "label": "Fix within: Low",
+     "hint": "next planned maintenance",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P4.b12": {
+     "label": "",
+     "hint": "role title",
+     "default": "",
+     "long": false,
+     "context": "A fix that cannot be made in time needs a recorded decision from ..., with the reason and the date it will be fixed."
+    },
+    "P4.b13": {
+     "label": "",
+     "hint": "daily",
+     "default": "",
+     "long": false,
+     "context": "Production data is backed up .... Backups are encrypted, and at least one copy is kept somewhere other than the system it protects."
+    },
+    "P4.b14": {
+     "label": "",
+     "hint": "twice a year",
+     "default": "",
+     "long": false,
+     "context": "A restore is tested at least ..., and the result is recorded."
+    },
+    "P4.b15": {
+     "label": "",
+     "hint": "log tool or location",
+     "default": "",
+     "long": false,
+     "context": "Security-relevant logs (sign-ins, administrator actions, changes) are kept in ... and protected from change."
+    },
+    "P4.b16": {
+     "label": "",
+     "hint": "12 months",
+     "default": "",
+     "long": false,
+     "context": "Logs are kept for at least ... and checked for unusual activity how often and by whom."
+    },
+    "P4.b17": {
+     "label": "",
+     "hint": "how often and by whom",
+     "default": "",
+     "long": false,
+     "context": "Logs are kept for at least 12 months and checked for unusual activity ...."
+    },
+    "P4.b18": {
+     "label": "",
+     "hint": "time source",
+     "default": "",
+     "long": false,
+     "context": "System clocks are kept in step through ...."
+    },
+    "P4.b19": {
+     "label": "",
+     "hint": "the approved build process",
+     "default": "",
+     "long": false,
+     "context": "Software libraries are checked for known weaknesses. Releases are made only through ...."
+    },
+    "P4.b20": {
+     "label": "",
+     "hint": "role title",
+     "default": "",
+     "long": false,
+     "context": "3.  Approve. ... approves, or the change is refused."
+    },
+    "P4.b21": {
+     "label": "",
+     "hint": "two working days",
+     "default": "",
+     "long": false,
+     "context": "An emergency change is done first and written up within ...."
+    }
+   },
+   "shared": [
+    "company"
+   ]
+  },
+  {
+   "file": "Incident_Response_and_BCP.docx",
+   "no": "P5",
+   "title": "Incident response and business continuity plan",
+   "id": "POL-05",
+   "items": [
+    {
+     "t": "field",
+     "name": "P5.b1",
+     "section": "3. Roles"
+    },
+    {
+     "t": "field",
+     "name": "P5.b2",
+     "section": "3. Roles"
+    },
+    {
+     "t": "field",
+     "name": "P5.b3",
+     "section": "3. Roles"
+    },
+    {
+     "t": "field",
+     "name": "P5.b4",
+     "section": "3. Roles"
+    },
+    {
+     "t": "field",
+     "name": "P5.b5",
+     "section": "3. Roles"
+    },
+    {
+     "t": "field",
+     "name": "P5.b6",
+     "section": "1.  Report. Anyone reports it straight away to <contact, phone number or mailbox>."
+    },
+    {
+     "t": "field",
+     "name": "P5.b7",
+     "section": "2.  Assess. The incident manager rates it within <4 working hours>: Low, Medium, High or Critical, and opens a log entry."
+    },
+    {
+     "t": "field",
+     "name": "P5.b8",
+     "section": "5.  Tell. Decide who must be told and by when: leadership, customers, <regulator>, insurers, the police. Where personal data is involved, check the legal deadline (for example <72 hours>)."
+    },
+    {
+     "t": "field",
+     "name": "P5.b9",
+     "section": "5.  Tell. Decide who must be told and by when: leadership, customers, <regulator>, insurers, the police. Where personal data is involved, check the legal deadline (for example <72 hours>)."
+    },
+    {
+     "t": "field",
+     "name": "P5.b10",
+     "section": "6.  Learn. For every Medium incident or above, hold a review within <10 working days>. Turn what is learned into actions with owners and dates."
+    },
+    {
+     "t": "field",
+     "name": "P5.b11",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b12",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b13",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b14",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b15",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b16",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b17",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b18",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b19",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b20",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b21",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b22",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b23",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b24",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b25",
+     "section": "5. Business continuity"
+    },
+    {
+     "t": "field",
+     "name": "P5.b26",
+     "section": "6. Testing and keeping it current"
+    }
+   ],
+   "fields": {
+    "P5.b1": {
+     "label": "Who: Incident manager",
+     "hint": "name and role",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b2": {
+     "label": "Who: Technical lead",
+     "hint": "name and role",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b3": {
+     "label": "Who: Executive sponsor",
+     "hint": "name and role",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b4": {
+     "label": "Who: Communications",
+     "hint": "name and role",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b5": {
+     "label": "Who: Deputy",
+     "hint": "name and role",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b6": {
+     "label": "",
+     "hint": "contact, phone number or mailbox",
+     "default": "",
+     "long": false,
+     "context": "1.  Report. Anyone reports it straight away to ...."
+    },
+    "P5.b7": {
+     "label": "",
+     "hint": "4 working hours",
+     "default": "",
+     "long": false,
+     "context": "2.  Assess. The incident manager rates it within ...: Low, Medium, High or Critical, and opens a log entry."
+    },
+    "P5.b8": {
+     "label": "",
+     "hint": "regulator",
+     "default": "",
+     "long": false,
+     "context": "5.  Tell. Decide who must be told and by when: leadership, customers, ..., insurers, the police. Where personal data is involved, check the legal deadline (for example 72 hours)."
+    },
+    "P5.b9": {
+     "label": "",
+     "hint": "72 hours",
+     "default": "",
+     "long": false,
+     "context": "5.  Tell. Decide who must be told and by when: leadership, customers, regulator, insurers, the police. Where personal data is involved, check the legal deadline (for example ...)."
+    },
+    "P5.b10": {
+     "label": "",
+     "hint": "10 working days",
+     "default": "",
+     "long": false,
+     "context": "6.  Learn. For every Medium incident or above, hold a review within .... Turn what is learned into actions with owners and dates."
+    },
+    "P5.b11": {
+     "label": "",
+     "hint": "Critical service 1",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b12": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b13": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b14": {
+     "label": "",
+     "hint": "document or runbook",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b15": {
+     "label": "",
+     "hint": "Critical service 2",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b16": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b17": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b18": {
+     "label": "",
+     "hint": "document or runbook",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b19": {
+     "label": "",
+     "hint": "Critical service 3",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b20": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b21": {
+     "label": "",
+     "hint": "hours",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b22": {
+     "label": "",
+     "hint": "document or runbook",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P5.b23": {
+     "label": "",
+     "hint": "home or the alternative site",
+     "default": "",
+     "long": false,
+     "context": "If the office is not available, people work from .... No critical service depends on one building."
+    },
+    "P5.b24": {
+     "label": "",
+     "hint": "the alternative location",
+     "default": "",
+     "long": false,
+     "context": "Backups can be restored to ...."
+    },
+    "P5.b25": {
+     "label": "",
+     "hint": "where the contact list is kept",
+     "default": "",
+     "long": false,
+     "context": "Key contacts (staff, suppliers, regulators) are kept in ...."
+    },
+    "P5.b26": {
+     "label": "",
+     "hint": "once a year",
+     "default": "",
+     "long": false,
+     "context": "The recovery steps are tested at least ..., and the result and the fixes are recorded."
+    }
+   },
+   "shared": [
+    "company"
+   ]
+  },
+  {
+   "file": "Vendor_Supplier_Management_Policy.docx",
+   "no": "P6",
+   "title": "Vendor and supplier management policy",
+   "id": "POL-06",
+   "items": [
+    {
+     "t": "field",
+     "name": "P6.b1",
+     "section": "4.  Approve. <role title> approves the supplier before work starts."
+    },
+    {
+     "t": "field",
+     "name": "P6.b2",
+     "section": "3. What the contract says"
+    },
+    {
+     "t": "field",
+     "name": "P6.b3",
+     "section": "4. Cloud services"
+    },
+    {
+     "t": "field",
+     "name": "P6.b4",
+     "section": "5. While the supplier is working for us"
+    },
+    {
+     "t": "field",
+     "name": "P6.b5",
+     "section": "6. Suppliers of suppliers"
+    }
+   ],
+   "fields": {
+    "P6.b1": {
+     "label": "",
+     "hint": "role title",
+     "default": "",
+     "long": false,
+     "context": "4.  Approve. ... approves the supplier before work starts."
+    },
+    "P6.b2": {
+     "label": "",
+     "hint": "time, for example 24 hours",
+     "default": "",
+     "long": false,
+     "context": "Telling us about a breach within ...."
+    },
+    "P6.b3": {
+     "label": "",
+     "hint": "the provider's hardening guide or our own standard",
+     "default": "",
+     "long": false,
+     "context": "Cloud services are chosen against clear security needs and set up to ...."
+    },
+    "P6.b4": {
+     "label": "Review: Medium",
+     "hint": "two years",
+     "default": "",
+     "long": false,
+     "context": "At least every ..."
+    },
+    "P6.b5": {
+     "label": "",
+     "hint": "role title",
+     "default": "",
+     "long": false,
+     "context": "For critical services, the assessment also looks at the supplier's own key suppliers, and at how much we depend on one provider. Where a risk cannot be dealt with in the contract, it is written in the risk register and either treated or accepted by ...."
+    }
+   },
+   "shared": [
+    "company"
+   ]
+  },
+  {
+   "file": "Context_of_the_Organisation_Clause4.docx",
+   "no": "P7",
+   "title": "Context of the organisation",
+   "id": "ISMS-14",
+   "items": [
+    {
+     "t": "field",
+     "name": "P7.b1",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b2",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b3",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b4",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b5",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b6",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b7",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b8",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b9",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b10",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b11",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b12",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b13",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b14",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b15",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b16",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b17",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b18",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b19",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b20",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b21",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b22",
+     "section": "2. Issues that affect the ISMS (clause 4.1)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b23",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b24",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b25",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b26",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b27",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b28",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b29",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b30",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b31",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b32",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b33",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b34",
+     "section": "3. Interested parties and what they need (clause 4.2)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b35",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b36",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b37",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b38",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b39",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b40",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b41",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b42",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b43",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b44",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b45",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b46",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b47",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    },
+    {
+     "t": "field",
+     "name": "P7.b48",
+     "section": "4. Scope of the ISMS (clause 4.3)"
+    }
+   ],
+   "fields": {
+    "P7.b1": {
+     "label": "Issue: E1",
+     "hint": "Laws and regulations that apply to us",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b2": {
+     "label": "Why it matters for information security: E1",
+     "hint": "for example: duties to protect personal data and to report breaches",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b3": {
+     "label": "Issue: E2",
+     "hint": "Customer and contract requirements",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b4": {
+     "label": "Why it matters for information security: E2",
+     "hint": "for example: security terms in customer contracts",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b5": {
+     "label": "Issue: E3",
+     "hint": "Threats in our sector",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b6": {
+     "label": "Why it matters for information security: E3",
+     "hint": "for example: ransomware, phishing, fraud",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b7": {
+     "label": "Issue: E4",
+     "hint": "Our key suppliers and cloud providers",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b8": {
+     "label": "Why it matters for information security: E4",
+     "hint": "for example: they hold or process our information",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b9": {
+     "label": "Issue: E5",
+     "hint": "Economic or market conditions",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b10": {
+     "label": "Why it matters for information security: E5",
+     "hint": "for example: budget limits, pace of change",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b11": {
+     "label": "Issue: I1",
+     "hint": "Our size and how we are organised",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b12": {
+     "label": "Why it matters for information security: I1",
+     "hint": "for example: one small IT team, several sites",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b13": {
+     "label": "Issue: I2",
+     "hint": "The technology we rely on",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b14": {
+     "label": "Why it matters for information security: I2",
+     "hint": "for example: old systems that are hard to patch",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b15": {
+     "label": "Issue: I3",
+     "hint": "Our culture and security awareness",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b16": {
+     "label": "Why it matters for information security: I3",
+     "hint": "for example: remote working, staff turnover",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b17": {
+     "label": "Issue: I4",
+     "hint": "Our resources and skills",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b18": {
+     "label": "Why it matters for information security: I4",
+     "hint": "for example: no full-time security person",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b19": {
+     "label": "Issue: I5",
+     "hint": "Our strategy and plans",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b20": {
+     "label": "Why it matters for information security: I5",
+     "hint": "for example: entering a new market, a merger",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b21": {
+     "label": "",
+     "hint": "Relevant / Not relevant",
+     "default": "",
+     "long": false,
+     "context": "Amendment 1 (2024) to ISO/IEC 27001:2022 asks whether climate change is a relevant issue. Decision: .... Reason: for example: flooding, heat or power loss affecting our offices, our hosting provider or a key supplier. If you decide it is not relevant, say why, so the decision can be reviewed."
+    },
+    "P7.b22": {
+     "label": "",
+     "hint": "for example: flooding, heat or power loss affecting our offices, our hosting provider or a key supplier. If you decide it is not relevant, say why, so the decision can be reviewed",
+     "default": "",
+     "long": false,
+     "context": "Amendment 1 (2024) to ISO/IEC 27001:2022 asks whether climate change is a relevant issue. Decision: Relevant / Not relevant. Reason: ...."
+    },
+    "P7.b23": {
+     "label": "What they need from us: Customers",
+     "hint": "for example: their information is kept confidential and available",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b24": {
+     "label": "How the ISMS meets it: Customers",
+     "hint": "for example: access control, encryption, backups",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b25": {
+     "label": "What they need from us: Regulators",
+     "hint": "for example: compliance with the laws that apply",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b26": {
+     "label": "How the ISMS meets it: Regulators",
+     "hint": "for example: the legal requirements register, ISMS-12",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b27": {
+     "label": "What they need from us: Owners and top management",
+     "hint": "for example: protection of reputation and revenue",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b28": {
+     "label": "How the ISMS meets it: Owners and top management",
+     "hint": "for example: management review, risk reporting",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b29": {
+     "label": "What they need from us: Employees",
+     "hint": "for example: clear rules and fair treatment",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b30": {
+     "label": "How the ISMS meets it: Employees",
+     "hint": "for example: training, the HR security handbook",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b31": {
+     "label": "What they need from us: Suppliers and partners",
+     "hint": "for example: clear security expectations",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b32": {
+     "label": "How the ISMS meets it: Suppliers and partners",
+     "hint": "for example: the supplier policy",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b33": {
+     "label": "What they need from us: Insurers and auditors",
+     "hint": "for example: evidence that controls work",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b34": {
+     "label": "How the ISMS meets it: Insurers and auditors",
+     "hint": "for example: records kept in the ISMS",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b35": {
+     "label": "",
+     "hint": "the products or services provided",
+     "default": "",
+     "long": false,
+     "context": "The information security management system of Company name covers ..., including the locations, teams, systems and information involved."
+    },
+    "P7.b36": {
+     "label": "",
+     "hint": "the locations, teams, systems and information involved",
+     "default": "",
+     "long": false,
+     "context": "The information security management system of Company name covers the products or services provided, including ...."
+    },
+    "P7.b37": {
+     "label": "Included: Business services",
+     "hint": "services",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b38": {
+     "label": "Included: Teams and functions",
+     "hint": "teams",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b39": {
+     "label": "Included: Locations",
+     "hint": "sites and remote working",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b40": {
+     "label": "Included: Systems and technology",
+     "hint": "main systems, cloud services, networks",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b41": {
+     "label": "Included: Information",
+     "hint": "types of information",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b42": {
+     "label": "",
+     "hint": "area or entity",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b43": {
+     "label": "",
+     "hint": "reason",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b44": {
+     "label": "",
+     "hint": "for example: treated as a supplier, with security terms in the contract",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b45": {
+     "label": "",
+     "hint": "Cloud and hosting providers",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b46": {
+     "label": "",
+     "hint": "Outsourced IT or security services",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b47": {
+     "label": "",
+     "hint": "Payment or other service providers",
+     "default": "",
+     "long": false,
+     "context": "..."
+    },
+    "P7.b48": {
+     "label": "",
+     "hint": "Anyone else whose work affects in-scope information",
+     "default": "",
+     "long": false,
+     "context": "..."
+    }
+   },
+   "shared": [
+    "company"
+   ]
+  }
+ ]
+}

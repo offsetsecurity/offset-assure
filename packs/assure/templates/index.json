@@ -1,0 +1,110 @@
+{
+  "note": "Starting points, not finished documents. Download one, put your own name and detail in it, have it approved, then record it in Policies.",
+  "documents": [
+    {
+      "file": "00_ISMS_Master_List_of_Documents.docx",
+      "title": "ISMS master list of documents",
+      "about": "The register of every controlled ISMS document, its owner, version and review date."
+    },
+    {
+      "file": "01_Scope_of_the_ISMS.docx",
+      "title": "Scope of the ISMS",
+      "about": "What the ISMS covers and what it leaves out, with the reasons (clause 4.3)."
+    },
+    {
+      "file": "02_ISMS_Policy.docx",
+      "title": "ISMS policy",
+      "about": "The top-level information security policy and the commitments top management makes (clause 5.2)."
+    },
+    {
+      "file": "03_Roles_Responsibilities_and_Authorities.docx",
+      "title": "Roles, responsibilities and authorities",
+      "about": "Who is accountable for what in the ISMS (clause 5.3)."
+    },
+    {
+      "file": "04_Risk_Assessment_and_Risk_Treatment_Process.docx",
+      "title": "Risk assessment and risk treatment process",
+      "about": "How you find, score and treat information security risks (clauses 6.1.2, 6.1.3, 8.2, 8.3)."
+    },
+    {
+      "file": "05_Procedure_for_the_Control_of_Documented_Information.docx",
+      "title": "Control of documented information",
+      "about": "How documents and records are created, approved, changed, kept and retired (clause 7.5)."
+    },
+    {
+      "file": "06_Information_Security_Communication_Plan.docx",
+      "title": "Information security communication plan",
+      "about": "What is communicated, to whom, when and by whom (clause 7.4)."
+    },
+    {
+      "file": "07_Procedure_for_Internal_Audits.docx",
+      "title": "Procedure for internal audits",
+      "about": "How the internal audit programme is planned, run and reported (clause 9.2)."
+    },
+    {
+      "file": "08_Procedure_for_Management_Review.docx",
+      "title": "Procedure for management review",
+      "about": "How top management reviews the ISMS, and what the review must cover (clause 9.3)."
+    },
+    {
+      "file": "09_Procedure_for_Corrective_Action_and_Continual_Improvement.docx",
+      "title": "Corrective action and continual improvement",
+      "about": "How nonconformities are fixed and the ISMS is improved (clause 10)."
+    },
+    {
+      "file": "10_Information_Security_Objectives_Plan.docx",
+      "title": "Information security objectives plan",
+      "about": "Measurable objectives, who owns them, and how progress is tracked (clause 6.2)."
+    },
+    {
+      "file": "11_Statement_of_Applicability.xlsx",
+      "title": "Statement of Applicability",
+      "about": "An Excel workbook with one row for each of the 93 Annex A controls (clause 6.1.3 d)."
+    },
+    {
+      "file": "12_Relevant_Laws_Regulations_and_Contractual_Requirements.docx",
+      "title": "Laws, regulations and contractual requirements",
+      "about": "The legal, regulatory and contract rules that apply to you and how you meet them."
+    },
+    {
+      "file": "13_Risk_Treatment_Plan.docx",
+      "title": "Risk treatment plan",
+      "about": "The action, owner, deadline and residual risk for each risk you decide to treat."
+    },
+    {
+      "file": "Master_Information_Security_Policy.docx",
+      "title": "Master information security policy",
+      "about": "The top-level policy clause 5.2 asks for: what you protect, who is accountable, and the commitment to keep improving."
+    },
+    {
+      "file": "Acceptable_Use_Policy.docx",
+      "title": "Acceptable use policy",
+      "about": "The rules everyone must follow when using your information, devices and networks."
+    },
+    {
+      "file": "Employee_Handbook_HR_Security.docx",
+      "title": "HR security handbook",
+      "about": "Security through the employment lifecycle: before hiring, during employment, and after someone leaves."
+    },
+    {
+      "file": "IT_Security_Operations_Manual.docx",
+      "title": "IT and security operations manual",
+      "about": "The technical standard behind the policies: access, logging, backups, patching, change."
+    },
+    {
+      "file": "Incident_Response_and_BCP.docx",
+      "title": "Incident response and business continuity plan",
+      "about": "Who does what when something goes wrong, and how you keep running."
+    },
+    {
+      "file": "Vendor_Supplier_Management_Policy.docx",
+      "title": "Vendor and supplier management policy",
+      "about": "How you choose, contract with and monitor suppliers."
+    },
+    {
+      "file": "Context_of_the_Organisation_Clause4.docx",
+      "title": "Context of the organisation",
+      "about": "Clauses 4.1 to 4.3: what affects your security, who your interested parties are, and your ISMS scope."
+    }
+  ]
+}
