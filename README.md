@@ -16,6 +16,12 @@ for administrators.
 > Offset Assure is not affiliated with, endorsed by, or certified by
 > ISO.
 
+![Offset Assure dashboard](docs/screenshots/dashboard.png)
+
+![Offset Assure control register](docs/screenshots/controls.png)
+
+<sub>Screenshots from the current release, filled with the built-in example data. The people and the company are made up.</sub>
+
 ## Download it
 
 **[Releases](../../releases)** — take the newest one.
