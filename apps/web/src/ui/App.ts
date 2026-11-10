@@ -10,6 +10,7 @@ import { Brand, ProductMark } from "./Brand.js";
 import { Icon } from "./icons.js";
 import { Login } from "./Login.js";
 import { ChangePasswordDialog, ChooseNewPassword } from "./ChangePassword.js";
+import { AccountMenu, JumpTo } from "./AccountMenu.js";
 import { Dashboard } from "./Dashboard.js";
 import { Controls } from "./Controls.js";
 import { Evidence } from "./Evidence.js";
@@ -203,6 +204,18 @@ export function App(): VNode {
   const [ready, setReady] = useState(false);
   const [linkOptions, setLinkOptions] = useState<Record<string, LinkOption[]>>({});
   const [changingPassword, setChangingPassword] = useState(false);
+  const [jumpOpen, setJumpOpen] = useState(false);
+  // Ctrl K (Cmd K on a Mac) opens Jump to a screen from anywhere.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent): void => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setJumpOpen((open) => !open);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
   const [collapsed, setCollapsed] = useState(readCollapsed);
   const [sections, setSections] = useState<Record<string, boolean>>(readSections);
   const sectionOpen = (id: string): boolean => sections[id] ?? id === "start";
@@ -533,22 +546,18 @@ export function App(): VNode {
             <h1>${TITLE[route].h1}</h1>
             <div class="sub">${TITLE[route].sub}</div>
           </div>
-          <div class="who">
-            <div>
-              <div class="who-name">${user.name}</div>
-              <div class="who-role muted">${user.role}</div>
-            </div>
-            <button class="btn" onClick=${() => setChangingPassword(true)}>
-              Change password
-            </button>
-            <button class="btn" onClick=${async () => { await auth.logout().catch(() => {}); setUser(null); }}>
-              Sign out
-            </button>
-          </div>
+          <${AccountMenu} name=${user.name} username=${user.username}
+            role=${({ admin: "Admin", contributor: "Contributor", auditor: "Auditor", readonly: "Read only" } as Record<string, string>)[user.role] ?? user.role}
+            onChangePassword=${() => setChangingPassword(true)}
+            onJump=${() => setJumpOpen(true)}
+            onSignOut=${async () => { await auth.logout().catch(() => {}); setUser(null); }} />
         </header>
 
         ${changingPassword
           ? html`<${ChangePasswordDialog} onClose=${() => setChangingPassword(false)} />`
+          : null}
+        ${jumpOpen
+          ? html`<${JumpTo} screens=${visible.map((r) => ({ route: r, label: NAV_LABEL[r] }))} onClose=${() => setJumpOpen(false)} />`
           : null}
 
         <main class="content">

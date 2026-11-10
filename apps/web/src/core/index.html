@@ -794,6 +794,35 @@
   .isms .empty-note{padding:14px 0 4px;font-size:13px}
   .update-offer{margin:4px 0 8px}
   .update-notes{white-space:pre-wrap;font:inherit;font-size:13px;background:var(--slate-soft);border-radius:9px;padding:10px 12px;margin:6px 0 10px;max-height:260px;overflow:auto}
+  /* —— the top bar's right side: Help and the person's own menu —— */
+  .acct{display:flex;align-items:center;gap:10px}
+  .acct-help{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--slate);text-decoration:none}
+  .acct-help:hover{background:var(--slate-soft);color:var(--ink)}
+  .acct-wrap{position:relative}
+  .acct-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border:1px solid var(--line);border-radius:99px;background:#fff;cursor:pointer;font:inherit;color:var(--ink)}
+  .acct-chip:hover{border-color:#c7d2fe}
+  .acct-chip:focus-visible,.acct-help:focus-visible,.acct-menu button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .acct-av{width:30px;height:30px;border-radius:50%;background:#e0e7ff;color:var(--brand);display:grid;place-items:center;font-weight:700;font-size:12px}
+  .acct-who{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+  .acct-who b{font-size:13px} .acct-who span{font-size:11.5px;color:var(--muted)}
+  .acct-chip svg{color:var(--muted)}
+  .acct-menu{position:absolute;right:0;top:calc(100% + 8px);width:240px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(15,23,42,.14);padding:6px;z-index:40}
+  .acct-head{padding:10px 12px 10px;border-bottom:1px solid var(--line);margin-bottom:4px;display:flex;flex-direction:column}
+  .acct-head b{font-size:14px} .acct-head span{font-size:12px;color:var(--muted)}
+  .acct-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border:0;background:none;border-radius:8px;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer;text-align:left}
+  .acct-menu button:hover{background:var(--slate-soft)}
+  .acct-menu button svg{color:var(--muted);flex:none}
+  .acct-menu button span{flex:1}
+  .acct-menu kbd,.jump kbd{font:inherit;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;background:#fff}
+  .acct-sep{height:1px;background:var(--line);margin:4px 0}
+  .jump-back{position:fixed;inset:0;background:rgba(15,23,42,.35);display:flex;justify-content:center;align-items:flex-start;padding-top:12vh;z-index:60}
+  .jump{width:min(560px,92vw);background:#fff;border-radius:14px;box-shadow:0 24px 60px rgba(15,23,42,.3);overflow:hidden}
+  .jump-in{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+  .jump-in input{flex:1;border:0;outline:0;font:inherit;font-size:15px;color:var(--ink)}
+  .jump-list{list-style:none;margin:0;padding:6px;max-height:50vh;overflow:auto}
+  .jump-list li{padding:9px 12px;border-radius:8px;cursor:pointer}
+  .jump-list li.on{background:#eef3ff;color:var(--brand);font-weight:600}
+  .jump-none{color:var(--muted);cursor:default}
   /* —— Settings: a menu of sections, an overview, rows, switches, one save bar —— */
   .set-layout{display:flex;flex-direction:column;gap:12px}
   .content:has(>.set-page){padding-top:12px}

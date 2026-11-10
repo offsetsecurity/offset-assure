@@ -34,7 +34,9 @@ test("the right password signs in, and Sign out signs out", async ({ page }) => 
   await page.locator('input[name="password"]').fill(ADMIN.password);
   await page.getByRole("button", { name: "Sign in" }).click();
   await expect(page.locator(".topbar")).toBeVisible();
-  await page.getByRole("button", { name: "Sign out" }).click();
+  // Sign out lives in the account menu, behind the name at the top right.
+  await page.locator(".acct-chip").click();
+  await page.getByRole("menuitem", { name: "Sign out" }).click();
   await expect(page.getByRole("button", { name: "Sign in" })).toBeVisible();
 });
 
