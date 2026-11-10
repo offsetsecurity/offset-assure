@@ -57,9 +57,12 @@ export function readZip(buf: Buffer): ZipEntry[] {
   return out;
 }
 
-/** A new archive. Everything is deflated; the time stamp is now. */
-export function writeZip(entries: ZipEntry[]): Buffer {
-  const now = new Date();
+/**
+ * A new archive. Everything is deflated; the time stamp is now, unless one is
+ * given, which makes the same entries give the same bytes every time.
+ */
+export function writeZip(entries: ZipEntry[], stamp?: Date): Buffer {
+  const now = stamp ?? new Date();
   const time = (now.getHours() << 11) | (now.getMinutes() << 5) | Math.floor(now.getSeconds() / 2);
   const date = ((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate();
   const locals: Buffer[] = [];

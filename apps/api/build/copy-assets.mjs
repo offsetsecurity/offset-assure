@@ -28,4 +28,4 @@ mkdirSync(brandDir, { recursive: true });
 if (!existsSync(logoSource)) throw new Error(`Brand logo missing at ${logoSource}.`);
 copyFileSync(logoSource, resolve(brandDir, "logo.svg"));
 
-console.log(`copied ${migrations} migration(s) and the brand logo into dist`);
+console.log(`copied ${migrations} migration(s), the brand logo into dist`);
