@@ -42,6 +42,7 @@ import { certificateRoutes } from "./routes/certificate.js";
 import { threadRoutes } from "./routes/thread.js";
 import { templateRoutes } from "./routes/templates.js";
 import { readinessRoutes } from "./routes/readiness.js";
+import { settingsOverviewRoutes } from "./routes/settings-overview.js";
 import { restoreInProgress } from "./backup/service.js";
 import type { TlsOptions } from "./tls/certificate.js";
 import { dualServerFactory } from "./tls/server.js";
@@ -241,6 +242,7 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
   await app.register(updateRoutes);
   await app.register(backupRoutes);
   await app.register(auditRoutes);
+  await app.register(settingsOverviewRoutes);
 
   // ── the single-page app ───────────────────────────────────────────────────
   /**
