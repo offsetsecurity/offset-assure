@@ -21,6 +21,13 @@ import type { TlsOptions } from "./certificate.js";
 
 const TLS_HANDSHAKE = 0x16;
 
+/**
+ * The oldest TLS this server speaks. Node's own default is the same today;
+ * it is written here so that a change of Node, or of the way it is started,
+ * cannot quietly lower what the security questionnaire promises.
+ */
+export const TLS_MIN_VERSION = "TLSv1.2" as const;
+
 /** The server this process is serving HTTPS on, if it is. */
 let live: HttpsServer | null = null;
 
@@ -35,7 +42,7 @@ export function servingHttps(): boolean {
  */
 export function applyLive(options: TlsOptions): boolean {
   if (!live) return false;
-  live.setSecureContext(options);
+  live.setSecureContext({ ...options, minVersion: TLS_MIN_VERSION });
   return true;
 }
 
@@ -59,10 +66,19 @@ function redirect(req: IncomingMessage, res: ServerResponse): void {
  * A Fastify `serverFactory` for HTTPS on a port that also turns `http://`
  * into a redirect.
  */
-export function dualServerFactory(options: TlsOptions) {
+export function dualServerFactory(options: TlsOptions, limits: { idleMs: number; requestMs: number }) {
   return (handler: (req: IncomingMessage, res: ServerResponse) => void): HttpsServer => {
-    const secure = createHttpsServer(options, handler);
+    const secure = createHttpsServer({ ...options, minVersion: TLS_MIN_VERSION }, handler);
+    // Fastify sets these on a server it makes itself, and not on one a
+    // serverFactory makes: so they are set here, or a server that answers
+    // HTTPS would hold a half-sent request for ever (found 13 Nov 2026).
+    secure.setTimeout(limits.idleMs);
+    secure.requestTimeout = limits.requestMs;
     const plain = createHttpServer(redirect);
+    // The plain server only ever sends a redirect: it has no business holding
+    // a connection open for long.
+    plain.setTimeout(30_000);
+    plain.requestTimeout = 30_000;
 
     // The TLS server's own listener turns a socket into a TLS connection.
     // Take it out, and hand it only the sockets that start with a handshake.

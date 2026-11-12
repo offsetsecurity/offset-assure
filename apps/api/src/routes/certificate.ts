@@ -64,7 +64,7 @@ function current(): { source: "uploaded" | "settings" | "none"; certificate: Cer
     return {
       source: hasUpload() ? "uploaded" : "settings",
       certificate: null,
-      problem: err instanceof CertificateError ? err.message : `It cannot be used: ${(err as Error).message}`,
+      problem: err instanceof CertificateError ? err.message : "The certificate that is installed cannot be used. Upload it again, or remove it.",
     };
   }
 }

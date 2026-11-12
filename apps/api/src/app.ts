@@ -46,6 +46,7 @@ import { settingsOverviewRoutes } from "./routes/settings-overview.js";
 import { restoreInProgress } from "./backup/service.js";
 import type { TlsOptions } from "./tls/certificate.js";
 import { dualServerFactory } from "./tls/server.js";
+import { findControlCharacters } from "./lib/text-safety.js";
 
 /** All a session signed in with a temporary password may reach. */
 const MUST_CHANGE_ALLOWED = new Set([
@@ -61,6 +62,8 @@ export interface BuildOptions {
   https?: TlsOptions;
   /** Filled with every route and the roles its guard allows; used by the access tests. */
   routeTable?: { method: string; url: string; allowed: readonly string[] | null }[];
+  /** For tests: a shorter idle timeout than the setting, to watch a stalled connection close. */
+  socketIdleTimeoutMs?: number;
 }
 
 export async function buildApp(options: BuildOptions = {}): Promise<FastifyInstance> {
@@ -88,7 +91,14 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
 
   const app = Fastify({
     ...logging,
-    ...(options.https ? { serverFactory: dualServerFactory(options.https) } : {}),
+    ...(options.https
+      ? {
+          serverFactory: dualServerFactory(options.https, {
+            idleMs: options.socketIdleTimeoutMs ?? config.SOCKET_IDLE_TIMEOUT_MS,
+            requestMs: config.REQUEST_TIMEOUT_MS,
+          }),
+        }
+      : {}),
     // Only the proxies named in TRUST_PROXY; see config.ts for why not everyone.
     trustProxy:
       config.TRUST_PROXY === "true"
@@ -98,6 +108,16 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
           : config.TRUST_PROXY,
     genReqId: () => crypto.randomUUID(),
     bodyLimit: 2 * 1024 * 1024,
+    // A connection that goes quiet, or a request that never finishes arriving,
+    // is closed. See SOCKET_IDLE_TIMEOUT_MS in config.ts for why.
+    connectionTimeout: options.socketIdleTimeoutMs ?? config.SOCKET_IDLE_TIMEOUT_MS,
+    requestTimeout: config.REQUEST_TIMEOUT_MS,
+  });
+
+  // Text that cannot be meant: refused before any route sees it.
+  app.addHook("preValidation", async (request) => {
+    const bad = findControlCharacters(request.body);
+    if (bad) throw new HttpError(400, bad);
   });
 
   if (options.routeTable) {

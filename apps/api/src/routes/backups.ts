@@ -1,4 +1,5 @@
 import type { FastifyInstance } from "fastify";
+import { noIdleTimeout } from "../lib/long-request.js";
 import { createReadStream, createWriteStream } from "node:fs";
 import { mkdir, rm } from "node:fs/promises";
 import { join } from "node:path";
@@ -36,6 +37,7 @@ export async function backupRoutes(app: FastifyInstance): Promise<void> {
 
   app.post("/api/v1/backups", { preHandler: isAdmin }, async (request, reply) => {
     requireAuth(request);
+    noIdleTimeout(request);
     const backup = await createBackup("manual");
     await pruneBackups([backup.name]);
     await audit(request, { action: "Backup taken", entity: "backup", entityId: backup.name, after: backup });
@@ -81,6 +83,7 @@ export async function backupRoutes(app: FastifyInstance): Promise<void> {
     requireAuth(request);
     const { name } = nameParam.parse(request.params);
     restoreBody.parse(request.body);
+    noIdleTimeout(request);
     const actor = { id: request.user.id, username: request.user.username };
 
     const result = await restoreBackup(name).catch(translate);
