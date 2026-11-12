@@ -69,6 +69,25 @@ Changing it on an install that already has data does not move the data. Take a
 backup and download it, set the folder, start again, then upload and restore
 the backup from the **Backups** screen.
 
+### If Docker or the server fails
+
+The data is not inside the containers, so losing a container loses nothing.
+How to get it back depends on where the data was kept:
+
+- **In a folder (`OFFSET_DATA_DIR`).** Install Docker again, put the same
+  `.env` back (it holds `OFFSET_DATA_DIR` and the secrets), and start. The
+  application finds the folder and carries on: same records, same
+  administrator, same password. On a new server, copy the folder across first.
+- **In Docker's volumes.** If Docker's storage survived, starting again finds
+  the volumes. If it did not, install afresh, sign in with a new
+  administrator, and upload and restore your latest downloaded backup from the
+  **Backups** screen.
+
+Keep a copy of `.env` somewhere safe as well as the backups: its
+`FIELD_ENC_KEY` decrypts the few stored secrets, such as the email server's
+password. With a different key everything else comes back, but those secrets
+must be entered again.
+
 ### Evidence files before 0.2.47
 
 Until 0.2.47 the image did not tell the application where the `evidence` volume
@@ -124,6 +143,20 @@ passwords on the wire in clear.
 
 Put a reverse proxy in front, give it a certificate, and only then change the
 port mapping in `compose.yaml` from `127.0.0.1:8080:8080` to `8080:8080`.
+
+## Outgoing connections
+
+Offset Assure connects to nothing outside the server by itself.
+
+## Going back to the version before
+
+Updates only add to the database, and an update takes a backup first.
+
+1. The supported way: start the old version on empty volumes, create an
+   administrator, then upload and restore the backup taken before the update
+   (**Backups** screen). Everything is as it was before the update.
+2. What was added after the update is not in that backup. Take a backup
+   before going back if you may want it later.
 
 ## Updating
 
