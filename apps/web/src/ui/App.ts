@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { VNode } from "preact";
 import { html } from "./html.js";
+import { WalkBar } from "./AuditorWalk.js";
 
 import {
   auth, health, pack, controls as controlsApi, risks as risksApi,
@@ -12,6 +13,7 @@ import { Login } from "./Login.js";
 import { ChangePasswordDialog, ChooseNewPassword } from "./ChangePassword.js";
 import { CommandPalette, type PaletteItem } from "./CommandPalette.js";
 import { Dashboard } from "./Dashboard.js";
+import { AuditorView } from "./AuditorView.js";
 import { Controls } from "./Controls.js";
 import { Evidence } from "./Evidence.js";
 import { Risks } from "./Risks.js";
@@ -58,7 +60,7 @@ const ROUTES = [
   "getready", "thread", "dashboard", "isms", "profile", "soa", "system", "controls", "evidence",
   "risks", "assets", "policies", "tasks", "incidents", "findings", "reports",
   "gaps", "vendors", "training", "objectives", "parties", "reviews", "communications",
-  "escalation", "calendar",
+  "escalation", "calendar", "auditor",
   "help", "guides",
   "people", "audit", "backups", "settings",
 ] as const;
@@ -92,7 +94,7 @@ const NAV_SECTIONS: readonly NavSection[] = [
   // The work of running the programme week to week.
   { id: "work", title: "Operations", routes: ["tasks", "calendar", "findings", "incidents"] },
   // Facing the auditor.
-  { id: "reports", title: "Audit", routes: ["reports", "gaps"] },
+  { id: "reports", title: "Audit", routes: ["auditor", "reports", "gaps"] },
   { id: "management", title: "Governance", routes: ["training", "objectives", "parties", "reviews", "communications"] },
   { id: "admin", title: "Administration", routes: ["people", "escalation", "audit", "backups"] },
 ];
@@ -204,6 +206,8 @@ export function App(): VNode {
   const pickTab = (tab: SubTab): void => setSubTab(tab);
   /** Documents, or the templates that ship with the pack. */
   const [policyTab, setPolicyTab] = useState<"documents" | "templates">("documents");
+  // Bumped when the auditor walk-through is ended, so its bar goes at once.
+  const [, setWalkEnded] = useState(0);
   const [addedCount, setAddedCount] = useState(0);
   const [needsBootstrap, setNeedsBootstrap] = useState(false);
   const [meta, setMeta] = useState<{ pack: Pack; themes: Record<string, string> } | null>(null);
@@ -484,6 +488,7 @@ export function App(): VNode {
     tasks: { h1: "Tasks", sub: "The work outstanding, and who is doing it" },
     incidents: { h1: "Incidents", sub: "What happened, how bad, and where it stands" },
     findings: { h1: "Findings", sub: "Raised against you, and what closed them" },
+    auditor: { h1: "Auditor view", sub: "One page to walk your certification auditor through, in the order an ISO/IEC 27001 audit reads" },
     reports: { h1: "Reports", sub: "Download a PDF of where things stand" },
     vendors: { h1: "Suppliers", sub: "Who you rely on, what they hold, and what they showed you" },
     training: { h1: "Training", sub: "Who was trained, on what, and when it is due again" },
@@ -518,6 +523,7 @@ export function App(): VNode {
     tasks: "Tasks",
     incidents: "Incidents",
     findings: "Findings",
+    auditor: "Auditor view",
     reports: "Reports",
     vendors: "Suppliers",
     training: "Training",
@@ -605,9 +611,9 @@ export function App(): VNode {
                 </div>
               </div>`)}
         </nav>`}
-        ${PINNED.some((r) => visible.includes(r))
-          ? html`<nav class="nav pinned" aria-label="Help and settings">
-              ${PINNED.filter((r) => visible.includes(r)).map((r) => html`
+        ${PINNED.some((r) => r !== "help" && visible.includes(r))
+          ? html`<nav class="nav pinned" aria-label="Settings and documentation">
+              ${PINNED.filter((r) => r !== "help" && visible.includes(r)).map((r) => html`
                 <a href=${`#/${r}`} class=${r === route ? "active" : ""} aria-current=${r === route ? "page" : undefined}
                    title=${iconsOnly ? NAV_LABEL[r] : undefined}>
                   <${Icon} name=${r} /><span class="label">${NAV_LABEL[r]}</span>
@@ -685,6 +691,7 @@ export function App(): VNode {
           : null}
 
         <main class="content" key=${route}>
+          ${route !== "auditor" ? html`<${WalkBar} onEnd=${() => setWalkEnded((n) => n + 1)} />` : null}
           ${!visible.includes(route)
             ? html`<div class="card pad muted">
                 This screen is not part of ${meta.pack.product}.
@@ -709,6 +716,9 @@ export function App(): VNode {
                              scored=${Boolean(features["maturity"])} />`
             : route === "people"
             ? html`<${Users} me=${user} />`
+            : route === "auditor"
+            ? html`<${AuditorView} framework=${meta.pack.framework} isAuditor=${user.role === "auditor"}
+                     canSeeTrail=${user.role === "admin" || user.role === "auditor"} />`
             : route === "gaps"
             ? html`<${Gaps} themes=${meta.themes} itemLabel=${itemLabel}
                      canEdit=${canEdit} pack=${meta.pack} />`

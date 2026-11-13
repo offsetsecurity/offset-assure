@@ -14,7 +14,7 @@ const SIZES = [
 
 const SCREENS = [
   "getready", "dashboard", "isms", "profile", "soa", "system", "controls", "evidence", "policies",
-  "risks", "assets", "calendar", "tasks", "incidents", "findings", "vendors", "training", "objectives",
+  "risks", "auditor", "assets", "calendar", "tasks", "incidents", "findings", "vendors", "training", "objectives",
   "parties", "reviews", "communications", "reports", "gaps", "people", "escalation", "audit", "backups",
   "settings", "guides", "help",
 ];

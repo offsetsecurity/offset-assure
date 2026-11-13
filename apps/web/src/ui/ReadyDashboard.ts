@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks";
 import type { VNode } from "preact";
 import { html } from "./html.js";
 import type { ReadinessDashboard, ReadinessWords } from "../persistence/apiClient.js";
@@ -93,31 +92,6 @@ export function FlightPath({ d, words = WORDS, label, showRing = true }: { d: Re
   </div>`;
 }
 
-const EYE = html`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></svg>`;
-
-/** The three columns shown in the auditor's view. */
-export function LensColumns({ d, words = WORDS }: { d: ReadinessDashboard; words?: ReadinessWords }): VNode {
-  return html`<div class="sd-lcols">
-    <a href="#/controls" style="background:#bbf7d0;color:#14532d"><b>${d.lens.ready}</b>Ready to show<span>in place, with recent evidence</span></a>
-    <a href="#/evidence" style="background:#fef3c7;color:#78350f"><b>${d.lens.questions}</b>Will ask questions<span>evidence old, or never tested</span></a>
-    <a href="#/getready" style="background:#fee2e2;color:#7f1d1d"><b>${d.lens.findings}</b>Would raise a ${words.finding}<span>not in place, failed, or no evidence</span></a>
-  </div>`;
-}
-
-export function LensSwitch({ d, words = WORDS }: { d: ReadinessDashboard; words?: ReadinessWords }): VNode {
-  const [on, setOn] = useState(false);
-  return html`<div>
-    <div class="card sd-lensbar">
-      <div class="sd-seg" role="tablist" aria-label="Whose view">
-        <button type="button" role="tab" aria-selected=${!on} class=${on ? "" : "on"} onClick=${() => setOn(false)}>Your view</button>
-        <button type="button" role="tab" aria-selected=${on} class=${on ? "on aud" : "aud"} onClick=${() => setOn(true)}>${EYE} ${capital(words.auditorShort)}'s view</button>
-      </div>
-      <div class="sd-lens-note"><b>See your controls the way the ${words.auditor} will.</b> Switch to the ${words.auditorShort}'s view to see what they'd accept, question, or raise as a ${words.finding}.</div>
-    </div>
-    ${on ? html`<${LensColumns} d=${d} words=${words} />` : null}
-  </div>`;
-}
 
 export function Forecast({ d, words = WORDS }: { d: ReadinessDashboard; words?: ReadinessWords }): VNode {
   const pts = d.trend;

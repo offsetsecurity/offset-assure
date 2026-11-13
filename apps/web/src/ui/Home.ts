@@ -79,7 +79,7 @@ export function HomeHero({ name, d, words, pct, ringLabel, gaps, journey }: {
           ${steps[0]
             ? html`<a class="btn primary" href="#/getready">Continue: ${steps[0].task.title}<${Icon} name="arrow" /></a>`
             : html`<a class="btn primary" href="#/getready">Open Get ready<${Icon} name="arrow" /></a>`}
-          <a class="btn" href="#/getready">What the auditor would find</a>
+          <a class="btn" href="#/auditor">Auditor view</a>
         </div>
       </div>
       <div class="hero-side">

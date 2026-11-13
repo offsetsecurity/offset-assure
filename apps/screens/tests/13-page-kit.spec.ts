@@ -46,3 +46,29 @@ test("Dashboard: the hero says where you stand, Up next leads to the plan, and e
     await expect(page).toHaveURL(/#\/getready/);
   }
 });
+
+test("Auditor view: an ISO walk-through grouped by clause, with no SOC words", async ({ page }) => {
+  const errors = watchErrors(page);
+  await open(page, "auditor");
+  await expect(page.locator(".avc-head h2")).toContainText("certification audit");
+  for (const group of ["The management system", "Controls and evidence", "How it is run"]) {
+    await expect(page.locator(".avc-group", { hasText: group })).toBeVisible();
+  }
+  expect(await page.locator(".avc-row").count()).toBeGreaterThanOrEqual(12);
+  const text = await page.locator(".avc").innerText();
+  expect(text).not.toMatch(/SOC|CPA|criteria matrix|fieldwork|Trust Services/i);
+  // A row opens, and its button goes to the screen behind it.
+  await page.locator('[data-step="soa"] .avc-rh').click();
+  await page.locator('[data-step="soa"] .avc-open').click();
+  await expect(page).toHaveURL(/#\/soa/);
+  // The walk-through bar: a way back, the step, and Next.
+  const bar = page.locator(".walk");
+  await expect(bar).toContainText("Back to the Auditor view");
+  await expect(bar).toContainText("Statement of Applicability");
+  await bar.getByRole("button", { name: /Next step/ }).click();
+  await expect(bar).not.toContainText("Statement of Applicability");
+  await bar.getByRole("link", { name: /Back to the Auditor view/ }).click();
+  await expect(page).toHaveURL(/#\/auditor/);
+  await expect(page.locator(".walk")).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
