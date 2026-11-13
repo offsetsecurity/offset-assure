@@ -26,7 +26,7 @@ Applies to Offset Assure.
 |---|---|
 | How are passwords stored? | Argon2id hashes (19 MiB memory, 2 passes). Never stored or logged readable |
 | What is the password policy? | At least 12 characters |
-| Is there account lockout? | Yes. 5 failed attempts lock the account for 15 minutes |
+| Is there account lockout? | Yes. 5 failed attempts lock the account for 15 minutes. The account's owner can still sign in from a browser they have used in the last 30 days, so a stranger cannot lock them out |
 | Is sign-in rate limited? | Yes. 20 failed sign-ins from one address, to any accounts, block that address for 15 minutes. The address used is the connection's own; a proxy's forwarded-for header is only trusted from proxies the customer names |
 | Is multi-factor authentication supported? | Not yet. It is on the roadmap |
 | Is single sign-on (SAML, OIDC, Active Directory) supported? | Not yet. It is on the roadmap |

@@ -519,6 +519,13 @@ over these two, so remove it there if you switch to this way.
 > already handling HTTPS, leave `TLS_CERT_FILE` blank and set
 > `ALLOW_INSECURE_NETWORK=true` instead. That says the encryption is somebody
 > else's job, which is true in that setup.
+>
+> **Also set `TRUST_PROXY`** to the proxy's address (for example
+> `TRUST_PROXY=10.0.0.5`, or a range such as `10.0.0.0/24`). Without it, every
+> person appears to come from the proxy's address, so the sign-in limit (20
+> failed sign-ins from one address pause that address for 15 minutes) would
+> apply to **everybody at once**, and the audit trail would record the proxy
+> instead of the person.
 
 ---
 
@@ -762,6 +769,11 @@ wrong, issue the temporary password at the server instead. It works the same
 way: once, for 30 minutes, and only to choose a new password.
 
 Replace `admin` with the administrator's username.
+
+Five wrong passwords lock an account for 15 minutes. The person it belongs to can
+still sign in from a browser they have signed in from before, so a stranger cannot
+keep an administrator out; from a new browser, wait 15 minutes or use the
+temporary password above.
 
 **Docker**, from the install folder:
 

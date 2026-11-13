@@ -55,6 +55,6 @@ it holds failed sign-ins and addresses, which are security information.
 
 ## Too many wrong passwords
 
-Five wrong passwords lock that account for 15 minutes. Twenty failed sign-ins
+Five wrong passwords lock that account for 15 minutes. You can still sign in from a browser you have signed in from before (the last 30 days), so nobody else can keep you out; from a new browser, wait the 15 minutes. Twenty failed sign-ins
 from one address, to any accounts, block that address for 15 minutes, so one
 computer cannot guess at everyone's password or lock everyone out.

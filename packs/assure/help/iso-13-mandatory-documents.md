@@ -71,10 +71,12 @@ make them easy to prove.
 
 ## 2. Called for by the wording of an Annex A control
 
-Annex A controls are written as "should", not "shall". They become requirements
-through clause 6.1.3: once a control is in your Statement of Applicability, the
-auditor expects it to be implemented as described. For the controls below, the
-description itself calls for something written down, defined, or signed.
+Annex A controls are worded as requirements ("shall"), but you choose which
+ones apply to you: clause 6.1.3 has you decide which controls are necessary and
+justify any you leave out in your Statement of Applicability. Once a control is
+in your Statement of Applicability, the auditor expects it to be implemented as
+described. For the controls below, the description itself calls for something
+written down, defined, or signed.
 
 | Control | What it calls for |
 |---|---|

@@ -17,6 +17,31 @@ Every release is numbered x.y.z, for example 1.4.2:
 
 ## [Unreleased]
 
+### Security
+Fixes from the whole-product check of 13 November 2026.
+- **A request that stops arriving is closed, on HTTP and HTTPS.** The server
+  used to hold a half-sent request open for ever, so anyone who could reach the
+  port could hold connections. A connection silent for 5 minutes is now closed,
+  and one whole request may take at most an hour (`SOCKET_IDLE_TIMEOUT_MS`,
+  `REQUEST_TIMEOUT_MS`). Making or restoring a backup, which can be silent for a
+  while, is exempt.
+- **A stranger can no longer keep the administrator locked out from the
+  administrator's own browser.** Five wrong passwords still lock an account for
+  15 minutes, but the right password now works from a browser the person has
+  signed in from in the last 30 days, or has just chosen a password in. Ten
+  wrong passwords an hour from such a browser and it is treated like any other.
+  A new browser, a private window or cleared cookies is still locked out for the
+  15 minutes; an administrator can issue a temporary password at the server
+  (see *Locked out* in `INSTALL.md`).
+- **TLS 1.2 is the written minimum** instead of Node's default.
+- **Names and titles refuse line breaks; every text refuses control characters
+  and the two characters that force text direction** (U+202D, U+202E). The
+  message names the character. Arabic and Hebrew text pasted from Word or a web
+  page is not affected. A record that already holds such a character must have it
+  removed before it can be saved again.
+- **A broken certificate gives a fixed message** instead of a raw error.
+- Two tests that failed now and then on a busy machine were fixed.
+
 ### Changed
 - **Offset Assure is now open source,** under the Apache License 2.0. It is still
   free. You may use, change and share it. See `LICENSE`.
