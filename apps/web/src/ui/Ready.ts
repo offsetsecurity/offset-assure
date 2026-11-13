@@ -35,23 +35,18 @@ function tidyTheme(v: string): string {
 }
 const plural = (n: number, one: string, many = `${one}s`): string => (n === 1 ? one : many);
 
-// ── the strip and the progress panel ─────────────────────────────────────────
+// ── the progress header and the rest of the stage ────────────────────────────
 
-export function ReadyStrip({ plan, ready }: { plan: Journey; ready: Readiness | null }): VNode {
-  const k = ready?.keyDate;
-  const w = ready?.words;
-  return html`<div class="sr-strip">
-    <span><b>${plan.pct}% ready</b>
-      ${w ? k
-        ? k.daysTo >= 0 ? ` · ${k.daysTo} ${plural(k.daysTo, "day")} to your ${w.keyDate}` : ` · your ${w.keyDate} was ${-k.daysTo} ${plural(-k.daysTo, "day")} ago`
-        : ` · no ${w.keyDate} booked yet` : ""}
-      ${ready && w ? ` · ${ready.findings.length} likely ${plural(ready.findings.length, w.finding, w.findings)}` : ""}</span>
-    <a href="#/dashboard">View dashboard →</a>
-  </div>`;
-}
-
-export function ProgressPanel({ plan, current, onPick, snoozed }: {
+/**
+ * The top of Get ready, in one short card: how far along, three facts that
+ * matter (the audit, likely nonconformities, quick fixes), the stages in one
+ * line, and the whole plan behind a button. The shape is Offset Attest's.
+ */
+export function ProgressPanel({ plan, ready, current, onPick, snoozed, next }: {
+  /** The plan's next move, said once, quietly, under the stages; onGo when another step is open below. */
+  next?: { title: string; n: number; onGo?: () => void; putOff: number };
   plan: Journey;
+  ready: Readiness | null;
   current: JourneyTask | undefined;
   onPick: (taskId: string) => void;
   snoozed: Set<string>;
@@ -59,7 +54,9 @@ export function ProgressPanel({ plan, current, onPick, snoozed }: {
   const [open, setOpen] = useState(false);
   const stageOf = plan.stages.find((s) => s.tasks.some((t) => t.id === current?.id)) ?? plan.stages.find((s) => !s.complete) ?? plan.stages[0]!;
   const si = plan.stages.indexOf(stageOf);
-  const left = plan.applicable - plan.done;
+  const k = ready?.keyDate ?? null;
+  const w = ready?.words;
+  const exc = ready?.findings.length ?? 0;
   const icon = (t: JourneyTask): [string, string, string] =>
     t.state === "done" ? ["d", "✓", "Done"]
       : t.state === "not_applicable" ? ["n", "–", "Does not apply"]
@@ -67,37 +64,61 @@ export function ProgressPanel({ plan, current, onPick, snoozed }: {
       : snoozed.has(t.id) ? ["s", "↻", "Tomorrow"]
       : ["t", "", t.automatic ? "Checked for you" : "To do"];
 
-  return html`<div class="card pad sr-plan">
-    <div class="sr-planhead">
-      <div>
-        <div class="sr-lbl">${plan.title}</div>
-        <div class="muted" style="font-size:13px"><b style="color:var(--ink)">${plan.done} of ${plan.applicable} steps done</b>
-          ${" "}· you are on <b style="color:var(--brand)">stage ${si + 1} of ${plan.stages.length}, ${stageOf.name}</b></div>
+  // Steps done, drawn as a small ring: 15 is the radius, so the ring is 2πr long.
+  const ring = 2 * Math.PI * 15;
+  const days = k && k.daysTo >= 0 ? k.daysTo : null;
+  return html`<div class="card sr-plan gr-head">
+    <div class="gr-row">
+      <div class="gr-left">
+        <div class="gr-top">
+          <div class="sr-lbl">${plan.title}</div>
+          <button type="button" class=${`gr-planbtn${open ? " open" : ""}`} aria-expanded=${open} onClick=${() => setOpen((v) => !v)}>
+            ${open ? "Hide the plan" : "See the whole plan"} <span class="sr-chevron" aria-hidden="true">▾</span>
+          </button>
+        </div>
+        <div class="sr-stepper gr-steps">
+          ${plan.stages.map((s, i) => {
+            const first = s.tasks.find((t) => t.state === "outstanding") ?? s.tasks[0];
+            return html`<button type="button" key=${s.id} class=${`sr-stp${s.complete ? " done" : ""}${i === si ? " now" : ""}`}
+                title=${`${s.name}: ${s.done} of ${s.applicable} done`} onClick=${() => first && onPick(first.id)}>
+              <span class="sr-dot">${s.complete ? "✓" : i + 1}</span>
+              <span>${SHORT[s.id] ?? s.name}</span>
+              <span class="sr-bar"><i style=${`width:${s.pct}%`}></i></span>
+              <span class="sr-of">${s.done} of ${s.applicable}</span>
+            </button>`;
+          })}
+        </div>
+        ${next
+          ? html`<div class="gr-nextline">
+              <span class="gnl-label">Next move</span>
+              <span class="gnl-title">${next.title}</span>
+              <span class="muted">· step ${next.n}${next.putOff ? ` · ${next.putOff} put off until tomorrow` : ""}</span>
+              ${next.onGo
+                ? html`<button type="button" class="linkish gnl-go" onClick=${next.onGo}>Go to it →</button>`
+                : html`<span class="muted gnl-here">· open below</span>`}
+            </div>`
+          : null}
       </div>
-      <div style="text-align:right">
-        <div class="sr-big" style="color:var(--ready-green)">${plan.pct}%</div>
-        <div class="muted" style="font-size:12px">${left ? `${left} ${plural(left, "step")} to go` : "all done"}</div>
-      </div>
-    </div>
-    <div class="sr-stepper" style=${`grid-template-columns:repeat(${plan.stages.length},1fr)`}>
-      ${plan.stages.map((s, i) => {
-        const first = s.tasks.find((t) => t.state === "outstanding") ?? s.tasks[0];
-        return html`<button type="button" key=${s.id} class=${`sr-stp${s.complete ? " done" : ""}${i === si ? " now" : ""}`}
-            title=${s.name} onClick=${() => first && onPick(first.id)}>
-          <span class="sr-dot">${s.complete ? "✓" : i + 1}</span>
-          <span>${SHORT[s.id] ?? s.name}</span>
-          <span class="sr-bar"><i style=${`width:${s.pct}%`}></i></span>
-          <span class="sr-of">${s.done} of ${s.applicable}</span>
-        </button>`;
-      })}
-    </div>
-    <div class="sr-planfoot">
-      <span class="muted">This stage: ${stageOf.done} of ${stageOf.applicable} done${snoozed.size ? ` · ${snoozed.size} put off until tomorrow` : ""}</span>
-      <button type="button" class=${`sr-planbtn${open ? " open" : ""}`} aria-expanded=${open} onClick=${() => setOpen((v) => !v)}>
-        <span>${open ? "Hide the plan" : "See the whole plan"}</span>
-        <span class="sr-planbtn-n">${plan.stages.reduce((n, s) => n + s.tasks.length, 0)} steps</span>
-        <span class="sr-chevron" aria-hidden="true">▾</span>
-      </button>
+      <aside class="gr-sum" aria-label="Where you stand">
+        <div class="gr-n">
+          <svg class="gr-ring" viewBox="0 0 36 36" aria-hidden="true">
+            <circle cx="18" cy="18" r="15" fill="none" stroke="var(--line)" stroke-width="4" />
+            ${plan.pct > 0
+              ? html`<circle cx="18" cy="18" r="15" fill="none" stroke="var(--green)" stroke-width="4" stroke-linecap="round"
+                  stroke-dasharray=${`${(ring * plan.pct) / 100} ${ring}`} transform="rotate(-90 18 18)" />`
+              : null}
+            <text x="18" y="21.5" text-anchor="middle">${plan.pct}%</text>
+          </svg>
+          <div><b>${plan.done} of ${plan.applicable}</b><span class="muted">steps done</span></div>
+        </div>
+        <div class="gr-facts">
+          ${w
+            ? html`<a class=${`gr-fact${days !== null ? " ok" : ""}`} href="#/reviews"><span><i></i>${days !== null ? `Until your ${w.keyDate}` : capital(w.keyDate)}</span><b>${days !== null ? `${days} day${days === 1 ? "" : "s"}` : k ? `${-k.daysTo} day${k.daysTo === -1 ? "" : "s"} ago` : "Not booked"}</b></a>`
+            : null}
+          ${ready && w ? html`<a class=${`gr-fact${exc ? " bad" : " ok"}`} href="#/dashboard"><span><i></i>Likely ${exc === 1 ? w.finding : w.findings}</span><b>${exc}</b></a>` : null}
+          ${ready ? html`<a class="gr-fact" href="#/controls"><span><i></i>Quick fixes</span><b>${ready.quickWins.length}</b></a>` : null}
+        </div>
+      </aside>
     </div>
     ${open
       ? html`<div class="sr-planlist">
@@ -115,6 +136,40 @@ export function ProgressPanel({ plan, current, onPick, snoozed }: {
       : null}
   </div>`;
 }
+
+/** The rest of the stage you are in, beside your next move: every step, one click away. */
+export function UpNext({ plan, current, onPick, snoozed, embedded = false }: {
+  plan: Journey;
+  /** Drawn inside the step card rather than as a card of its own. */
+  embedded?: boolean;
+  current: JourneyTask | undefined;
+  onPick: (taskId: string) => void;
+  snoozed: Set<string>;
+}): VNode | null {
+  const stage = plan.stages.find((s) => s.tasks.some((t) => t.id === current?.id)) ?? plan.stages.find((s) => !s.complete);
+  if (!stage) return null;
+  const si = plan.stages.indexOf(stage);
+  const left = stage.tasks.filter((t) => t.state === "outstanding").length;
+  const nextStage = plan.stages.slice(si + 1).find((s) => !s.complete);
+  const line = (t: JourneyTask): string =>
+    t.state === "done" ? "Done" : t.state === "not_applicable" ? "Does not apply"
+      : snoozed.has(t.id) ? "Put off until tomorrow" : t.automatic ? "Ticks itself when the records show it" : (t.why.split(/(?<=\.)\s/)[0] ?? "");
+  return html`<div class=${embedded ? "gr-next gr-aside" : "card pad gr-next"}>
+    <div class="sr-lbl">Up next in ${stage.name}${left ? ` · ${left} left` : " · all done"}</div>
+    <ul>${stage.tasks.map((t) => html`<li key=${t.id}>
+      <button type="button" class=${`gr-task${t.id === current?.id ? " cur" : ""}`} onClick=${() => onPick(t.id)}>
+        <span class=${`gr-ck ${t.state === "done" ? "d" : t.state === "not_applicable" ? "n" : t.id === current?.id ? "c" : ""}`}>${t.state === "done" ? "✓" : t.state === "not_applicable" ? "–" : ""}</span>
+        <span class="gr-tt"><b>${t.title}</b><small>${line(t)}</small></span>
+        <span class="gr-go" aria-hidden="true">›</span>
+      </button></li>`)}</ul>
+    ${nextStage ? html`<button type="button" class="linkish gr-after" onClick=${() => {
+      const first = nextStage.tasks.find((t) => t.state === "outstanding") ?? nextStage.tasks[0];
+      if (first) onPick(first.id);
+    }}>Then: ${nextStage.name} →</button>` : null}
+  </div>`;
+}
+
+const capital = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
 
 // ── in-card actions: the steps that can be done here ─────────────────────────
 
@@ -341,21 +396,6 @@ function FixPanel({ x, canEdit, finding, onClose, onFixed }: {
 
 // ── fix first, quick wins, bulk ──────────────────────────────────────────────
 
-export function FixFirst({ ready }: { ready: Readiness | null }): VNode | null {
-  if (!ready || !ready.fixFirst.length) return null;
-  const removed = ready.fixFirst.reduce((n, x) => n + x.weight, 0);
-  const all = ready.findings.reduce((n, x) => n + x.weight, 0);
-  return html`<div class="card pad">
-    <div class="sr-lbl">Fix these first · ranked by what they clear</div>
-    ${ready.fixFirst.map((x) => html`<div class="sr-fix" key=${x.id}>
-      <span class="sr-n">−${x.weight}</span>
-      <span><b>${x.title}</b><br /><span class="muted">${x.ref} · ${x.fix}</span></span>
-      <button class="btn small" onClick=${() => go(x.action.route)}>${x.action.label}</button>
-    </div>`)}
-    <p class="muted" style="font-size:12px;margin:10px 0 0">${ready.fixFirst.length === 1 ? "This clears" : `These ${ready.fixFirst.length} clear`} ${removed} of the ${all} gaps an ${ready.words.auditorShort} would find today.</p>
-  </div>`;
-}
-
 export function QuickWins({ ready }: { ready: Readiness | null }): VNode | null {
   if (!ready) return null;
   if (!ready.quickWins.length) {
@@ -370,41 +410,5 @@ export function QuickWins({ ready }: { ready: Readiness | null }): VNode | null 
       <span>${w.title}</span><span class="muted">${w.count} · about ${w.minutes} min each</span>
       <button class="btn small" onClick=${() => go(w.route)}>Do it</button>
     </div>`)}
-  </div>`;
-}
-
-export function BulkActions({ themes, canEdit, allowOut, onDone }: {
-  themes: Record<string, string>;
-  canEdit: boolean;
-  /** Whether a whole theme may be taken out of scope, as a Statement of Applicability allows. */
-  allowOut: boolean;
-  onDone: (said: string) => void;
-}): VNode | null {
-  const keys = Object.keys(themes);
-  const [ownerTheme, setOwnerTheme] = useState(keys[0] ?? "");
-  const [owner, setOwner] = useState("");
-  const [outTheme, setOutTheme] = useState(keys.includes("A7") ? "A7" : keys[keys.length - 1] ?? "");
-  const [reason, setReason] = useState("");
-  const [err, setErr] = useState("");
-  if (!canEdit || !keys.length) return null;
-
-  const apply = async (body: { theme: string; owner?: string; outOfScope?: string }, said: (n: number) => string): Promise<void> => {
-    setErr("");
-    try { onDone(said((await readiness.bulk(body)).updated)); } catch (e) { setErr((e as Error).message); }
-  };
-  const pick = (val: string, on: (v: string) => void) => html`<select value=${val} onChange=${(e: Event) => on((e.target as HTMLSelectElement).value)}>
-    ${keys.map((k) => html`<option value=${k} key=${k}>${tidyTheme(themes[k] ?? k)}</option>`)}</select>`;
-
-  return html`<div class="card pad" style="margin-top:16px">
-    <div class="sr-lbl">Do it in bulk</div>
-    <div class="sr-blk"><span>Give every control in</span>${pick(ownerTheme, setOwnerTheme)}<span>the owner</span>
-      <input value=${owner} placeholder="Owner's name" onInput=${(e: Event) => setOwner((e.target as HTMLInputElement).value)} />
-      <button class="btn" onClick=${() => owner.trim() ? void apply({ theme: ownerTheme, owner: owner.trim() }, (n) => `${n} controls in ${tidyTheme(themes[ownerTheme] ?? ownerTheme)} now owned by ${owner.trim()}`) : setErr("Type the owner's name.")}>Apply</button></div>
-    ${allowOut
-      ? html`<div class="sr-blk"><span>Mark out of scope</span>${pick(outTheme, setOutTheme)}<span>because</span>
-          <input value=${reason} placeholder="For example: we have no offices, everyone works remotely" onInput=${(e: Event) => setReason((e.target as HTMLInputElement).value)} />
-          <button class="btn" onClick=${() => reason.trim() ? void apply({ theme: outTheme, outOfScope: reason.trim() }, (n) => `${n} controls in ${tidyTheme(themes[outTheme] ?? outTheme)} marked out of scope`) : setErr("Say why it is out of scope.")}>Apply</button></div>`
-      : null}
-    ${err ? html`<div class="err" role="alert" style="margin-top:8px">${err}</div>` : null}
   </div>`;
 }

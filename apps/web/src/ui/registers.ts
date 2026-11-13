@@ -42,20 +42,20 @@ const FINDING_TYPES = [
 ] as const;
 
 const TONE: Record<string, string> = {
-  High: "#dc2626", Critical: "#dc2626", Medium: "#d97706", Low: "#16a34a",
-  Restricted: "#dc2626", Confidential: "#d97706", Internal: "#475569", Public: "#16a34a",
-  Open: "#d97706", "In Progress": "#2457D6", Investigating: "#2457D6", Contained: "#0891b2",
-  Done: "#16a34a", Closed: "#16a34a", Resolved: "#16a34a", Approved: "#16a34a",
-  Draft: "#475569", "In Review": "#2457D6",
-  Active: "#16a34a", Prospective: "#475569", "Under review": "#d97706", Exited: "#475569",
-  Completed: "#16a34a", "Not started": "#475569", Failed: "#dc2626",
-  Planned: "#475569", "On track": "#16a34a", "At risk": "#d97706", Met: "#16a34a",
-  Missed: "#dc2626", Cancelled: "#475569",
+  High: "#D2333D", Critical: "#D2333D", Medium: "#C47A06", Low: "#14915A",
+  Restricted: "#D2333D", Confidential: "#C47A06", Internal: "#566176", Public: "#14915A",
+  Open: "#C47A06", "In Progress": "#2457D6", Investigating: "#2457D6", Contained: "#0891b2",
+  Done: "#14915A", Closed: "#14915A", Resolved: "#14915A", Approved: "#14915A",
+  Draft: "#566176", "In Review": "#2457D6",
+  Active: "#14915A", Prospective: "#566176", "Under review": "#C47A06", Exited: "#566176",
+  Completed: "#14915A", "Not started": "#566176", Failed: "#D2333D",
+  Planned: "#566176", "On track": "#14915A", "At risk": "#C47A06", Met: "#14915A",
+  Missed: "#D2333D", Cancelled: "#566176",
 };
 
 const badge = (value: unknown): VNode => {
   const text = String(value ?? "—");
-  const colour = TONE[text] ?? "#475569";
+  const colour = TONE[text] ?? "#566176";
   return html`<span class="pill" style=${`background:${colour}1a;color:${colour}`}>${text}</span>`;
 };
 
