@@ -7,6 +7,7 @@ import { canRead, canWrite, requireAuth, assertCanWrite } from "../auth/rbac.js"
 import { audit } from "../audit/audit.js";
 import { notFound } from "../lib/errors.js";
 import { removeAttachmentsOf } from "./attachments.js";
+import { assertUnchanged } from "../lib/record-version.js";
 
 /**
  * A CRUD register: list, read, create, update, delete, with link tables.
@@ -206,6 +207,7 @@ export function registerRoutes<T extends z.ZodRawShape>(spec: RegisterSpec<T>) {
       );
       const before = existingRows[0];
       if (!before) throw notFound(`${spec.label} not found.`);
+      assertUnchanged(request, before);
       spec.validate?.(body, before);
 
       const updated = await withTransaction(async (tx) => {

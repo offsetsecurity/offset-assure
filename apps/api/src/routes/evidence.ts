@@ -12,6 +12,7 @@ import { audit } from "../audit/audit.js";
 import { badRequest, notFound } from "../lib/errors.js";
 import { config } from "../config.js";
 import { ageDaysSql, freshnessSql } from "../lib/time.js";
+import { assertUnchanged } from "../lib/record-version.js";
 
 const idParam = z.object({ id: z.string().uuid() });
 
@@ -177,6 +178,7 @@ export async function evidenceRoutes(app: FastifyInstance): Promise<void> {
     const { rows: existing } = await query("select * from evidence where id = $1", [id]);
     const before = existing[0];
     if (!before) throw notFound("Evidence not found.");
+    assertUnchanged(request, before);
 
     const COLUMN: Record<string, string> = {
       name: "name", type: "type", owner: "owner", ownerEmail: "owner_email",
