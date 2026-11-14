@@ -20,7 +20,7 @@ import { issueTemporaryPassword } from "../src/auth/temporary.js";
  *   F8  sign-out did not check the CSRF token
  *   N1  a big JSON body to sign-in was never answered
  *
- * F3 (sign-in timing) is a timing difference and is not asserted here.
+ * F3 (sign-in timing) is counted in signin-timing.e2e.test.ts.
  */
 const DB = process.env["E2E_DATABASE_URL"];
 const maybe = DB ? describe : describe.skip;
@@ -166,7 +166,12 @@ maybe("second review fixes", () => {
             res.resume();
             resolve(res.statusCode ?? 0);
           });
-          req.on("error", () => resolve(-1)); // a reset after the answer is fine; no answer at all is not
+          // -1: the connection was cut. When a client is still sending a large
+          // body, closing the connection can make its system throw away the 413
+          // already sent (a TCP reset), so the client may see only a cut
+          // connection. That is accepted here (N1b, Low, 15 Nov 2026): what this
+          // test holds is that the server refuses at once and is not held.
+          req.on("error", () => resolve(-1));
           setTimeout(() => resolve(0), 8000);
           req.write(body);
           req.end();

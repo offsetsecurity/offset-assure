@@ -48,10 +48,10 @@ import type { TlsOptions } from "./tls/certificate.js";
 import { dualServerFactory } from "./tls/server.js";
 import { findControlCharacters } from "./lib/text-safety.js";
 
-/** All a session signed in with a temporary password may reach. */
 /** The most a JSON request may carry. Uploads have their own, larger limit. */
 const JSON_BODY_LIMIT = 2 * 1024 * 1024;
 
+/** All a session signed in with a temporary password may reach. */
 const MUST_CHANGE_ALLOWED = new Set([
   "/api/v1/auth/me",
   "/api/v1/auth/logout",
