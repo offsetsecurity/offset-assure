@@ -17,6 +17,39 @@ Every release is numbered x.y.z, for example 1.4.2:
 
 ## [Unreleased]
 
+Planned as version 0.3.0: new features and a new look, nothing you rely on is
+taken away except the three items under *Removed* below, and your data moves
+across on its own.
+
+### New in 0.3.0
+- **The new look.** Offset Assure now looks like every other Offset product:
+  the same sign-in page, menu, top bar, windows, tables and Settings. Press
+  Ctrl K anywhere to jump to a screen. Help sits at the top, next to your name.
+- **Auditor view.** One page, under *Audit*, to walk a certification auditor
+  through the audit in the order ISO/IEC 27001 reads it: the management system,
+  the controls and their evidence, then how the system is run. A bar on every
+  screen opened from it takes you back, with Previous and Next step.
+- **Upgrades take a copy first.** Before the server applies any change to your
+  database it copies the database to `backups/before-upgrade` (the newest three
+  are kept). If an older program is started on a newer database it now refuses
+  and says to update first, instead of running on data it does not understand.
+- **Up next cards open their own step.** A card on the Dashboard now opens that
+  step on Get ready, not whatever the plan suggested.
+- **Three database links got indexes,** so big installs stay quick.
+
+### Removed
+- **"Do it in bulk" on Get ready, and the bulk owner and out-of-scope bar on
+  Controls.** Scope is set per control in the Statement of Applicability.
+- **The *Your view / Auditor's view* switch on the Dashboard.** The Auditor
+  view is its own screen now.
+- **The Golden thread is no longer a tab of Risks.** It has its own place in the
+  *Risk* menu, and old links to it still work.
+
+### Security
+- **A package warning cleared.** `@fastify/static` is now 10.1.11, so
+  `pnpm audit --prod` reports nothing.
+- **Lint runs on every change,** and the code it found unused was removed.
+
 ### Security
 Fixes from the whole-product check of 13 November 2026.
 - **A request that stops arriving is closed, on HTTP and HTTPS.** The server
