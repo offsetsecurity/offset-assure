@@ -13,7 +13,7 @@ import { conflict } from "./errors.js";
 export const RECORD_VERSION_HEADER = "x-record-version";
 
 export const CHANGED_MEANWHILE =
-  "Someone else changed this while you were editing it. Close it and open it again to see their change, then make yours.";
+  "Someone else changed this while you were editing it. Reload the page to see their change, then make yours.";
 
 export function assertUnchanged(request: FastifyRequest, before: object): void {
   const seen = request.headers[RECORD_VERSION_HEADER];
