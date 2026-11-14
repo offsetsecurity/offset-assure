@@ -241,7 +241,7 @@ maybe("reports", () => {
       return m![1]!.replace(/\s+/g, " ").trim();
     };
 
-    expect(await grab("src/reports/definitions.ts")).toBe(
+    expect(await grab("src/reports/report-shared.ts")).toBe(
       await grab("../web/src/ui/format.ts"),
     );
   });
