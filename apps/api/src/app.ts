@@ -166,6 +166,9 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
     const declared = Number(request.headers["content-length"] ?? 0);
     const json = String(request.headers["content-type"] ?? "").toLowerCase().startsWith("application/json");
     if (json && declared > JSON_BODY_LIMIT) {
+      // The rest of the body is read and thrown away, so a client that sends the whole
+      // body before it reads the answer (Node's fetch does) finishes sending and gets the 413.
+      request.raw.resume();
       reply.header("connection", "close");
       throw new HttpError(413, "This request is too large to save.");
     }
@@ -237,6 +240,13 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
     // the server was broken rather than to slow down.
     const status = (err as { statusCode?: unknown }).statusCode;
     if (typeof status === "number" && status >= 400 && status < 500) {
+      // A body that grew past the limit while it was being read (no length
+      // declared up front): read and drop the rest, so a client that sends it
+      // all before reading the answer still gets the 413 (N1).
+      if (status === 413) {
+        request.raw.resume();
+        reply.header("connection", "close");
+      }
       return reply.code(status).send({ error: (err as Error).message });
     }
     // A link to a control, risk or record that does not exist, perhaps
