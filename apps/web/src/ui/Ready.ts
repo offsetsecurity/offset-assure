@@ -7,7 +7,7 @@ import {
 } from "../persistence/apiClient.js";
 
 /**
- * The readiness parts of Get ready: the progress panel, the in-card actions
+ * The readiness parts of Plan: the progress panel, the in-card actions
  * for the steps that can be done without leaving the screen, "If the auditor
  * came today", what to fix first, quick wins and bulk changes. Ported from
  * Offset Attest, where the design was built for SOC.
@@ -38,7 +38,7 @@ const plural = (n: number, one: string, many = `${one}s`): string => (n === 1 ? 
 // ── the progress header and the rest of the stage ────────────────────────────
 
 /**
- * The top of Get ready, in one short card: how far along, three facts that
+ * The top of Plan, in one short card: how far along, three facts that
  * matter (the audit, likely nonconformities, quick fixes), the stages in one
  * line, and the whole plan behind a button. The shape is Offset Attest's.
  */

@@ -10,9 +10,9 @@ You do not need to read this end to end. Find what you are trying to do.
 | Understand what this is for | [What it does](#what-it-does) |
 | Sign in the first time | [Getting in](#getting-in) |
 | Know what the front page is telling me | [Dashboard](#dashboard) |
-| Be told what to do next | [Get ready](#get-ready) |
+| Be told what to do next | [Plan](#get-ready) |
 | Check every risk is treated, and the proof is current | [Golden thread](#golden-thread) |
-| Get ready for ISO 27001 certification | [Get ready for ISO 27001](#get-ready-for-iso-27001) |
+| Plan for ISO 27001 certification | [Plan for ISO 27001](#get-ready-for-iso-27001) |
 | Record what we have and have not done | [Controls](#controls) |
 | Say which ISO 27001 controls apply, and why | [Statement of Applicability](#statement-of-applicability) |
 | Attach proof to a control | [Evidence on a control](#evidence-on-a-control) |
@@ -42,7 +42,7 @@ It keeps your compliance programme in one place, so that when somebody asks
 "are we doing this, and can you show me" there is an answer.
 
 **Offset Assure** covers **ISO/IEC 27001:2022**: all 93 Annex A controls in
-4 themes, with clauses 4 to 10 covered by the [Get ready](#get-ready) plan.
+4 themes, with clauses 4 to 10 covered by the [Plan](#get-ready) plan.
 The menu calls them Controls, and asks **is this in place?** You answer with a
 status.
 
@@ -113,7 +113,7 @@ If a button is missing or a change is refused, that is your role, not a fault.
 
 ---
 
-## Get ready
+## Plan
 
 If you have never done this before, start here.
 
@@ -190,7 +190,7 @@ stands, what is still to do, what you excluded and why, and who decided each
 one. It is the document to take to your management when nobody has asked you
 for a report yet.
 
-### Get ready for ISO 27001
+### Plan for ISO 27001
 
 Eight stages, 36 steps. 23 of them are checked for you. Each stage names the
 part of the standard it covers, so you can read the requirement in your own
@@ -287,7 +287,7 @@ treat this risk**.
 One piece of evidence often backs several controls. Fixing it, by collecting a
 fresh copy and updating its date, fixes all of them.
 
-The figures across the top are the same ones the Get ready page shows.
+The figures across the top are the same ones the Plan page shows.
 Products with a very large framework open on **Only problems**.
 
 **It links things for you, where it can.**
@@ -805,7 +805,7 @@ PDFs to hand to someone. Click **Download** on any of them.
 | **Gap report** | Everything not yet implemented, and who owns it |
 | **Risk register** | The full register with scores and treatments |
 | **Evidence register** | What proof you hold and how fresh it is |
-| **Readiness plan** | Your Get ready plan on paper |
+| **Readiness plan** | Your Plan on paper |
 | **Management review pack** | The inputs clause 9.3 asks for, in one document |
 | **Document control list** | Every document, its version, approval and review date |
 | **Statement of Applicability** | Which controls apply, and why |

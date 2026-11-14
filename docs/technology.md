@@ -88,7 +88,7 @@ changing the wording of a requirement never means touching the application.
 | What you work through | 93 controls, in 4 themes |
 | Called | Control / Theme |
 | Guidance per item | Plain English: what it means, what to do, what an assessor looks for, what proof to keep |
-| Get ready | 8 stages, 38 steps, 25 checked for you |
+| Plan | 8 stages, 38 steps, 25 checked for you |
 | Sample library | 132 assets, 111 risks |
 | Help in the product | 11 pages |
 

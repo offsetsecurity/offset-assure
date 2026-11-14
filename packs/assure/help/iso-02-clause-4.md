@@ -130,7 +130,7 @@ a new risk leads to a control, how an audit finding leads to a change. A short
 process description or diagram answers this well. It is not a mandatory
 document.
 
-**In Assure.** Each screen is one of those processes, and **Get ready** shows
+**In Assure.** Each screen is one of those processes, and **Plan** shows
 the order they fit together in.
 
 ## Clause 4 checklist

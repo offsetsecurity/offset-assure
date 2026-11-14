@@ -59,7 +59,7 @@ export interface ClauseState {
 export interface CheckStyle { iso: boolean; reasons: boolean }
 const ISO_STYLE: CheckStyle = { iso: true, reasons: true };
 
-/** What is wrong with each part of the thread, and the totals. Shared with Get ready. */
+/** What is wrong with each part of the thread, and the totals. Shared with Plan. */
 export function analyse(d: ThreadData, withClauses = false, style: CheckStyle = ISO_STYLE) {
   const evOf = new Map<string, ThreadEvidence[]>();
   for (const e of d.evidence) for (const c of e.controls) evOf.set(c, [...(evOf.get(c) ?? []), e]);
@@ -711,7 +711,7 @@ export function GoldenThread({ itemLabel, canEdit, clauses = false, reasons = cl
   </div>`;
 }
 
-/** The golden thread in one line, for the Get ready screen. */
+/** The golden thread in one line, for the Plan screen. */
 export function ThreadSummary({ itemLabel }: { itemLabel: string }): VNode | null {
   const [s, setS] = useState<ReturnType<typeof analyse> | null>(null);
   useEffect(() => {

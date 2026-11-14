@@ -14,7 +14,7 @@ type Shape =
   | ["rect", { x: number; y: number; width: number; height: number; rx?: number }];
 
 export const ICON_SHAPES = {
-  // Get ready: a flag at the end of the route
+  // Plan: a flag at the end of the route
   getready: [["path", { d: "M5 21V4" }], ["path", { d: "M5 4h12l-2.5 4.5L17 13H5" }]],
   // Golden thread: three points joined by one line
   thread: [

@@ -112,7 +112,7 @@ td,th,.num,.stat .val,.pill,.score{font-variant-numeric:tabular-nums}
 .collapse-btn .icon{width:16px;height:16px}
 
 /* Jump to anything: opens the command palette. */
-.jump{display:flex;align-items:center;gap:8px;width:100%;height:34px;margin:2px 0 10px;padding:0 8px 0 10px;border:1px solid var(--line);
+.jump{display:flex;align-items:center;gap:8px;width:100%;height:34px;margin:10px 0 14px;padding:0 8px 0 10px;border:1px solid var(--line);
       border-radius:9px;background:rgba(255,255,255,.7);color:var(--faint);font:inherit;font-size:13px;cursor:pointer;
       box-shadow:var(--shadow-xs);transition:border-color var(--dur-hover),background var(--dur-hover),color var(--dur-hover)}
 .jump:hover{background:#fff;border-color:var(--field);color:var(--muted)}
@@ -165,7 +165,7 @@ kbd,.kbd{display:inline-flex;align-items:center;gap:1px;height:19px;padding:0 5p
 .nav-collapsed .nav-section-head .chev{opacity:.55}
 .nav-collapsed .nav-section-head::before{content:"";display:block;height:1px;background:rgba(11,18,32,.08);flex:1;margin-right:4px}
 /* A short window gives up the extras first, so the menu itself always fits (LAY-REQ-003). */
-@media (max-height:900px){.nav a{height:30px}.jump{margin-bottom:6px}}
+@media (max-height:900px){.nav a{height:30px}.jump{margin:8px 0 10px}}
 @media (max-height:760px){.nav a{height:28px}.nav-section-head{padding:5px 10px 2px}.sidebar-foot .lead{display:none}.brand.side .fw{display:none}}
 
 /* The sheet. */
@@ -586,7 +586,7 @@ a.kpi:hover .go{opacity:1;transform:none;color:var(--brand)}
 .sr-chosen span{text-transform:none;letter-spacing:0;font-size:12px;color:var(--brand-ink)}
 .jt-chip{text-transform:none;letter-spacing:0;font-size:11.5px;font-weight:550;border-radius:999px;padding:2px 9px}
 
-/* ── Get ready: the head with the stages and the summary ───────────────── */
+/* ── Plan: the head with the stages and the summary ───────────────── */
 .gr-head{border-radius:18px}
 .gr-left{padding:18px 22px 16px}
 .gr-sum{background:linear-gradient(180deg,#FBFCFE,#F6F8FC);border-left:1px solid var(--line-2);border-radius:0 18px 18px 0;padding:18px 22px}
@@ -605,6 +605,8 @@ a.kpi:hover .go{opacity:1;transform:none;color:var(--brand)}
 .gr-move{border-radius:18px;padding:22px 24px;border-color:var(--line);box-shadow:var(--shadow)}
 .next-step.gr-move{border:1px solid var(--line)}
 .gr-aside{border-left:1px solid var(--line-2)}
+/* The step card is as tall as its taller side. The footer (Previous, Step n of N, Next) sits at the bottom of the left side, so no blank band opens under it. */
+.gr-move .gr-main{display:flex;flex-direction:column}.gr-move .gr-main>.step-foot{margin-top:auto}.gr-move .gr-main>:nth-last-child(2){margin-bottom:18px}
 .sr-nav button{min-height:30px;padding:0 12px;border-radius:8px;font-weight:550;border-color:var(--line);box-shadow:var(--shadow-xs)}
 .sr-nav button:hover:not(:disabled){background:var(--hover)}
 .sr-back{background:none;border:0;padding:4px 0;color:var(--link);font-weight:550}
@@ -717,7 +719,7 @@ th{text-transform:none!important;letter-spacing:.005em!important}
   .content table{min-width:620px}
   .content td{overflow-wrap:normal}
   .content table.compact,.content .gr-next table{min-width:0}
-  /* Get ready: the step card stacks, and a title never shares its line with a chip. */
+  /* Plan: the step card stacks, and a title never shares its line with a chip. */
   .gr-move{grid-template-columns:1fr;padding:18px 16px}
   .gr-aside{border-left:0;border-top:1px solid var(--line-2);padding:16px 0 0}
   .jt-head,.sr-move-sub,.sr-move-top{flex-wrap:wrap}
@@ -945,7 +947,7 @@ body{background:var(--shell)}
 /* </darkshell.css> */
 
 /* <stephead.css> */
-/* ── Get ready: your next move once, at the top; the step card reads top to bottom ── */
+/* ── Plan: your next move once, at the top; the step card reads top to bottom ── */
 .next-strip{display:flex;align-items:center;gap:14px;margin:16px 0 0;padding:12px 14px 12px 12px;border-radius:14px;background:#fff;border:1px solid var(--line);
   box-shadow:var(--shadow)}
 .next-strip.away{border-color:rgba(36,87,214,.35);box-shadow:0 0 0 3px rgba(36,87,214,.07),var(--shadow)}

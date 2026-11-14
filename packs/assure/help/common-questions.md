@@ -1,7 +1,7 @@
 # Common questions
 
 **Do I have to do the stages in order?**
-No. Get ready suggests an order most organisations find easiest. Do anything you
+No. Plan suggests an order most organisations find easiest. Do anything you
 can already do.
 
 **A step will not tick.**
@@ -29,7 +29,7 @@ The product flags anything older than 90 days. Set a collected date on
 everything; the Evidence screen and the calendar do the rest.
 
 **We are two people. Is this overkill?**
-Use Get ready, the sample libraries and the templates, and ignore what does not
+Use Plan, the sample libraries and the templates, and ignore what does not
 fit. A small organisation certifies on the same standard with far fewer
 documents.
 

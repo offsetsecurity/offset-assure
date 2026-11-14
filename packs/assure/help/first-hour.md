@@ -49,9 +49,9 @@ out.
 It is the first thing an auditor reads, and the thing every later argument gets
 settled against.
 
-## 6. Open Get ready
+## 6. Open Plan
 
-**Get ready** is the plan: eight stages from here to a certification audit. It
+**Plan** is the plan: eight stages from here to a certification audit. It
 tells you what to do, why it matters, and takes you to the screen where you do
 it. Steps the product can check itself go green on their own.
 

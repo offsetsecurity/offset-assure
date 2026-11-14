@@ -129,7 +129,7 @@ no review behind them fail the third.
 
 ## In Offset Assure
 
-- **Get ready** walks the same ground as this handbook, one step at a time,
+- **Plan** walks the same ground as this handbook, one step at a time,
   and tracks how far you have got.
 - Give your auditor an **Auditor** account in **Users**. They can read
   everything and change nothing, and they can look up evidence themselves

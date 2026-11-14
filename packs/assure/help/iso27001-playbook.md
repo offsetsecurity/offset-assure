@@ -4,7 +4,7 @@ ISO 27001 certifies that you run a working information security management
 system, not that you bought security tools. Most organisations take four to
 nine months. This is the path, and where each piece lives here.
 
-Everything below is also in **Get ready**, which tracks how far you have got.
+Everything below is also in **Plan**, which tracks how far you have got.
 For the full detail on every clause, every Annex A control and every required
 document, read the audit-ready handbook, starting with
 [How certification works](iso-01-certification.md).

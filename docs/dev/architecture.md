@@ -35,13 +35,13 @@ flowchart TB
 
 A pack is content, not code: `pack.json` (names and which features are on),
 `controls.json`, `themes.json`, `guide.json` (the explanation on each control),
-and where the product has them `journey.json` (Get ready) and `samples.json`
+and where the product has them `journey.json` (Plan) and `samples.json`
 (the sample library). The `features` flags in `pack.json` decide which screens
 appear, so changing what a screen says is a change to the pack, not to the code.
 
 | Product | Pack | Screens of its own |
 |---|---|---|
-| Offset Assure | `assure` | Statement of Applicability, Get ready, Gap analysis, Calendar, the management-system registers |
+| Offset Assure | `assure` | Statement of Applicability, Plan, Gap analysis, Calendar, the management-system registers |
 
 ## Runtime
 
@@ -338,10 +338,10 @@ flowchart LR
 
 Standing on their own: `programme` (one row: scope, risk method, programme
 attrs), `settings` (mail, branding, digest), `jobs` (the worker's queue),
-`trend` (the daily readiness snapshot) and `journey_tasks` (Get ready steps
+`trend` (the daily readiness snapshot) and `journey_tasks` (Plan steps
 ticked by hand, with the name of whoever ticked them).
 
-## Get ready
+## Plan
 
 The plan is content in the pack; the engine is shared.
 
@@ -354,7 +354,7 @@ flowchart LR
   data --> state["done or outstanding,<br/>with a line of detail"]
   auto -- no --> ticks[("journey_tasks<br/>who ticked it, when")]
   ticks --> state
-  state --> screen["Get ready screen<br/>and Readiness plan report"]
+  state --> screen["Plan screen<br/>and Readiness plan report"]
 ```
 
 A test fails the build if a pack names a check that does not exist, or sends
