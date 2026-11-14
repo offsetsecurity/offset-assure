@@ -2,7 +2,8 @@ import { query } from "../db/pool.js";
 import { hasFeature } from "../lib/pack.js";
 import { kpiRow, table } from "./pdf.js";
 import { staleSql } from "../lib/time.js";
-import { ReportSpec, labels, dash, MATURITY_LEVELS, maturityStats } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
+import { labels, dash, MATURITY_LEVELS, maturityStats } from "./report-shared.js";
 
 /** The management review pack. */
 

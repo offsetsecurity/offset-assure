@@ -4,7 +4,8 @@ import { hasFeature } from "../lib/pack.js";
 import { kpiRow, table, barChart, stackedBar, radar, heatMap } from "./pdf.js";
 import { boardPdf } from "./board.js";
 import { staleSql } from "../lib/time.js";
-import { ReportSpec, labels, themeTitles, dash, MATURITY_LEVELS, controls, maturityStats, readiness } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
+import { labels, themeTitles, dash, MATURITY_LEVELS, controls, maturityStats, readiness } from "./report-shared.js";
 
 /** The executive summary. */
 

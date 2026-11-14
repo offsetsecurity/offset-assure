@@ -2,14 +2,14 @@ import { product } from "../config.js";
 import { packMeta } from "../lib/pack.js";
 import { loadBranding } from "../routes/settings.js";
 import { buildDocument, renderPdf } from "./pdf.js";
-import { ReportSpec } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
 import { executiveSummary } from "./report-executive.js";
 import { gapReport, readinessPlan, maturityAssessment } from "./report-gap.js";
 import { riskRegister, evidenceRegister } from "./report-registers.js";
 import { statementOfApplicability, baselineReport } from "./report-soa.js";
 import { managementReviewPack } from "./report-review.js";
 import { documentControlList } from "./report-doccontrol.js";
-export { ReportSpec } from "./report-shared.js";
+export type { ReportSpec } from "./report-shared.js";
 
 /**
  * The report catalogue.

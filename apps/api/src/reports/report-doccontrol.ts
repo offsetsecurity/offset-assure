@@ -1,7 +1,8 @@
 import { query } from "../db/pool.js";
 import { kpiRow, table } from "./pdf.js";
 import { todayIso } from "../lib/time.js";
-import { ReportSpec, dash } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
+import { dash } from "./report-shared.js";
 
 /** The document control list. */
 
