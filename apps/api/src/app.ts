@@ -161,10 +161,11 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
   });
 
   // A JSON body that says up front it is over the limit is refused before a byte
-  // is read, and the connection is closed after the answer. Without that, a
-  // client in the middle of sending several megabytes to an unauthenticated
-  // address (sign-in, sign-out, an unknown address) was not told anything and
-  // the connection stayed held until the idle timeout (N1, 14 Nov 2026).
+  // is used (N1, 14 Nov 2026): before, a client sending several megabytes to an
+  // unauthenticated address was told nothing. The connection is not cut after
+  // the 413: cutting it while the client is still sending makes the client's
+  // system throw the 413 away (N1b, 15 Nov 2026). The request time limit still
+  // ends a client that sends forever.
   app.addHook("onRequest", async (request, reply) => {
     const declared = Number(request.headers["content-length"] ?? 0);
     const json = String(request.headers["content-type"] ?? "").toLowerCase().startsWith("application/json");
@@ -172,7 +173,6 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
       // The rest of the body is read and thrown away, so a client that sends the whole
       // body before it reads the answer (Node's fetch does) finishes sending and gets the 413.
       request.raw.resume();
-      reply.header("connection", "close");
       throw new HttpError(413, "This request is too large to save.");
     }
   });
@@ -248,7 +248,6 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
       // all before reading the answer still gets the 413 (N1).
       if (status === 413) {
         request.raw.resume();
-        reply.header("connection", "close");
       }
       return reply.code(status).send({ error: (err as Error).message });
     }
