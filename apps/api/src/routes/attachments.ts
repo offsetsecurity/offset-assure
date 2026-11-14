@@ -34,7 +34,7 @@ export const ATTACHABLE: Record<string, { table: string; label: string }> = {
 };
 
 const recordParams = z.object({
-  register: z.string().refine((r) => r in ATTACHABLE, "That register does not take attachments."),
+  register: z.string().refine((r) => Object.hasOwn(ATTACHABLE, r), "That register does not take attachments."),
   id: z.string().uuid(),
 });
 const fileParams = z.object({ attachmentId: z.string().uuid() });
