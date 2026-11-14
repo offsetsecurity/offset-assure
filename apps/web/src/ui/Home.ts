@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import type { VNode } from "preact";
 import { html } from "./html.js";
+import { pickStep } from "./pickedStep.js";
 import { journey as journeyApi, type Journey, type JourneyTask, type ReadinessDashboard, type ReadinessWords } from "../persistence/apiClient.js";
 import { Ring, greeting, useCountUp } from "./motion.js";
 import { Icon } from "./icons.js";
@@ -96,7 +97,7 @@ export function HomeHero({ name, d, words, pct, ringLabel, gaps, journey }: {
           <div class="upnext-h"><h2>Up next</h2><a href="#/getready">The whole plan<${Icon} name="chev" /></a></div>
           <div class="upnext-grid">
             ${steps.map((s, i) => html`
-              <button type="button" class=${`upnext-card${i === 0 ? " first" : ""}`} key=${s.task.id} onClick=${() => { window.location.hash = "#/getready"; }}>
+              <button type="button" class=${`upnext-card${i === 0 ? " first" : ""}`} key=${s.task.id} onClick=${() => { pickStep(s.task.id); window.location.hash = "#/getready"; }}>
                 <span class="upnext-n">${i === 0 ? "Next" : `Step ${s.n}`}<i>${s.stage}</i></span>
                 <b>${s.task.title}</b>
                 <span class="upnext-why">${s.task.why || s.task.do}</span>

@@ -14,6 +14,7 @@ import {
   type Readiness,
 } from "../persistence/apiClient.js";
 import { ThreadSummary } from "./GoldenThread.js";
+import { takePickedStep } from "./pickedStep.js";
 import { ProgressPanel, UpNext, InlineAction, AuditorToday, QuickWins } from "./Ready.js";
 
 /**
@@ -363,7 +364,7 @@ function ReadyJourney({ canEdit, themes }: {
   const [ready, setReady] = useState<Readiness | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
-  const [picked, setPicked] = useState<string | null>(null);
+  const [picked, setPicked] = useState<string | null>(() => takePickedStep());
   const [snoozed, setSnoozed] = useState<Set<string>>(readSnoozed);
   const [said, setSaid] = useState("");
   const [tpls, setTpls] = useState<Record<string, PackTemplate>>({});
