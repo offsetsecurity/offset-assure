@@ -11,7 +11,9 @@ test("Controls: the summary band's keys filter the register", async ({ page }) =
   const errors = watchErrors(page);
   await open(page, "controls");
   const keys = page.locator(".sum-keys button");
-  expect(await keys.count()).toBeGreaterThanOrEqual(3);
+  // Wait for the controls to arrive: counting at once found none on a busy machine (go-live, 15 Nov 2026).
+  await expect.poll(() => keys.count(), { timeout: 10_000 }).toBeGreaterThanOrEqual(3);
+  await expect(page.locator("tbody tr").first()).toBeVisible();
   const all = await page.locator("tbody tr").count();
   await keys.first().click();
   await expect(keys.first()).toHaveAttribute("aria-pressed", "true");

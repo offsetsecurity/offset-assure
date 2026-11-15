@@ -64,7 +64,7 @@ across on its own.
   person out.
 - **Sign-in takes the same time for a disabled or locked account** as for any
   other wrong password.
-- **A JSON request over 2 MB is refused at once and the connection closed,** on
+- **A JSON request over 2 MB is refused at once with a plain message,** on
   every address. Before, on sign-in and sign-out the client was left waiting.
 - **A register name like `constructor` gets a plain refusal** instead of a
   server error.
