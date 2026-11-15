@@ -6,7 +6,7 @@ import { audit } from "../audit/audit.js";
 import { notFound } from "../lib/errors.js";
 import { MATURITY_DEFAULT_TARGET, MATURITY_MAX, MATURITY_MIN } from "../config.js";
 import { compareRefs } from "../lib/refs.js";
-import { assertUnchanged } from "../lib/record-version.js";
+import { assertUnchanged, changedMeanwhile, versioned } from "../lib/record-version.js";
 
 const STATUSES = ["not_started", "in_progress", "implemented", "not_applicable"] as const;
 
@@ -313,11 +313,13 @@ export async function controlRoutes(app: FastifyInstance): Promise<void> {
     }
     if (!sets.length) return { control: hydrate(before) };
 
+    const same = versioned(request, before, sets, params);
     const { rows } = await query<ControlRow>(
-      `update controls set ${sets.join(", ")} where id = $1 returning *`,
+      `update controls set ${sets.join(", ")} where id = $1${same} returning *`,
       params,
     );
-    const after = rows[0]!;
+    if (!rows[0]) throw changedMeanwhile();
+    const after = rows[0];
 
     await audit(request, {
       action: "Control updated",

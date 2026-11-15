@@ -47,6 +47,7 @@ import { restoreInProgress } from "./backup/service.js";
 import type { TlsOptions } from "./tls/certificate.js";
 import { dualServerFactory } from "./tls/server.js";
 import { findControlCharacters } from "./lib/text-safety.js";
+import { startBodyTimer, stopBodyTimer } from "./lib/long-request.js";
 
 /** The most a JSON request may carry. Uploads have their own, larger limit. */
 const JSON_BODY_LIMIT = 2 * 1024 * 1024;
@@ -67,6 +68,8 @@ export interface BuildOptions {
   routeTable?: { method: string; url: string; allowed: readonly string[] | null }[];
   /** For tests: a shorter idle timeout than the setting, to watch a stalled connection close. */
   socketIdleTimeoutMs?: number;
+  /** For tests: a shorter limit for a request body to arrive than the setting. */
+  bodyTimeoutMs?: number;
 }
 
 export async function buildApp(options: BuildOptions = {}): Promise<FastifyInstance> {
@@ -115,6 +118,15 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
     // is closed. See SOCKET_IDLE_TIMEOUT_MS in config.ts for why.
     connectionTimeout: options.socketIdleTimeoutMs ?? config.SOCKET_IDLE_TIMEOUT_MS,
     requestTimeout: config.REQUEST_TIMEOUT_MS,
+  });
+
+  // A body that trickles in is cut off long before the server-wide hour.
+  const bodyMs = options.bodyTimeoutMs ?? config.BODY_TIMEOUT_MS;
+  app.addHook("onRequest", async (request) => startBodyTimer(request, bodyMs));
+  // Only once the body has fully arrived: after an early refusal (401, 413)
+  // Node keeps reading the rest, and the limit must still end a trickle.
+  app.addHook("onResponse", async (request) => {
+    if (request.raw.complete) stopBodyTimer(request);
   });
 
   // Text that cannot be meant: refused before any route sees it.
@@ -248,6 +260,14 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
       // all before reading the answer still gets the 413 (N1).
       if (status === 413) {
         request.raw.resume();
+        // Fastify asks for the connection to be closed after a body it could
+        // not read; with a client still sending, that close throws the 413 away
+        // (found 15 Nov 2026 for a body with no length declared). For such a
+        // body the rest is drained instead, and the body limit
+        // (BODY_TIMEOUT_MS) still ends a client that sends forever. A body
+        // that declared a length over the limit keeps Fastify's close, so
+        // nobody can make the server drain a huge declared size.
+        if (request.headers["content-length"] === undefined) reply.removeHeader("connection");
       }
       return reply.code(status).send({ error: (err as Error).message });
     }

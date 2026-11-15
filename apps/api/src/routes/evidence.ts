@@ -12,7 +12,7 @@ import { audit } from "../audit/audit.js";
 import { badRequest, notFound } from "../lib/errors.js";
 import { config } from "../config.js";
 import { ageDaysSql, freshnessSql } from "../lib/time.js";
-import { assertUnchanged } from "../lib/record-version.js";
+import { assertUnchanged, changedMeanwhile, tellNewVersion, versioned } from "../lib/record-version.js";
 
 const idParam = z.object({ id: z.string().uuid() });
 
@@ -190,11 +190,14 @@ export async function evidenceRoutes(app: FastifyInstance): Promise<void> {
       let row = before;
       if (entries.length) {
         const sets = entries.map(([k], i) => `${COLUMN[k]} = $${i + 2}`);
+        const params: unknown[] = [id, ...entries.map(([, v]) => v ?? null)];
+        const same = versioned(request, before, sets, params);
         const { rows } = await tx.query(
-          `update evidence set ${sets.join(", ")} where id = $1 returning *`,
-          [id, ...entries.map(([, v]) => v ?? null)],
+          `update evidence set ${sets.join(", ")} where id = $1${same} returning *`,
+          params,
         );
-        row = rows[0]!;
+        if (!rows[0]) throw changedMeanwhile();
+        row = rows[0];
       }
       // Links are replaced wholesale when supplied — simplest contract for the UI.
       if (body.controlIds !== undefined) await replaceLinks(tx, id, body.controlIds);
@@ -293,6 +296,7 @@ export async function evidenceRoutes(app: FastifyInstance): Promise<void> {
       after: { file: stored.name, bytes: stored.size, sha256: stored.sha256 },
     });
 
+    tellNewVersion(reply, rows[0]);
     reply.code(201);
     return { evidence: rows[0] };
   });
@@ -338,13 +342,15 @@ export async function evidenceRoutes(app: FastifyInstance): Promise<void> {
     if (!rows[0]) throw notFound("Evidence not found.");
     if (!rows[0].file_key) throw notFound("No file is attached to this evidence.");
 
-    await query(
+    const { rows: touched } = await query<{ id: string; updated_at: string }>(
       `update evidence
           set file_key = null, file_name = null, file_size = null, file_sha256 = null,
               updated_at = strftime('%Y-%m-%dT%H:%M:%fZ','now')
-        where id = $1`,
+        where id = $1
+      returning id, updated_at`,
       [id],
     );
+    tellNewVersion(reply, touched[0]);
     await deleteStored(rows[0].file_key);
 
     await audit(request, {
