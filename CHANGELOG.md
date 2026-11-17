@@ -39,6 +39,10 @@ across on its own.
 - **Up next cards open their own step.** A card on the Dashboard now opens that
   step on the Plan, not whatever the plan suggested.
 - **Three database links got indexes,** so big installs stay quick.
+- **Nine more links got indexes,** the ones between controls and risks,
+  vendors, training, objectives, interested parties, reviews and
+  communications. Looking up or deleting a control no longer reads the whole
+  table.
 
 ### Removed
 - **"Do it in bulk" on Get ready, and the bulk owner and out-of-scope bar on
