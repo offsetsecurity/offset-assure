@@ -38,10 +38,10 @@ across on its own.
   band under Previous and Next, and the menu has more room around "Jump to".
 - **Up next cards open their own step.** A card on the Dashboard now opens that
   step on the Plan, not whatever the plan suggested.
-- **Settings starts with an overview.** One box for Updates, HTTPS, Outgoing email,
-  Daily digest and Example data, each saying whether it is on and
-  taking you to its section, then the facts about this server with a button to
-  copy them.
+- **Settings is a strip of tabs.** One tab for each section, each with a pill that says
+  whether it is on, and an Overview first: a box for each section with its state, the
+  details that matter and what changed lately, then the facts about this server with a
+  button to copy them. Every Offset product has the same page.
 - **Three database links got indexes,** so big installs stay quick.
 - **Nine more links got indexes,** the ones between controls and risks,
   vendors, training, objectives, interested parties, reviews and
