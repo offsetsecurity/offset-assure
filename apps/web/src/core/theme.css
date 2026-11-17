@@ -834,40 +834,42 @@ th{text-transform:none!important;letter-spacing:.005em!important}
 /* </stats.css> */
 
 /* <pages.css> */
-/* ── The Global Settings page: a tab strip, an Overview of boxes, then the facts about the server ── */
-.settings-stack{gap:16px}
-.gs-panel{display:flex;flex-direction:column;gap:16px}
+/* ── The Global Settings page: a tab strip, an Overview of boxes, then the facts about the server ──
+   It fits one screen, so nobody scrolls: compact sizes, 3 columns of boxes, and a scale that
+   steps down on short windows. Same in every Offset product. */
+.settings-stack{gap:12px;zoom:.92}
+@media (max-height:960px){.settings-stack{zoom:.83}}
+@media (max-height:800px){.settings-stack{zoom:.72}}
+.gs-panel{display:flex;flex-direction:column;gap:12px}
 .gs-panel[hidden]{display:none}
-.gs-tabs{display:flex;align-items:center;gap:2px;padding:6px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-xs);overflow-x:auto}
-.gs-tabs a{display:inline-flex;align-items:center;gap:8px;flex:none;padding:7px 14px;border-radius:9px;font-size:13.5px;color:var(--ink-2);text-decoration:none;white-space:nowrap}
-.gs-tabs a+a{position:relative}
-.gs-tabs a+a::before{content:"";position:absolute;left:-1px;top:9px;bottom:9px;width:1px;background:var(--line)}
-.gs-tabs a.on+a::before,.gs-tabs a+a.on::before{display:none}
-.gs-tabs a:hover{background:rgba(11,18,32,.04);color:var(--ink)}
-.gs-tabs a.on{background:var(--brand-soft);color:var(--brand);font-weight:600}
+.gs-tabs{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:6px 10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-xs);overflow-x:auto}
+.gs-tabs a{display:inline-flex;align-items:center;gap:8px;flex:none;padding:8px 14px;border-radius:10px;font-size:14px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.gs-tabs a:hover{background:rgba(11,18,32,.04)}
+.gs-tabs a.on{background:#eef3ff;color:var(--brand);font-weight:600}
 .gs-card{padding:0}
-.gs-card-h{padding:18px 22px 14px;border-bottom:1px solid var(--line)}
-.gs-card-h h2{margin:0 0 4px;font-size:14.5px;font-weight:620;letter-spacing:-.005em;color:var(--ink)}
-.gs-card-h p{margin:0;font-size:13.5px;color:var(--muted)}
+.gs-card-h{padding:12px 20px 10px;border-bottom:1px solid var(--line)}
+.gs-card-h h2{margin:0 0 2px;font-size:16px;font-weight:620;letter-spacing:-.005em;color:var(--ink)}
+.gs-card-h p{margin:0;font-size:13px;color:var(--muted)}
 .gs-card-bar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
 .gs-copy{display:inline-flex;align-items:center;gap:10px;flex:none}
-.gs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding:20px 22px 22px}
-.gs-box{display:flex;flex-direction:column;gap:12px;padding:16px 20px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);text-decoration:none;min-width:0}
-.gs-box:hover{border-color:var(--brand);box-shadow:var(--shadow-sm)}
-.gs-box.alert{border-color:#F1B5B9}
+.gs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:14px 20px}
+.gs-box{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);text-decoration:none;min-width:0}
+.gs-box:hover{border-color:#c7d2fe;box-shadow:var(--shadow-sm)}
+.gs-box:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.gs-box.alert{border-color:#f3c4c4}
 .gs-box-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.gs-box-h b{font-size:14.5px;font-weight:620}
-.gs-kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 16px;font-size:13px}
+.gs-box-h b{font-size:14px;font-weight:620}
+.gs-kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:2px 12px;font-size:12.5px}
 .gs-kv>span{color:var(--muted)}
 .gs-kv>b{font-weight:600;overflow-wrap:anywhere}
 .gs-kv>b.bad{color:var(--red-ink)}
-.gs-hist{display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid var(--line);flex:1}
-.gs-hist-e{position:relative;padding-left:12px;font-size:12.5px;color:var(--muted)}
+.gs-hist{display:flex;flex-direction:column;gap:2px;padding-top:8px;border-top:1px solid var(--line);flex:1}
+.gs-hist-e{position:relative;padding-left:12px;font-size:12px;color:var(--muted)}
 .gs-hist-e::before{content:"";position:absolute;left:1px;top:7px;width:4px;height:4px;border-radius:50%;background:var(--faint-ui)}
-.gs-box-f{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--muted)}
+.gs-box-f{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
 .gs-link{flex:none;font-size:13px;font-weight:600;color:var(--brand)}
 .gs-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
-.gs-fact{padding:12px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.gs-fact{padding:8px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
 .gs-fact:nth-child(3n){border-right:0}
 .gs-fact:nth-last-child(-n+3){border-bottom:0}
 .gs-fact dt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
@@ -876,6 +878,7 @@ th{text-transform:none!important;letter-spacing:.005em!important}
 .gs-fact dd span{font-size:12.5px;color:var(--muted)}
 .gs-fact dd span.bad{color:var(--red-ink)}
 .gs-fact dd span.ok{color:var(--green-ink)}
+@media (max-width:1300px){.gs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:1100px){.gs-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.gs-fact:nth-child(3n){border-right:1px solid var(--line)}.gs-fact:nth-child(2n){border-right:0}.gs-fact:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.gs-fact:nth-last-child(-n+2){border-bottom:0}}
 @media (max-width:820px){.gs-grid{grid-template-columns:minmax(0,1fr)}.gs-facts{grid-template-columns:minmax(0,1fr)}.gs-fact,.gs-fact:nth-child(n){border-right:0;border-bottom:1px solid var(--line)}.gs-fact:last-child{border-bottom:0}}
 

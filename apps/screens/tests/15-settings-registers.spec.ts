@@ -45,6 +45,18 @@ test("Settings: the Overview has a box for each section and the facts about the 
   expect(errors).toEqual([]);
 });
 
+test("Settings: the Overview fits one screen, so nobody scrolls", async ({ page }) => {
+  for (const [width, height] of [[1600, 1000], [1440, 900]] as const) {
+    await page.setViewportSize({ width, height });
+    await open(page, "settings");
+    await expect.poll(() => page.locator(".gs-box").count(), { timeout: 8000 }).toBeGreaterThanOrEqual(5);
+    await expect(page.locator(".gs-facts")).toBeVisible();
+    await page.waitForTimeout(400);
+    const over = await page.evaluate(() => document.documentElement.scrollHeight - window.innerHeight);
+    expect(over, `${width}x${height}: the page is this many pixels taller than the window`).toBeLessThanOrEqual(0);
+  }
+});
+
 test("Settings: a link to a tab opens it directly", async ({ page }) => {
   await open(page, "settings/email");
   await expect(page.locator(".gs-tabs a[aria-current=page]")).toContainText("Outgoing email");
