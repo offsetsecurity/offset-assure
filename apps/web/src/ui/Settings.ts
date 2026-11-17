@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import type { VNode } from "preact";
 import { html } from "./html.js";
+import { SettingsOverview } from "./SettingsOverview.js";
 import { Updates } from "./Updates.js";
 import { Certificate } from "./Certificate.js";
 import { ExampleData } from "./ExampleData.js";
@@ -230,6 +231,7 @@ export function Settings({ me, features }: {
     <div class="settings-layout">
     <${OnThisPage} />
     <div class="settings-stack">
+      <${SettingsOverview} hasExample=${Boolean(features["demoData"])} />
       <${Updates} />
 
       <${Certificate} />
@@ -498,9 +500,10 @@ function OnThisPage(): VNode {
       const found = [...document.querySelectorAll<HTMLElement>(".settings-stack > *")].map((el, i) => {
         const h = el.querySelector<HTMLElement>("h2, h3, .section-h, .section-title h2");
         if (!h) return null;
-        if (!el.id) el.id = `set-${i}`;
         // The heading's own words, without any status badge beside them.
         const words = [...h.childNodes].filter((n) => !(n instanceof HTMLElement && n.classList.contains("pill"))).map((n) => n.textContent ?? "").join("");
+        // Named by its words, not its place: sections that load later would shift every number.
+        if (!el.id) el.id = `set-${words.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-") || i}`;
         return { id: el.id, label: words.trim() };
       }).filter((x): x is { id: string; label: string } => Boolean(x && x.label));
       setItems((cur) => (cur.map((c) => c.label).join("|") === found.map((c) => c.label).join("|") ? cur : found));

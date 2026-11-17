@@ -22,6 +22,22 @@ test("Settings: every section is a card on one page, and On this page takes you 
   expect(errors).toEqual([]);
 });
 
+test("Settings: the overview has a box for each section, and a box takes you to its section", async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await open(page, "settings");
+  const boxes = page.locator(".ov-box");
+  await expect.poll(() => boxes.count(), { timeout: 8000 }).toBeGreaterThanOrEqual(5);
+  for (const name of ["Updates", "HTTPS", "Outgoing email", "Daily digest"]) {
+    await expect(boxes.filter({ hasText: name }).first(), name).toBeVisible();
+  }
+  // The facts about this server sit under the boxes.
+  await expect(page.locator(".ov-facts")).toContainText("Installed with");
+  await boxes.filter({ hasText: "Daily digest" }).click();
+  await expect.poll(async () => (await page.locator(".settings-stack h2", { hasText: "Daily digest" }).first().boundingBox())!.y, { timeout: 8000 }).toBeLessThan(300);
+  expect(errors).toEqual([]);
+});
+
 test("A register shows its statuses as chips with counts, and a chip filters the rows", async ({ page }) => {
   const csrf = (await page.context().cookies()).find((c) => c.name === "offset_csrf")!.value;
   for (const [title, status] of [["Chip test open", "Open"], ["Chip test done", "Done"]] as const) {
