@@ -292,6 +292,28 @@ export function InlineAction({ taskId, canEdit, themes, ledBy, onDone }: {
 
 const PILL: Record<LikelyFinding["label"], string> = { Fail: "red", Gap: "red", Partial: "amber", Stale: "amber" };
 
+/** When this browser last ran a mock audit. Kept in the browser only: it is a nudge, not a record. */
+const LAST_RUN_KEY = "offset.mockAudit.lastRun";
+const DAY = 86_400_000;
+function readLastRun(): number | null {
+  try {
+    const v = Number(localStorage.getItem(LAST_RUN_KEY));
+    return Number.isFinite(v) && v > 0 ? v : null;
+  } catch {
+    return null;
+  }
+}
+function ago(t: number): string {
+  const d = new Date(t);
+  const time = d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  if (d.toDateString() === new Date().toDateString()) return `today at ${time}`;
+  if (d.toDateString() === new Date(Date.now() - DAY).toDateString()) return `yesterday at ${time}`;
+  const days = Math.round((Date.now() - t) / DAY);
+  return `${days} days ago`;
+}
+const SHIELD = html`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>`;
+const CHECK = html`<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`;
+
 export function AuditorToday({ ready, canEdit, onRerun }: {
   ready: Readiness | null;
   canEdit: boolean;
@@ -302,19 +324,52 @@ export function AuditorToday({ ready, canEdit, onRerun }: {
   const [running, setRunning] = useState(false);
   const [before, setBefore] = useState<number | null>(null);
   const [panel, setPanel] = useState<LikelyFinding | null>(null);
+  const [lastRun, setLastRun] = useState<number | null>(readLastRun);
+  const [justRan, setJustRan] = useState(false);
 
   if (!ready) return html`<div class="card pad muted">Working out what an auditor would find…</div>`;
   const w = ready.words;
   const list = all ? ready.findings : ready.findings.slice(0, 4);
   const n = ready.findings.length;
+  // The light sweep only when a mock audit is due: never run here, or not for a day.
+  const due = lastRun === null || Date.now() - lastRun > DAY;
 
   const rerun = async (): Promise<void> => {
     setBefore(n);
     setRunning(true);
-    try { await onRerun(); } finally { setRunning(false); }
+    setJustRan(false);
+    const started = Date.now();
+    try {
+      await onRerun();
+      // It answers in milliseconds; keep "Checking…" long enough to be seen.
+      await new Promise((r) => setTimeout(r, Math.max(0, 700 - (Date.now() - started))));
+      const now = Date.now();
+      try { localStorage.setItem(LAST_RUN_KEY, String(now)); } catch { /* private mode: fine */ }
+      setLastRun(now);
+      setJustRan(true);
+    } finally { setRunning(false); }
   };
 
+  const result = justRan
+    ? before === n
+      ? `Checked just now · no change, still ${n} likely ${plural(n, w.finding, w.findings)}`
+      : `Checked just now · ${n} likely ${plural(n, w.finding, w.findings)}, was ${before}`
+    : lastRun === null
+      ? "Run one after any change to see what an auditor would raise."
+      : `Last run ${ago(lastRun)}.`;
+
   return html`<div class="card pad">
+    <div class="ma-banner">
+      <span class="ma-icon" aria-hidden="true">${SHIELD}</span>
+      <span class="ma-text">
+        <b>See what an ${w.auditorShort} would find, right now</b>
+        <span class=${justRan ? "ma-done" : ""} role="status">A mock audit checks every control, document and piece of evidence. ${result}</span>
+      </span>
+      <button type="button" class=${`btn-raised${due && !running ? " sweep" : ""}`} disabled=${running} onClick=${() => void rerun()}>
+        ${running ? html`<span class="ma-spin" aria-hidden="true"></span>` : CHECK}
+        ${running ? "Checking your records…" : "Run a mock audit"}
+      </button>
+    </div>
     <div class="sr-lbl">If the ${w.auditorShort} came today</div>
     <div class="sr-big" style=${`color:${n ? "var(--red)" : "var(--ready-green)"}`}>${n}</div>
     <div class="muted" style="font-size:13px;margin-bottom:6px">likely ${plural(n, w.finding, w.findings)}${before !== null && before !== n ? `, was ${before}` : ""}</div>
@@ -341,8 +396,6 @@ export function AuditorToday({ ready, canEdit, onRerun }: {
       ? html`<button type="button" class="linkish" style="margin-top:8px" onClick=${() => setAll((v) => !v)}>
           ${all ? "Show fewer" : `Show all ${n}`}</button>`
       : null}
-    <div class="muted" style="font-size:12px;margin-top:8px">Last checked ${new Date(ready.ranAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>
-    <button class="btn" style="margin-top:10px" disabled=${running} onClick=${() => void rerun()}>${running ? "Checking your records…" : "Run a mock audit"}</button>
     ${panel ? html`<${FixPanel} x=${panel} canEdit=${canEdit} finding=${w.finding} onClose=${() => setPanel(null)} onFixed=${async () => { setPanel(null); await rerun(); }} />` : null}
   </div>`;
 }

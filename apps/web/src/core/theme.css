@@ -882,6 +882,36 @@ th{text-transform:none!important;letter-spacing:.005em!important}
 @media (max-width:1100px){.gs-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.gs-fact:nth-child(3n){border-right:1px solid var(--line)}.gs-fact:nth-child(2n){border-right:0}.gs-fact:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.gs-fact:nth-last-child(-n+2){border-bottom:0}}
 @media (max-width:820px){.gs-grid{grid-template-columns:minmax(0,1fr)}.gs-facts{grid-template-columns:minmax(0,1fr)}.gs-fact,.gs-fact:nth-child(n){border-right:0;border-bottom:1px solid var(--line)}.gs-fact:last-child{border-bottom:0}}
 
+/* ── Plan: scaled a little, as Settings is, so the mock audit banner is in view without scrolling ── */
+.plan-fit{zoom:.92}
+@media (max-height:960px){.plan-fit{zoom:.83}}
+@media (max-height:800px){.plan-fit{zoom:.72}}
+
+/* ── Mock audit: a banner at the top of "If the auditor came today", with a raised button ──
+   The one raised button in the product: it looks like something you can press. It sinks
+   into its edge when pressed, and a light sweeps across it only when a mock audit is due. */
+.ma-banner{display:flex;align-items:center;gap:14px;margin:0 0 16px;padding:12px 14px;border-radius:12px;background:linear-gradient(90deg,#EBF0FD,#E6F6F4);border:1px solid #C9D6FB}
+.ma-icon{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:12px;background:#fff;color:var(--brand);box-shadow:0 1px 2px rgba(11,18,32,.08)}
+.ma-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.ma-text b{font-size:14.5px;font-weight:620;color:var(--ink)}
+.ma-text span{font-size:12.5px;color:var(--muted)}
+.ma-text span.ma-done{color:var(--green-ink)}
+.btn-raised{position:relative;overflow:hidden;flex:none;display:inline-flex;align-items:center;gap:9px;height:42px;padding:0 20px;border-radius:11px;cursor:pointer;
+  font:inherit;font-size:14.5px;font-weight:600;color:#fff;border:1px solid #1B44AE;
+  background:linear-gradient(180deg,#4D7BF0 0%,#2F62E3 45%,#2457D6 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -2px 0 rgba(0,0,0,.12),0 4px 0 #163C9E,0 8px 16px -4px rgba(22,60,158,.45);
+  text-shadow:0 1px 0 rgba(0,0,0,.18);transition:transform .08s ease,box-shadow .08s ease,filter .15s ease}
+.btn-raised:hover{filter:brightness(1.05)}
+.btn-raised:active:not(:disabled){transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.12),0 1px 0 #163C9E,0 2px 6px -2px rgba(22,60,158,.4)}
+.btn-raised:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.btn-raised:disabled{cursor:progress;filter:saturate(.85) brightness(.97)}
+.btn-raised.sweep::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);background-size:250% 100%;background-position:150% 0;animation:ma-sweep 5s ease-in-out 1.2s 4}
+@keyframes ma-sweep{0%{background-position:150% 0}22%{background-position:-50% 0}100%{background-position:-50% 0}}
+.ma-spin{width:16px;height:16px;border-radius:50%;border:2.2px solid rgba(255,255,255,.4);border-top-color:#fff;animation:ma-turn .8s linear infinite}
+@keyframes ma-turn{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.btn-raised.sweep::after{animation:none}.ma-spin{animation-duration:2.4s}}
+@media (max-width:820px){.ma-banner{flex-wrap:wrap}.btn-raised{width:100%;justify-content:center}}
+
 /* ── Help and Documentation: the topic list reads like the settings menu ── */
 .help-index{background:none;border:0;box-shadow:none;padding:0}
 .help-index .help-pick{display:block;width:100%;text-align:left;border:0;border-radius:10px;padding:9px 12px;background:none;cursor:pointer;font:inherit;

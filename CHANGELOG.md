@@ -42,6 +42,11 @@ across on its own.
   whether it is on, and an Overview first: a box for each section with its state, the
   details that matter and what changed lately, then the facts about this server with a
   button to copy them. Every Offset product has the same page.
+- **Run a mock audit is easy to see.** It moved from the bottom of the Plan page to a banner at the
+  top of "If the auditor came today", with a raised button that sinks when pressed. The auditor card
+  now sits above the quick fixes, and the Plan page is scaled a little so the button is in view when
+  the page opens. It shows "Checking your records…" and then "Checked just now", and a light
+  sweeps across the button when no mock audit has been run for a day.
 - **Three database links got indexes,** so big installs stay quick.
 - **Nine more links got indexes,** the ones between controls and risks,
   vendors, training, objectives, interested parties, reviews and
