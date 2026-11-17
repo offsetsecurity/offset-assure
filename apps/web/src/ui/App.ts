@@ -504,7 +504,7 @@ export function App(): VNode {
     people: { h1: "Users", sub: "Who can sign in, and what they are allowed to do" },
     audit: { h1: "Audit trail", sub: "Who did what, and when. Nothing here can be changed" },
     backups: { h1: "Backups", sub: "Take one, keep them, and restore one if you need to" },
-    settings: { h1: "Settings", sub: "How this copy of Offset Assure is set up" },
+    settings: { h1: "Settings", sub: "How this instance is configured" },
   };
 
   const NAV_LABEL: Record<Route, string> = {
