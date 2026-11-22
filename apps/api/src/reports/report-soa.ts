@@ -1,7 +1,8 @@
 import type { Content } from "pdfmake/interfaces.js";
 import { query } from "../db/pool.js";
 import { kpiRow, table, safe } from "./pdf.js";
-import { ReportSpec, STATUS_LABEL, labels, dash, controls } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
+import { STATUS_LABEL, labels, dash, controls } from "./report-shared.js";
 
 /** The Statement of Applicability, and baseline and tailoring. */
 

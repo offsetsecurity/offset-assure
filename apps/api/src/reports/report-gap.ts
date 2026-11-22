@@ -3,7 +3,8 @@ import { hasFeature } from "../lib/pack.js";
 import { compareRefs } from "../lib/refs.js";
 import { buildJourney } from "../journey/journey.js";
 import { kpiRow, table } from "./pdf.js";
-import { ReportSpec, STATUS_LABEL, labels, dash, MATURITY_LEVELS, levelName, targetOf, controls, attrOf, maturityStats } from "./report-shared.js";
+import type { ReportSpec } from "./report-shared.js";
+import { STATUS_LABEL, labels, dash, MATURITY_LEVELS, levelName, targetOf, controls, attrOf, maturityStats } from "./report-shared.js";
 
 /** The gap report. */
 
