@@ -95,7 +95,7 @@ right of any screen.
 **"Your connection is not private"** or **"Not secure"** means the server has
 no certificate your browser trusts. Do not click through. Tell your
 administrator: they can fix it for everyone in a few minutes, under
-**Settings → HTTPS certificate**, with a certificate from your IT team. It costs
+**Settings → HTTPS**, with a certificate from your IT team. It costs
 nothing.
 
 ### What you are allowed to do
