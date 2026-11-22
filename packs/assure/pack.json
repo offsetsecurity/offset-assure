@@ -23,11 +23,28 @@
     "boardReport": true,
     "gapAnalysis": true,
     "demoData": true,
-    "csv": true
+    "csv": true,
+    "readiness": true
   },
   "counts": {
     "themes": 4,
     "controls": 93,
     "withGuidance": 93
+  },
+  "readiness": {
+    "auditor": "certification auditor",
+    "auditorShort": "auditor",
+    "finding": "nonconformity",
+    "findings": "nonconformities",
+    "keyDate": "certification audit",
+    "ledBy": "Certification body",
+    "refs": {
+      "policy": "A.5.1",
+      "finding": "10.2",
+      "vendor": "A.5.22",
+      "audit": "9.2",
+      "review": "9.3",
+      "risk": "6.1.2"
+    }
   }
 }
