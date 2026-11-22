@@ -96,7 +96,7 @@ the security overview, the questionnaire or both.
 | G8 | **No single sign-on** | Accounts are managed separately from the customer's directory, so leavers must be disabled by hand | OIDC or SAML. The `users.auth_source` column is already there |
 | G9 | **Uploads are not scanned** | A user can upload malware that a colleague later downloads and opens | Leave to the customer's endpoint protection, or add an optional ClamAV hook |
 | G10 | **CSP allows inline styles** | Low: inline styles cannot run code | Move the remaining inline styles into the stylesheet |
-| G11 | **No independent penetration test** | Mistakes nobody here thought to look for | Commission one before the first paid customer |
+| G11 | **No independent penetration test** | Mistakes nobody here thought to look for | Commission one before wide use; every Offset product is free, so this is a choice, not a sale condition |
 
 Closed since this was first written: **G2**, the per-address limit on sign-in
 (threat 1a), and **G3**, the audit trail screen (threat 20). The numbers are

@@ -158,6 +158,23 @@ Updates only add to the database, and an update takes a backup first.
 2. What was added after the update is not in that backup. Take a backup
    before going back if you may want it later.
 
+If you updated with `docker compose up -d --build` and took no backup, there
+is still a copy: every time a new version changes the database it first
+copies it to `backups/before-upgrade/` (in the `backups` volume, the newest
+three are kept). That copy is not listed on the **Backups** screen. To use it:
+
+1. Stop the product: `docker compose down`.
+2. Put the old version back (`git checkout v<old version>` in this folder).
+3. Copy the file over the database, as root, and remove the two files beside it:
+   ```bash
+   docker compose run --rm --user 0 --entrypoint sh app -c \
+     'cp /app/backups/before-upgrade/<file>.db /app/data/offset.db && rm -f /app/data/offset.db-wal /app/data/offset.db-shm && chown offset:offset /app/data/offset.db'
+   ```
+4. Start it: `docker compose up -d --build`. Sign in as before; everything is
+   as it was just before the update.
+
+This was tried on 15 Nov 2026: 0.3.0 back to 0.2.47, every record as it was.
+
 ## Updating
 
 ```bash
