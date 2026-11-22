@@ -18,9 +18,13 @@ for administrators.
 
 ![Offset Assure dashboard](docs/screenshots/dashboard.png)
 
+![Offset Assure plan: the next step, and a mock audit button at the top of what an auditor would find](docs/screenshots/plan.png)
+
 ![Offset Assure control register](docs/screenshots/controls.png)
 
 ![Offset Assure golden thread: each risk joined to its controls and their evidence](docs/screenshots/golden-thread.png)
+
+![Offset Assure settings: a tab for each section, and an overview of what is on](docs/screenshots/settings.png)
 
 <sub>Screenshots from the current release, filled with the built-in example data. The people and the company are made up.</sub>
 
