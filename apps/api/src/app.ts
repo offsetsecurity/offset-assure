@@ -137,7 +137,8 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
+        // No inline styles: the page's styles are one file served from here.
+        styleSrc: ["'self'"],
         imgSrc: ["'self'", "data:"],
         // Fonts ship with the product; nothing is fetched from elsewhere.
         fontSrc: ["'self'", "data:"],
@@ -148,6 +149,8 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
         formAction: ["'self'"],
       },
     },
+    // The page embeds nothing from elsewhere, so this costs nothing and closes a ZAP finding.
+    crossOriginEmbedderPolicy: { policy: "require-corp" },
     hsts: isProd ? { maxAge: 31_536_000, includeSubDomains: true } : false,
   });
 
