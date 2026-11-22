@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import type { FastifyInstance } from "fastify";
-import http from "node:http";
-import type { AddressInfo } from "node:net";
+
+import net, { type AddressInfo } from "node:net";
 import { buildApp } from "../src/app.js";
 import { migrate } from "../src/db/migrate.js";
 import { seedControls } from "../src/db/seed.js";
@@ -161,22 +161,30 @@ maybe("second review fixes", () => {
     try {
       for (const path of ["/api/v1/auth/login", "/api/v1/auth/logout", "/api/v1/nothing-here"]) {
         const started = Date.now();
+        // A raw connection that sends the whole body at once and reads whatever
+        // comes back. The 413 must arrive: a connection cut with no answer
+        // (0) fails. Cutting the connection while the client was still sending
+        // made its system throw the 413 away (N1b, 15 Nov 2026).
         const status = await new Promise<number>((resolve) => {
-          const req = http.request({ host: "127.0.0.1", port, path, method: "POST", headers: { "content-type": "application/json", "content-length": body.length } }, (res) => {
-            res.resume();
-            resolve(res.statusCode ?? 0);
+          let got = "";
+          let settled = false;
+          const sock = net.connect({ host: "127.0.0.1", port }, () => {
+            sock.write(`POST ${path} HTTP/1.1\r\nHost: 127.0.0.1\r\nContent-Type: application/json\r\nContent-Length: ${body.length}\r\n\r\n`);
+            sock.write(body);
           });
-          // -1: the connection was cut. When a client is still sending a large
-          // body, closing the connection can make its system throw away the 413
-          // already sent (a TCP reset), so the client may see only a cut
-          // connection. That is accepted here (N1b, Low, 15 Nov 2026): what this
-          // test holds is that the server refuses at once and is not held.
-          req.on("error", () => resolve(-1));
-          setTimeout(() => resolve(0), 8000);
-          req.write(body);
-          req.end();
+          const done = () => {
+            if (settled) return;
+            settled = true;
+            const m = /^HTTP\/1\.1 (\d{3})/.exec(got);
+            resolve(m ? Number(m[1]) : 0);
+            sock.destroy();
+          };
+          sock.on("data", (d: Buffer) => { got += d.toString("latin1"); if (got.includes("\r\n\r\n")) done(); });
+          sock.on("error", () => { /* what arrived before is read in done() */ });
+          sock.on("close", done);
+          setTimeout(done, 8000);
         });
-        expect([413, -1], `${path} answered ${status}`).toContain(status);
+        expect(status, `${path} answered ${status} (0: the connection was cut with no answer)`).toBe(413);
         expect(Date.now() - started, `${path} took too long`).toBeLessThan(6000);
       }
     } finally {
