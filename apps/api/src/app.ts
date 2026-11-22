@@ -166,7 +166,7 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
   // the 413: cutting it while the client is still sending makes the client's
   // system throw the 413 away (N1b, 15 Nov 2026). The request time limit still
   // ends a client that sends forever.
-  app.addHook("onRequest", async (request, reply) => {
+  app.addHook("onRequest", async (request, _reply) => {
     const declared = Number(request.headers["content-length"] ?? 0);
     const json = String(request.headers["content-type"] ?? "").toLowerCase().startsWith("application/json");
     if (json && declared > JSON_BODY_LIMIT) {

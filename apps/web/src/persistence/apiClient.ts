@@ -24,8 +24,12 @@ function csrfToken(): string {
  * The version (`updated_at`) of each record as this page last read it. A
  * change to a record sends it back, and the server refuses the change if
  * somebody else saved the record since (GL-5), instead of quietly overwriting
- * their work. After a change the version is forgotten until the record is
- * read again: the answer to a change can carry the time from just before it.
+ * their work. The version is forgotten the moment a change is sent, so a
+ * second change made before the first is answered (a box saved when it loses
+ * focus, then a tick box) is not refused as if somebody else had made it. It
+ * is learnt again when the record is next read. After a refusal it is kept,
+ * so the change stays refused until the page is reloaded and shows the other
+ * person's change.
  */
 const versions = new Map<string, string>();
 const RECORD_PATH = /\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
@@ -48,6 +52,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
   const recordId = method === "PATCH" ? RECORD_PATH.exec(path)?.[1] : undefined;
   const seen = recordId ? versions.get(recordId) : undefined;
   if (seen) headers["x-record-version"] = seen;
+  if (recordId) versions.delete(recordId);
 
   const response = await fetch(path, {
     method,
@@ -77,11 +82,11 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     err.detail = payload.detail;
     // The session expired or was revoked — the shell listens for this.
     if (response.status === 401) window.dispatchEvent(new CustomEvent("offset:signed-out"));
+    if (response.status === 409 && recordId && seen) versions.set(recordId, seen);
     throw err;
   }
 
-  if (recordId) versions.delete(recordId);
-  else if (method === "GET") remember(payload);
+  if (method === "GET") remember(payload);
   return payload as T;
 }
 
