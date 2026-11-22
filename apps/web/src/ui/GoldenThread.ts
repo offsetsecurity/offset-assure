@@ -191,7 +191,8 @@ export function GoldenThread({ itemLabel, canEdit, clauses = false, reasons = cl
   const [data, setData] = useState<ThreadData | null>(null);
   const [themes, setThemes] = useState<Record<string, string>>({});
   const [error, setError] = useState("");
-  const [onlyProblems, setOnlyProblems] = useState<boolean | null>(null);
+  // Opens on Only problems: what needs fixing first; Everything is one click away (owner, 9 Nov).
+  const [onlyProblems, setOnlyProblems] = useState<boolean | null>(true);
   const [query, setQuery] = useState("");
   const [sel, setSel] = useState<Sel>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);

@@ -90,12 +90,12 @@ const NAV_SECTIONS: readonly NavSection[] = [
   { id: "start", title: "", routes: ["getready", "dashboard"] },
   // The programme the certificate is made of, in the order it is built.
   { id: "compliance", title: "Programme", routes: ["isms", "profile", "soa", "system", "controls", "policies", "evidence"] },
-  { id: "risk", title: "Risk", routes: ["risks", "thread", "vendors", "assets"] },
+  { id: "risk", title: "Risk", routes: ["risks", "assets", "thread", "vendors"] },
   // The work of running the programme week to week.
-  { id: "work", title: "Operations", routes: ["tasks", "calendar", "findings", "incidents"] },
+  { id: "work", title: "Operations", routes: ["tasks", "calendar", "incidents"] },
   // Facing the auditor.
-  { id: "reports", title: "Audit", routes: ["auditor", "reports", "gaps"] },
-  { id: "management", title: "Governance", routes: ["training", "objectives", "parties", "reviews", "communications"] },
+  { id: "reports", title: "Audit", routes: ["auditor", "reviews", "findings", "gaps", "reports"] },
+  { id: "management", title: "Governance", routes: ["training", "objectives", "parties", "communications"] },
   { id: "admin", title: "Administration", routes: ["people", "escalation", "audit", "backups"] },
 ];
 
