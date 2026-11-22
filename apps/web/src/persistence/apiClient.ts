@@ -20,10 +20,34 @@ function csrfToken(): string {
   return match?.[1] ? decodeURIComponent(match[1]) : "";
 }
 
+/**
+ * The version (`updated_at`) of each record as this page last read it. A
+ * change to a record sends it back, and the server refuses the change if
+ * somebody else saved the record since (GL-5), instead of quietly overwriting
+ * their work. After a change the version is forgotten until the record is
+ * read again: the answer to a change can carry the time from just before it.
+ */
+const versions = new Map<string, string>();
+const RECORD_PATH = /\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
+
+function remember(value: unknown, depth = 0): void {
+  if (depth > 3 || !value || typeof value !== "object") return;
+  if (Array.isArray(value)) {
+    for (const v of value) remember(v, depth + 1);
+    return;
+  }
+  const o = value as Record<string, unknown>;
+  if (typeof o["id"] === "string" && typeof o["updated_at"] === "string") versions.set(o["id"], o["updated_at"]);
+  for (const v of Object.values(o)) if (v && typeof v === "object") remember(v, depth + 1);
+}
+
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
   const headers: Record<string, string> = { accept: "application/json" };
   if (body !== undefined) headers["content-type"] = "application/json";
   if (method !== "GET") headers[CSRF_HEADER] = csrfToken();
+  const recordId = method === "PATCH" ? RECORD_PATH.exec(path)?.[1] : undefined;
+  const seen = recordId ? versions.get(recordId) : undefined;
+  if (seen) headers["x-record-version"] = seen;
 
   const response = await fetch(path, {
     method,
@@ -56,6 +80,8 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     throw err;
   }
 
+  if (recordId) versions.delete(recordId);
+  else if (method === "GET") remember(payload);
   return payload as T;
 }
 

@@ -6,6 +6,7 @@ import { query, withTransaction } from "../db/pool.js";
 import { canRead, canWrite, requireAuth, assertCanWrite } from "../auth/rbac.js";
 import { audit } from "../audit/audit.js";
 import { badRequest, notFound, HttpError } from "../lib/errors.js";
+import { assertUnchanged } from "../lib/record-version.js";
 
 const idParam = z.object({ id: z.string().uuid() });
 const score = z.number().int().min(1).max(5);
@@ -227,6 +228,7 @@ export async function riskRoutes(app: FastifyInstance): Promise<void> {
     );
     const before = existing[0];
     if (!before) throw notFound("Risk not found.");
+    assertUnchanged(request, before);
     if (body.title !== undefined) await refuseDuplicate(body.title, id);
 
     if ((body.status ?? before["status"]) === "Accepted" && !(body.acceptedBy ?? before["accepted_by"])) {

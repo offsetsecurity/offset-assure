@@ -6,6 +6,7 @@ import { audit } from "../audit/audit.js";
 import { notFound } from "../lib/errors.js";
 import { MATURITY_DEFAULT_TARGET, MATURITY_MAX, MATURITY_MIN } from "../config.js";
 import { compareRefs } from "../lib/refs.js";
+import { assertUnchanged } from "../lib/record-version.js";
 
 const STATUSES = ["not_started", "in_progress", "implemented", "not_applicable"] as const;
 
@@ -283,6 +284,7 @@ export async function controlRoutes(app: FastifyInstance): Promise<void> {
     const { rows: existing } = await query<ControlRow>("select * from controls where id = $1", [id]);
     const before = existing[0];
     if (!before) throw notFound("Control not found.");
+    assertUnchanged(request, before);
 
     const sets: string[] = [];
     const params: unknown[] = [id];
