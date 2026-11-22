@@ -275,6 +275,30 @@ export const auth = {
     api.post<{ user: SessionUser }>("/api/v1/auth/password", body),
 };
 
+export interface SettingsEvent { action: string; actor: string; at: string }
+
+/** Settings → Overview: every section's state, recent history, and the server's facts. */
+export interface SettingsOverview {
+  server: {
+    version: string;
+    installKind: "docker" | "linux" | "windows" | "none";
+    timeZone: string;
+    uptimeSeconds: number;
+    databaseBytes: number;
+    evidence: { bytes: number; files: number; partial: boolean };
+    backups: { enabled: boolean; keep: number; count: number; last: { at: string; kind: string; bytes: number } | null };
+    people: Record<string, number>;
+  };
+  https: { on: boolean; source: string };
+  email: { enabled: boolean; provider: string | null; sender: string | null; lastTest: SettingsEvent | null };
+  digest: { enabled: boolean; recipients: number; horizonDays: number; lastSent: string | null };
+  history: Record<string, SettingsEvent[]>;
+}
+
+export const settingsOverview = {
+  get: () => api.get<SettingsOverview>("/api/v1/settings/overview"),
+};
+
 export const controls = {
   /** Which risks this control treats; replaces the whole set. */
   setRisks: (id: string, riskIds: string[]) =>

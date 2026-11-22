@@ -22,7 +22,7 @@ maybe("a control's part of the thread", () => {
   beforeAll(async () => {
     await migrate();
     await seedIfEmpty();
-    for (const t of ["audit_log", "sessions", "users", "risk_controls", "risks", "evidence_controls", "evidence"]) {
+    for (const t of ["audit_log", "sessions", "users", "risk_controls", "risks", "evidence_controls", "evidence", "control_tests"]) {
       await query(`delete from ${t}`);
     }
     app = await buildApp();
