@@ -78,9 +78,12 @@ not start properly the old one and your data are put back automatically.
 
 ## Who can see the documents you upload
 
-Anyone who can sign in and read. Evidence is served as an attachment, never
-opened in the browser, so an uploaded file cannot run anything against your
-session.
+Anyone who can sign in and read. Any kind of file can be uploaded, including
+programs. Evidence is served as an attachment, never opened in the browser and
+never run, so an uploaded file cannot run anything against your session or
+your server. A person who downloads a file and opens it on their own computer
+is in the same position as with any file sent by email, so open only what you
+expect.
 
 A backup file holds every document and every password hash, so treat one as you
 would treat the server itself.

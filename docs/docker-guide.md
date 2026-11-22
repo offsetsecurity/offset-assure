@@ -270,6 +270,12 @@ updates later, when you ask it to.
 
 (or whatever port you chose in Part 5)
 
+> **If you put a proxy in front of it** (nginx, Caddy, IIS, a load balancer),
+> add one more line to `.env`: `TRUST_PROXY=` followed by the proxy's address,
+> for example `TRUST_PROXY=172.16.0.0/12`. Without it, everyone appears to come
+> from the proxy's address, and 20 wrong passwords from any one person pause
+> sign-in for everybody for 15 minutes. If you have no proxy, leave it out.
+
 **7.3** The first screen asks you to create the administrator account. Fill
 it in and submit.
 

@@ -33,7 +33,7 @@ folders.
   algorithm OWASP recommends. They are never stored or logged in readable form.
   Hashes are upgraded automatically when the settings are raised.
 - **Minimum length is 12 characters.**
-- **Lockout:** 5 wrong passwords lock the account for 15 minutes. Every failed
+- **Lockout:** 5 wrong passwords lock the account for 15 minutes. The person it belongs to still gets in from a browser they have signed in from in the last 30 days (a signed cookie that proves a past sign-in, not a password; ten wrong passwords an hour from such a browser and it is treated like any other), so a stranger cannot keep an administrator out. From a new browser, wait 15 minutes or use the temporary password issued at the server. Every failed
   sign-in is recorded with the address it came from.
 - **Limit per address:** 20 failed sign-ins from one address, to any accounts,
   block that address for 15 minutes. It is then refused before any account is
