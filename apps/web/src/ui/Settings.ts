@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import type { VNode } from "preact";
 import { html } from "./html.js";
-import { SettingsOverview } from "./SettingsOverview.js";
+import { SettingsOverview, SettingsTabs, SETTINGS_TABS, useOverview, type SettingsTab } from "./SettingsOverview.js";
 import { Updates } from "./Updates.js";
 import { Certificate } from "./Certificate.js";
 import { ExampleData } from "./ExampleData.js";
@@ -42,11 +42,27 @@ const EMPTY: Draft = {
 
 type Note = { kind: "ok" | "err"; text: string } | null;
 
+/** Which tab the address names: #/settings is the Overview, #/settings/email is Outgoing email. */
+function tabFromHash(hasExample: boolean): SettingsTab {
+  const id = /^#\/?settings\/([a-z]+)/.exec(window.location.hash)?.[1];
+  const hit = SETTINGS_TABS.find((t) => t.id === id);
+  return hit && (hit.id !== "example" || hasExample) ? hit.id : "overview";
+}
+
 export function Settings({ me, features }: {
   me: SessionUser;
   /** The pack's feature flags, for the sections not every product has. */
   features: Record<string, boolean>;
 }): VNode {
+  const hasExample = Boolean(features["demoData"]);
+  const [tab, setTab] = useState<SettingsTab>(() => tabFromHash(hasExample));
+  useEffect(() => {
+    const onHash = (): void => setTab(tabFromHash(hasExample));
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, [hasExample]);
+  // Read again each time a tab opens, so the pills and boxes never show a section as it was before it was saved.
+  const overview = useOverview(hasExample, tab);
   const [draft, setDraft] = useState<Draft>(EMPTY);
   const [hasPassword, setHasPassword] = useState(false);
   /**
@@ -228,16 +244,14 @@ export function Settings({ me, features }: {
     n ? html`<div class=${n.kind === "ok" ? "ok-note" : "err"}>${n.text}</div>` : null;
 
   return html`
-    <div class="settings-layout">
-    <${OnThisPage} />
     <div class="settings-stack">
-      <${SettingsOverview} hasExample=${Boolean(features["demoData"])} />
-      <${Updates} />
+      <${SettingsTabs} active=${tab} state=${overview} hasExample=${hasExample} />
+      <div class="gs-panel" hidden=${tab !== "overview"}><${SettingsOverview} state=${overview} hasExample=${hasExample} /></div>
+      <div class="gs-panel" hidden=${tab !== "updates"}><${Updates} /></div>
+      <div class="gs-panel" hidden=${tab !== "https"}><${Certificate} /></div>
+      ${hasExample ? html`<div class="gs-panel" hidden=${tab !== "example"}><${ExampleData} /></div>` : null}
 
-      <${Certificate} />
-
-      ${features["demoData"] ? html`<${ExampleData} />` : null}
-
+      <div class="gs-panel" hidden=${tab !== "email"}>
       <form class="card pad" onSubmit=${save}>
         <h2 class="section-h">Outgoing email</h2>
         <p class="muted section-note">
@@ -394,7 +408,9 @@ export function Settings({ me, features }: {
           </button>
         </div>
       </div>
+      </div>
 
+      <div class="gs-panel" hidden=${tab !== "digest"}>
       <form class="card pad" onSubmit=${saveDigest}>
         <h2 class="section-h">Daily digest</h2>
         <p class="muted section-note">
@@ -482,47 +498,7 @@ export function Settings({ me, features }: {
             </div>`
           : null}
       </form>
+      </div>
 
-    </div>
     </div>`;
-}
-
-/**
- * "On this page": the section headings of Settings, as links that follow you
- * down the page. Read from the page itself, so a section added later is listed
- * without anyone remembering to add it here.
- */
-function OnThisPage(): VNode {
-  const [items, setItems] = useState<{ id: string; label: string }[]>([]);
-  const [at, setAt] = useState("");
-  useEffect(() => {
-    const read = (): void => {
-      const found = [...document.querySelectorAll<HTMLElement>(".settings-stack > *")].map((el, i) => {
-        const h = el.querySelector<HTMLElement>("h2, h3, .section-h, .section-title h2");
-        if (!h) return null;
-        // The heading's own words, without any status badge beside them.
-        const words = [...h.childNodes].filter((n) => !(n instanceof HTMLElement && n.classList.contains("pill"))).map((n) => n.textContent ?? "").join("");
-        // Named by its words, not its place: sections that load later would shift every number.
-        if (!el.id) el.id = `set-${words.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-") || i}`;
-        return { id: el.id, label: words.trim() };
-      }).filter((x): x is { id: string; label: string } => Boolean(x && x.label));
-      setItems((cur) => (cur.map((c) => c.label).join("|") === found.map((c) => c.label).join("|") ? cur : found));
-    };
-    read();
-    const t = setInterval(read, 1200);
-    const spy = (): void => {
-      const els = [...document.querySelectorAll<HTMLElement>(".settings-stack > [id]")];
-      const cur = els.filter((el) => el.getBoundingClientRect().top < 140).pop() ?? els[0];
-      if (cur) setAt(cur.id);
-    };
-    window.addEventListener("scroll", spy, { passive: true });
-    spy();
-    return () => { clearInterval(t); window.removeEventListener("scroll", spy); };
-  }, []);
-  if (items.length < 3) return html`<span></span>`;
-  return html`<nav class="settings-nav" aria-label="On this page">
-    <div class="settings-nav-h">On this page</div>
-    ${items.map((it) => html`<a key=${it.id} href=${`#/settings`} class=${at === it.id ? "on" : ""}
-        onClick=${(e: Event) => { e.preventDefault(); document.getElementById(it.id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>${it.label}</a>`)}
-  </nav>`;
 }

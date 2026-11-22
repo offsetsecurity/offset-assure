@@ -2,40 +2,53 @@ import { test, expect } from "@playwright/test";
 import { signIn, open, watchErrors } from "./support.js";
 
 /**
- * Settings is one page of cards with "On this page" beside it, and a register
- * opens with chips that count and filter.
+ * Settings is the Global Settings page: a strip of tabs, each with a pill, an
+ * Overview of boxes first, and each section on its own tab. A register opens
+ * with chips that count and filter.
  */
 test.beforeEach(async ({ page }) => { await signIn(page); });
 
-test("Settings: every section is a card on one page, and On this page takes you to it", async ({ page }) => {
+test("Settings: a tab strip with a pill on each, and each tab opens its own section", async ({ page }) => {
   const errors = watchErrors(page);
   await page.setViewportSize({ width: 1440, height: 900 });
   await open(page, "settings");
-  for (const name of ["Updates", "Outgoing email", "Daily digest"]) {
-    await expect(page.locator(".settings-stack h2", { hasText: name }).first(), name).toBeVisible();
+  const tabs = page.locator(".gs-tabs a");
+  await expect(tabs.filter({ hasText: "Overview" })).toHaveAttribute("aria-current", "page");
+  for (const name of ["Updates", "HTTPS", "Outgoing email", "Daily digest"]) {
+    await expect(tabs.filter({ hasText: name }).first(), name).toBeVisible();
   }
-  const nav = page.locator(".settings-nav a");
-  // The list is read from the page itself, a moment after the sections have drawn.
-  await expect.poll(() => nav.count(), { timeout: 8000 }).toBeGreaterThanOrEqual(4);
-  await nav.filter({ hasText: "Daily digest" }).click();
-  await expect.poll(async () => (await page.locator(".settings-stack h2", { hasText: "Daily digest" }).first().boundingBox())!.y, { timeout: 8000 }).toBeLessThan(300);
+  // A pill says in a word whether it is on.
+  await expect(tabs.filter({ hasText: "Daily digest" }).locator(".st-pill")).toBeVisible();
+  for (const [tab, heading] of [["Updates", "Updates"], ["Outgoing email", "Outgoing email"], ["Daily digest", "Daily digest"]] as const) {
+    await tabs.filter({ hasText: tab }).first().click();
+    await expect(tabs.filter({ hasText: tab }).first()).toHaveAttribute("aria-current", "page");
+    await expect(page.locator(".settings-stack h2", { hasText: heading }).first(), tab).toBeVisible();
+  }
+  // Only the open tab's section shows.
+  await expect(page.locator(".gs-card:visible")).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
-test("Settings: the overview has a box for each section, and a box takes you to its section", async ({ page }) => {
+test("Settings: the Overview has a box for each section and the facts about the server, and a box opens its tab", async ({ page }) => {
   const errors = watchErrors(page);
   await page.setViewportSize({ width: 1440, height: 900 });
   await open(page, "settings");
-  const boxes = page.locator(".ov-box");
+  const boxes = page.locator(".gs-box");
   await expect.poll(() => boxes.count(), { timeout: 8000 }).toBeGreaterThanOrEqual(5);
   for (const name of ["Updates", "HTTPS", "Outgoing email", "Daily digest"]) {
     await expect(boxes.filter({ hasText: name }).first(), name).toBeVisible();
   }
-  // The facts about this server sit under the boxes.
-  await expect(page.locator(".ov-facts")).toContainText("Installed with");
+  await expect(page.locator(".gs-facts")).toContainText("Installed with");
   await boxes.filter({ hasText: "Daily digest" }).click();
-  await expect.poll(async () => (await page.locator(".settings-stack h2", { hasText: "Daily digest" }).first().boundingBox())!.y, { timeout: 8000 }).toBeLessThan(300);
+  await expect(page).toHaveURL(/#\/settings\/digest/);
+  await expect(page.locator(".settings-stack h2", { hasText: "Daily digest" }).first()).toBeVisible();
   expect(errors).toEqual([]);
+});
+
+test("Settings: a link to a tab opens it directly", async ({ page }) => {
+  await open(page, "settings/email");
+  await expect(page.locator(".gs-tabs a[aria-current=page]")).toContainText("Outgoing email");
+  await expect(page.locator(".settings-stack h2", { hasText: "Outgoing email" }).first()).toBeVisible();
 });
 
 test("A register shows its statuses as chips with counts, and a chip filters the rows", async ({ page }) => {
