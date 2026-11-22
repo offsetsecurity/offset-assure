@@ -9,7 +9,7 @@ import { dayIso, todayIso } from "../src/lib/time.js";
 
 /**
  * "If the auditor came today", fix-first, quick wins, the flight path and the
- * bulk change behind Get ready and the Dashboard. Each rule is driven from
+ * bulk change behind Plan and the Dashboard. Each rule is driven from
  * real rows, so a rule that never fires (or always does) shows up here rather
  * than on a customer's screen.
  *

@@ -8,7 +8,7 @@ do tomorrow.
 Your administrator gives you a username, a password and the address. The first
 person ever to open a new install creates the administrator account.
 
-## Look at Get ready
+## Look at Plan
 
 Eight stages, 36 steps, from setting the product up to passing a certification
 audit. Each step says what to do, why it matters, and has a button to the

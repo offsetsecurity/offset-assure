@@ -334,7 +334,7 @@ export function Dashboard({ themes, themeLabel, itemLabel, pack, name = "" }: {
             <${Forecast} d=${readyData} words=${pack.readiness} />
             <${Team} d=${readyData} />
           </div>
-          <p class="muted" style="font-size:12.5px;margin:12px 0 0">Every number here is improved on Get ready. <a href="#/getready">Go to Get ready →</a></p>
+          <p class="muted" style="font-size:12.5px;margin:12px 0 0">Every number here is improved on Plan. <a href="#/getready">Go to Plan →</a></p>
         </>`
       : null}</>`;
 }

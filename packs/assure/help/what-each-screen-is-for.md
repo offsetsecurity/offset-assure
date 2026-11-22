@@ -2,7 +2,7 @@
 
 | Screen | What it is for |
 |---|---|
-| **Get ready** | The plan: what to do next, and how far you have got |
+| **Plan** | The plan: what to do next, and how far you have got |
 | **Golden thread** | Every risk, what treats it, and the proof, joined up. Green means satisfied, red means broken. A Clauses column shows whether 6.1.2, 6.1.3 and 8.3 are met for each risk, and what to do if not |
 | **Dashboard** | Where the programme stands today, in numbers |
 | **ISMS** | Clauses 4 to 6 on one page: context issues, interested parties, scope, risk method, objectives and your certificate |

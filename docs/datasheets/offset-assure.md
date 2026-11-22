@@ -16,7 +16,7 @@ support them.
 | **The standard** | All 93 Annex A controls in 4 themes, with clauses 4 to 10 covered by the plan |
 | **Statement of Applicability** | A decision and a reason on every control, a warning when an excluded control is still treating a risk, and the SoA as a PDF |
 | **Guidance on every control** | What it means, what to do, what an auditor looks for, and what proof to keep |
-| **Get ready** | A plan of 8 stages and 36 steps, from setting up to the certification audit. 23 steps tick themselves from your data |
+| **Plan** | A plan of 8 stages and 36 steps, from setting up to the certification audit. 23 steps tick themselves from your data |
 | **Sample library** | 132 assets and 111 risks, covering every Annex A control, to add with one click |
 | **Registers** | Evidence, risks, assets, policies, tasks, incidents and findings, plus suppliers, training, objectives, interested parties, and audits and reviews |
 | **Corrective action** | Findings with root cause, action taken and verification, as clause 10.2 asks |

@@ -60,7 +60,7 @@ before Stage 1; everything should be true before Stage 2.
 - Every finding has a root cause, a corrective action, an owner and a date.
 - The document control list shows nothing past its review date.
 
-**In Assure.** **Get ready** tracks most of this list for you. The **Gap
+**In Assure.** **Plan** tracks most of this list for you. The **Gap
 report** and **Gap analysis** show what is still missing, and the **Readiness
 plan** report turns it into a dated list of work.
 

@@ -349,7 +349,7 @@ function writeSnoozed(ids: Set<string>): void {
 }
 
 /**
- * Get ready, the readiness way: one move at a time, done in the card where it
+ * Plan, the readiness way: one move at a time, done in the card where it
  * can be, with the progress, what an auditor would find today, and the fixes
  * that clear the most, all on one screen. The charts live on the Dashboard.
  * The design came from Offset Attest; the pack's `readiness` feature turns it on.

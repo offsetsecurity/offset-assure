@@ -30,7 +30,7 @@ does.
 | 400 | The request failed validation, or the product does not have that feature (the baseline, example data) |
 | 401 | Not signed in |
 | 403 | Signed in, but the role does not allow it, the CSRF token is missing or wrong, or the password must be changed first |
-| 404 | Not found. Also the Get ready plan in a product without one |
+| 404 | Not found. Also the Plan in a product without one |
 | 409 | Conflicts with the current state, such as a first administrator that already exists |
 | 429 | Too many requests (the Forgot password form) |
 | 503 | A backup is being restored. Try again in a moment |
@@ -54,13 +54,13 @@ does.
 | POST | `/api/v1/auth/password` | Signed in | Change your own password. Ends your other sessions |
 | GET | `/api/v1/auth/me` | Signed in | Who you are, and your role |
 
-## Programme and Get ready
+## Programme and Plan
 
 | Method | Path | Who | What |
 |---|---|---|---|
 | GET | `/api/v1/programme` | Read | Scope, risk method, and product-specific settings (tiers, the system, the baseline) |
 | PATCH | `/api/v1/programme` | Write | Change any of them |
-| GET | `/api/v1/journey` | Read | The Get ready plan, with each step's state and why |
+| GET | `/api/v1/journey` | Read | The Plan, with each step's state and why |
 | PUT | `/api/v1/journey/:taskId` | Write | Mark a step done, not applicable (with a reason), or open again |
 | GET | `/api/v1/thread` | Read | The golden thread: every control, each risk with the controls that treat it, and linked proof with its age in days |
 

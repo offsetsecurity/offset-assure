@@ -252,7 +252,7 @@ export function App(): VNode {
   // Each register opens on its entries, not on whichever tab the last one was left
   // on - unless the address names a tab, as a link to the Golden thread does.
   useEffect(() => setSubTab(subTabFromHash()), [route]);
-  // A link straight to the templates, such as the one on a Get ready step.
+  // A link straight to the templates, such as the one on a Plan step.
   useEffect(() => {
     const open = (): void => {
       if (/^#\/?policies\/templates/.test(window.location.hash)) setPolicyTab("templates");
@@ -468,7 +468,7 @@ export function App(): VNode {
   });
 
   const TITLE: Record<Route, { h1: string; sub: string }> = {
-    getready: { h1: "Get ready", sub: "What to do, in what order, and how far you have got" },
+    getready: { h1: "Plan", sub: "What to do, in what order, and how far you have got" },
     thread: { h1: "Golden thread", sub: `Every risk, the ${plural(itemLabel).toLowerCase()} that treat it, and the evidence behind them` },
     dashboard: {
       h1: "Dashboard",
@@ -508,7 +508,7 @@ export function App(): VNode {
   };
 
   const NAV_LABEL: Record<Route, string> = {
-    getready: "Get ready",
+    getready: "Plan",
     thread: "Golden thread",
     dashboard: "Dashboard",
     isms: "ISMS",

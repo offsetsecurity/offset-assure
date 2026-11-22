@@ -42,7 +42,7 @@ export function HomeHero({ name, d, words, pct, ringLabel, gaps, journey }: {
   ringLabel: string;
   /** Items marked implemented that have nothing to prove it. */
   gaps: number | null;
-  /** Whether the pack has the Get ready plan. */
+  /** Whether the pack has the Plan. */
   journey: boolean;
 }): VNode {
   const [plan, setPlan] = useState<Journey | null>(null);
@@ -79,7 +79,7 @@ export function HomeHero({ name, d, words, pct, ringLabel, gaps, journey }: {
         <div class="hero-actions">
           ${steps[0]
             ? html`<a class="btn primary" href="#/getready">Continue: ${steps[0].task.title}<${Icon} name="arrow" /></a>`
-            : html`<a class="btn primary" href="#/getready">Open Get ready<${Icon} name="arrow" /></a>`}
+            : html`<a class="btn primary" href="#/getready">Open Plan<${Icon} name="arrow" /></a>`}
           <a class="btn" href="#/auditor">Auditor view</a>
         </div>
       </div>

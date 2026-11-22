@@ -26,7 +26,7 @@ is.
 they compare this year with last year. An ISMS that looks exactly the same
 three years running is not improving.
 
-**In Assure.** Review **Get ready** each year. Raise improvements as **Tasks**.
+**In Assure.** Review **Plan** each year. Raise improvements as **Tasks**.
 The **Executive summary** report shows progress at a point in time; keep each
 year's copy.
 

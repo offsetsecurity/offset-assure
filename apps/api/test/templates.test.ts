@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { inflateRawSync } from "node:zlib";
 
 /**
- * The policy templates and the Get ready steps that point at them.
+ * The policy templates and the Plan steps that point at them.
  *
  * A step that says "start from this template" and names one that is not there
  * sends somebody to a dead end at the moment they are most likely to give up.
@@ -56,7 +56,7 @@ maybe("policy templates", () => {
     }
   });
 
-  it("is named by every Get ready step that points at one", () => {
+  it("is named by every Plan step that points at one", () => {
     const j = resolve(pack, "journey.json");
     if (!existsSync(j)) return;
     const listed = new Set(index.documents.map((d) => d.file));

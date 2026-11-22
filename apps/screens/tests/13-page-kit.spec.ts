@@ -40,7 +40,7 @@ test("Dashboard: the hero says where you stand, Up next leads to the plan, and e
   for (let i = 0; i < await cards.count(); i++) {
     expect(await cards.nth(i).getAttribute("href")).toMatch(/^#\/[a-z]+$/);
   }
-  // A card opens its own step on Get ready, not whatever the plan suggests.
+  // A card opens its own step on Plan, not whatever the plan suggests.
   const upCards = page.locator(".upnext-card");
   if ((await upCards.count()) >= 2) {
     const title = (await upCards.nth(1).locator("b").innerText()).trim();

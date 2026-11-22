@@ -435,13 +435,13 @@ No item counts as finished until all of it is true:
   ([ADR 0003](adr/0003-preact-and-htm-for-the-front-end.md)).
 - Report generation: pdfmake (Phase 5).
 
-## Phase 9 — Get ready for every product
+## Phase 9 — Plan for every product
 
 **Decided 2026-09-12.** The readiness plan ships with all four products, not
 only Irtiqa.
 
 It is the feature that changes who can use this. Everything else assumes
-somebody already knows what a control programme looks like; Get ready is the
+somebody already knows what a control programme looks like; Plan is the
 part that takes an administrator with no security team from a fresh install to
 an assessed, evidenced programme. A customer buying Assure or Anchor needs that
 every bit as much as one buying Irtiqa — arguably more, since 800-53 is 1,014

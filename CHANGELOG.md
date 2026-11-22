@@ -33,8 +33,11 @@ across on its own.
   database it copies the database to `backups/before-upgrade` (the newest three
   are kept). If an older program is started on a newer database it now refuses
   and says to update first, instead of running on data it does not understand.
+- **"Get ready" is now called "Plan",** the same name every Offset product uses.
+  Your links and bookmarks still work. The step card no longer leaves a blank
+  band under Previous and Next, and the menu has more room around "Jump to".
 - **Up next cards open their own step.** A card on the Dashboard now opens that
-  step on Get ready, not whatever the plan suggested.
+  step on the Plan, not whatever the plan suggested.
 - **Three database links got indexes,** so big installs stay quick.
 
 ### Removed
