@@ -14,7 +14,7 @@ import {
   type Readiness,
 } from "../persistence/apiClient.js";
 import { ThreadSummary } from "./GoldenThread.js";
-import { ProgressPanel, UpNext, InlineAction, INLINE, AuditorToday, QuickWins } from "./Ready.js";
+import { ProgressPanel, UpNext, InlineAction, AuditorToday, QuickWins } from "./Ready.js";
 
 /**
  * The readiness plan: what to do, in what order, and how far along they are.
@@ -34,8 +34,6 @@ const AMBER = "#C47A06";
 const GREY = "#97A0B1";
 const SLATE = "#D3D8E1";
 
-const stageColour = (s: JourneyStage, suggested: boolean): string =>
-  s.complete ? GREEN : s.done > 0 || suggested ? AMBER : GREY;
 
 /**
  * Breaks a stage name over at most three lines.
@@ -355,7 +353,7 @@ function writeSnoozed(ids: Set<string>): void {
  * that clear the most, all on one screen. The charts live on the Dashboard.
  * The design came from Offset Attest; the pack's `readiness` feature turns it on.
  */
-function ReadyJourney({ canEdit, itemLabel, themes, allowOut }: {
+function ReadyJourney({ canEdit, themes }: {
   canEdit: boolean;
   itemLabel: string;
   themes: Record<string, string>;
