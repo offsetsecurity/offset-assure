@@ -423,7 +423,8 @@ function ReadyJourney({ canEdit, themes }: {
     setSaid(`"${current.title}" moved to tomorrow`);
   };
 
-  return html`<>
+  // plan-fit: the page is scaled a little, as Settings is, so "Run a mock audit" is in view without scrolling.
+  return html`<div class="plan-fit">
     ${error ? html`<div class="card pad error-box" style="margin-bottom:14px">${error}</div>` : null}
     <${ProgressPanel} plan=${plan} ready=${ready} current=${current} snoozed=${snoozed}
       next=${suggested ? { title: suggested.title, n: all.indexOf(suggested) + 1, putOff: snoozed.size,
@@ -459,10 +460,10 @@ function ReadyJourney({ canEdit, themes }: {
             <div class="next-eyebrow">Every step is done or ruled out</div>
             <p style="margin:6px 0 0">What matters now is keeping the proof current, so it still shows everything working on the day of the audit.</p>
           </div>`}
-      <${QuickWins} ready=${ready} />
       <${AuditorToday} ready=${ready} canEdit=${canEdit} onRerun=${async () => setReady(await readiness.get())} />
+      <${QuickWins} ready=${ready} />
     </div>
-  </>`;
+  </div>`;
 }
 
 export function Journey({ canEdit, itemLabel, ready = false, themes = {}, allowOut = false }: {
