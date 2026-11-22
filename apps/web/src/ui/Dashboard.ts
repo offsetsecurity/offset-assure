@@ -4,7 +4,7 @@ import { html } from "./html.js";
 import { donut, radar, themeGrid, bar } from "./charts.js";
 import { controls, risks, evidence, readiness, type Control, type Risk, type Pack, type ReadinessDashboard } from "../persistence/apiClient.js";
 import { openWithStatus } from "./deepLink.js";
-import { FlightPath, LensSwitch, Forecast, Team } from "./ReadyDashboard.js";
+import { FlightPath, Forecast, Team } from "./ReadyDashboard.js";
 import { HomeHero } from "./Home.js";
 import {
   STATUS_ORDER, STATUS_LABEL, STATUS_COLOR, STATUS_PILL, RISK_BAND_COLOR, MATURITY_LEVELS,
@@ -175,7 +175,6 @@ export function Dashboard({ themes, themeLabel, itemLabel, pack, name = "" }: {
       ? html`<div class="sd-top">
           <${FlightPath} d=${readyData} words=${pack.readiness} showRing=${false}
             label=${pack.features?.["maturity"] ? "at or above target" : "controls in place"} />
-          <${LensSwitch} d=${readyData} words=${pack.readiness} />
         </div>`
       : null}
     <div class="grid cards">
