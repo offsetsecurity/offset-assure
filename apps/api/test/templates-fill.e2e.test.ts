@@ -9,6 +9,7 @@ import { seedIfEmpty } from "../src/db/seed.js";
 import { pool, query } from "../src/db/pool.js";
 import { readZip } from "../src/lib/zip.js";
 
+
 /**
  * Filling the templates from the product: answers typed once, and the
  * registers' own records, all arriving in the downloaded document.
@@ -34,13 +35,17 @@ maybe("filled templates", { timeout: 60_000 }, () => {
   beforeAll(async () => {
     process.env["PACK_DIR"] = OWN_PACK;
     await migrate();
-    await seedIfEmpty();
+    // Start from this pack's own controls, whatever an earlier test file left in
+    // the table: the Statement of Applicability test below picks a control by its
+    // reference, and one that was not in the pack never reaches the spreadsheet.
+    // (It failed in about one full run in two for that reason, 13 Nov 2026.)
     for (const t of [
-      "audit_log", "sessions", "users", "risk_controls", "risks", "tasks", "settings", "policies", "vendors",
-      "objectives", "parties", "reviews", "communications", "findings",
+      "audit_log", "sessions", "users", "risk_controls", "evidence_controls", "control_tests", "risks", "tasks",
+      "settings", "policies", "vendors", "objectives", "parties", "reviews", "communications", "findings", "controls",
     ]) {
       await query(`delete from ${t}`);
     }
+    await seedIfEmpty();
     app = await buildApp();
     await app.ready();
     const boot = await app.inject({

@@ -19,6 +19,7 @@ import { ownPasswordChanged, temporaryPassword } from "../mail/notify.js";
 import {
   ADDRESS_MAX_FAILED, ADDRESS_WINDOW_MINUTES, addressBlocked, noteAddressFailure,
 } from "../auth/address-limit.js";
+import { clearTrustedFailures, knownDevice, noteTrustedFailure, rememberDevice, trustedBlocked } from "../auth/device.js";
 
 const MAX_FAILED = 5;
 const LOCK_MINUTES = 15;
@@ -248,8 +249,12 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
     if (row.disabled) return reject("account disabled");
     const locked = Boolean(row.locked_until && row.locked_until > nowIso());
 
-    // The real password, unless the account is locked out.
-    let ok = !locked && (await verifyPassword(row.password_hash, body.password));
+    // The real password, unless the account is locked out. A locked account
+    // still takes the right password from a browser it has signed in from
+    // before, so a stranger cannot keep the real person out (auth/device.ts).
+    const trusted = locked && !trustedBlocked(row.id) && knownDevice(request, row.id, row.password_hash);
+    let ok = (!locked || trusted) && (await verifyPassword(row.password_hash, body.password));
+    if (trusted && !ok) noteTrustedFailure(row.id);
 
     // Otherwise an administrator's temporary password, which works through a
     // lockout: being locked out is the usual reason for asking for one, and at
@@ -281,9 +286,11 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
     }
 
     // Transparently upgrade the hash if our parameters have since been raised.
+    let hashNow = row.password_hash;
     if (!temporary && needsRehash(row.password_hash)) {
       const fresh = await hashPassword(body.password);
       await query("update users set password_hash = $2 where id = $1", [row.id, fresh]);
+      hashNow = fresh;
     }
 
     await query(
@@ -304,9 +311,14 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
       userAgent: request.headers["user-agent"],
       mustChangePassword: temporary,
     });
+    // A temporary password proves nothing about this browser; only a real one does.
+    if (!temporary) {
+      rememberDevice(reply, row.id, hashNow);
+      clearTrustedFailures(row.id);
+    }
     request.user = user;
     await audit(request, {
-      action: temporary ? "Signed in with a temporary password" : "Signed in",
+      action: temporary ? "Signed in with a temporary password" : trusted ? "Signed in (account was locked; known browser)" : "Signed in",
       entity: "user",
       entityId: row.id,
     });
@@ -340,7 +352,7 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
    * for the account ends, and any temporary password still outstanding is
    * spent.
    */
-  app.post("/api/v1/auth/password", { preHandler: canRead }, async (request) => {
+  app.post("/api/v1/auth/password", { preHandler: canRead }, async (request, reply) => {
     requireAuth(request);
     const body = changeBody.parse(request.body);
 
@@ -365,14 +377,20 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
       throw badRequest("Choose a password different from your current one.");
     }
 
+    const newHash = await hashPassword(body.newPassword);
     await query(
       `update users set password_hash = $2, failed_logins = 0, locked_until = null,
                         updated_at = strftime('%Y-%m-%dT%H:%M:%fZ','now')
         where id = $1`,
-      [request.user.id, await hashPassword(body.newPassword)],
+      [request.user.id, newHash],
     );
     await spendAll(request.user.id);
     await afterPasswordChange(request.user.id, request.sessionId);
+    // The person has just proved who they are, and the new password retired the
+    // old cookie: this browser is theirs again, so the way back after a reset
+    // does not end with a browser a stranger could lock out.
+    rememberDevice(reply, request.user.id, newHash);
+    clearTrustedFailures(request.user.id);
 
     await audit(request, {
       action: request.user.mustChangePassword ? "Password chosen after a temporary password" : "Password changed",

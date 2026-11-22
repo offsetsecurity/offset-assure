@@ -18,6 +18,13 @@ export default defineConfig({
      * connection and closing one does not affect the next.
      */
     fileParallelism: false,
+    /**
+     * These tests build real spreadsheets, Word files, backups and certificates
+     * on a machine that may be busy. The default 5 seconds failed a different
+     * one in about one full run in three (13 Nov 2026) and told nobody anything:
+     * each passed alone. A test that really hangs still fails, a little later.
+     */
+    testTimeout: 30_000,
     env: {
       NODE_ENV: "test",
       PRODUCT: "assure",
