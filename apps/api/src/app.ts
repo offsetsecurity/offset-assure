@@ -49,6 +49,9 @@ import { dualServerFactory } from "./tls/server.js";
 import { findControlCharacters } from "./lib/text-safety.js";
 
 /** All a session signed in with a temporary password may reach. */
+/** The most a JSON request may carry. Uploads have their own, larger limit. */
+const JSON_BODY_LIMIT = 2 * 1024 * 1024;
+
 const MUST_CHANGE_ALLOWED = new Set([
   "/api/v1/auth/me",
   "/api/v1/auth/logout",
@@ -107,7 +110,7 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
           ? false
           : config.TRUST_PROXY,
     genReqId: () => crypto.randomUUID(),
-    bodyLimit: 2 * 1024 * 1024,
+    bodyLimit: JSON_BODY_LIMIT,
     // A connection that goes quiet, or a request that never finishes arriving,
     // is closed. See SOCKET_IDLE_TIMEOUT_MS in config.ts for why.
     connectionTimeout: options.socketIdleTimeoutMs ?? config.SOCKET_IDLE_TIMEOUT_MS,
@@ -154,6 +157,20 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
     reply.header("permissions-policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=()");
   });
 
+  // A JSON body that says up front it is over the limit is refused before a byte
+  // is read, and the connection is closed after the answer. Without that, a
+  // client in the middle of sending several megabytes to an unauthenticated
+  // address (sign-in, sign-out, an unknown address) was not told anything and
+  // the connection stayed held until the idle timeout (N1, 14 Nov 2026).
+  app.addHook("onRequest", async (request, reply) => {
+    const declared = Number(request.headers["content-length"] ?? 0);
+    const json = String(request.headers["content-type"] ?? "").toLowerCase().startsWith("application/json");
+    if (json && declared > JSON_BODY_LIMIT) {
+      reply.header("connection", "close");
+      throw new HttpError(413, "This request is too large to save.");
+    }
+  });
+
   await app.register(cookie, { secret: config.SESSION_SECRET });
 
   // Uploaded evidence. The limit is declared here so the connection is cut
@@ -188,8 +205,16 @@ export async function buildApp(options: BuildOptions = {}): Promise<FastifyInsta
     // temporary password read from somebody's inbox is never a way in to the
     // data itself.
     if (request.user?.mustChangePassword) {
-      const path = request.url.split("?")[0] ?? "";
-      if (path.startsWith("/api/") && !MUST_CHANGE_ALLOWED.has(path)) {
+      // The address the router actually matched, not the text the caller typed:
+      // "/%61pi/v1/..." reaches the same route as "/api/v1/..." but does not
+      // start with "/api/" (F1 of the second review, 14 Nov 2026). The raw and
+      // the decoded text are checked as well, so nothing slips between.
+      const raw = request.url.split("?")[0] ?? "";
+      let decoded = raw;
+      try { decoded = decodeURIComponent(raw); } catch { /* an undecodable address is judged as typed */ }
+      const matched = request.routeOptions?.url ?? "";
+      const isApi = [matched, raw, decoded].some((p) => p.startsWith("/api/"));
+      if (isApi && !MUST_CHANGE_ALLOWED.has(matched || decoded)) {
         throw new HttpError(403, "Choose a new password before continuing.");
       }
     }

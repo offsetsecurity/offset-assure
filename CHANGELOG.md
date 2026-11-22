@@ -49,6 +49,22 @@ across on its own.
 - **A package warning cleared.** `@fastify/static` is now 10.1.11, so
   `pnpm audit --prod` reports nothing.
 - **Lint runs on every change,** and the code it found unused was removed.
+- **A person who signed in with a temporary password can reach nothing but
+  choosing a new password,** however the web address is written. An address
+  with part of it percent-encoded (such as `/%61pi/...`) used to slip past the
+  check.
+- **Setting a person's password ends the invitations and one-time passwords
+  still outstanding for them.**
+- **Only the first request to make the first administrator succeeds,** even if
+  several arrive at the same moment, and that address has its own rate limit.
+- **Signing out needs the page's CSRF token,** so another site cannot sign a
+  person out.
+- **Sign-in takes the same time for a disabled or locked account** as for any
+  other wrong password.
+- **A JSON request over 2 MB is refused at once and the connection closed,** on
+  every address. Before, on sign-in and sign-out the client was left waiting.
+- **A register name like `constructor` gets a plain refusal** instead of a
+  server error.
 
 ### Security
 Fixes from the whole-product check of 13 November 2026.
