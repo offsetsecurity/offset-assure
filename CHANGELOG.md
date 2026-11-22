@@ -68,6 +68,15 @@ across on its own.
   every address. Before, on sign-in and sign-out the client was left waiting.
 - **A register name like `constructor` gets a plain refusal** instead of a
   server error.
+- **A request body must arrive within 10 minutes** (`BODY_TIMEOUT_MS`), so a
+  sender who trickles a byte at a time can no longer hold a connection for the
+  full hour. Uploading or restoring a backup is exempt.
+- **A JSON request over 2 MB sent without its size up front also gets the
+  plain 413 answer;** before, the connection was cut and the sender saw nothing.
+- **Two saves of the same record at the same moment cannot both win:** the
+  check that nobody changed it meanwhile is now part of the save itself.
+- **Attaching or removing a file no longer makes the next save of that record
+  look like somebody else's change.**
 
 ### Security
 Fixes from the whole-product check of 13 November 2026.

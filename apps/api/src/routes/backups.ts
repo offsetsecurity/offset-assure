@@ -59,6 +59,8 @@ export async function backupRoutes(app: FastifyInstance): Promise<void> {
 
   app.post("/api/v1/backups/upload", { preHandler: isAdmin }, async (request, reply) => {
     requireAuth(request);
+    // A backup can be gigabytes: an administrator may take longer than the body limit.
+    noIdleTimeout(request);
     const file = await request.file({ limits: { fileSize: MAX_UPLOAD_BYTES, files: 1 } });
     if (!file) throw badRequest("Choose a backup file to upload.");
 

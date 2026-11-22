@@ -27,7 +27,8 @@ function csrfToken(): string {
  * their work. The version is forgotten the moment a change is sent, so a
  * second change made before the first is answered (a box saved when it loses
  * focus, then a tick box) is not refused as if somebody else had made it. It
- * is learnt again when the record is next read. After a refusal it is kept,
+ * is learnt again from the answer to the change (the saved record, or for a
+ * file the x-record-version header) and whenever the record is read. After a refusal it is kept,
  * so the change stays refused until the page is reloaded and shows the other
  * person's change.
  */
@@ -41,8 +42,25 @@ function remember(value: unknown, depth = 0): void {
     return;
   }
   const o = value as Record<string, unknown>;
-  if (typeof o["id"] === "string" && typeof o["updated_at"] === "string") versions.set(o["id"], o["updated_at"]);
+  if (typeof o["id"] === "string" && typeof o["updated_at"] === "string") keep(o["id"], o["updated_at"]);
   for (const v of Object.values(o)) if (v && typeof v === "object") remember(v, depth + 1);
+}
+
+/**
+ * Only ever moves forward: answers can arrive out of order (two quick saves,
+ * or a list read that started before a save), and an older time kept here
+ * would make the next save look like it came after somebody else's change.
+ */
+function keep(id: string, version: string): void {
+  const now = versions.get(id);
+  if (!now || version > now) versions.set(id, version);
+}
+
+/** A file attached or removed: the server names the record's new version in two headers. */
+function rememberHeaders(response: Response): void {
+  const id = response.headers.get("x-record-id");
+  const version = response.headers.get("x-record-version");
+  if (id && version) keep(id, version);
 }
 
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
@@ -61,6 +79,7 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     body: body === undefined ? undefined : JSON.stringify(body),
   });
 
+  if (response.ok) rememberHeaders(response);
   if (response.status === 204) return undefined as T;
 
   const payload = await response.json().catch(() => ({}));
@@ -82,11 +101,12 @@ async function request<T>(method: string, path: string, body?: unknown): Promise
     err.detail = payload.detail;
     // The session expired or was revoked — the shell listens for this.
     if (response.status === 401) window.dispatchEvent(new CustomEvent("offset:signed-out"));
-    if (response.status === 409 && recordId && seen) versions.set(recordId, seen);
+    if (response.status === 409 && recordId && seen) keep(recordId, seen);
     throw err;
   }
 
-  if (method === "GET") remember(payload);
+  // A read, and a save too: the saved record comes back with its new version.
+  remember(payload);
   return payload as T;
 }
 
@@ -115,6 +135,8 @@ async function upload<T>(path: string, body: FormData): Promise<T> {
     if (response.status === 401) window.dispatchEvent(new CustomEvent("offset:signed-out"));
     throw err;
   }
+  rememberHeaders(response);
+  remember(payload);
   return payload as T;
 }
 

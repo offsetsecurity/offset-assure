@@ -96,6 +96,12 @@ const schema = z.object({
    * a sender who trickles a byte at a time, which the idle timeout cannot see.
    */
   REQUEST_TIMEOUT_MS: z.coerce.number().int().min(1000).max(86_400_000).default(3_600_000),
+  /**
+   * The longest any other request's body may take to arrive in full (see
+   * lib/long-request.ts). Ten minutes lets a 25 MB evidence file through a
+   * slow line; only the administrator's backup routes may take longer.
+   */
+  BODY_TIMEOUT_MS: z.coerce.number().int().min(1000).max(86_400_000).default(600_000),
 
   // ── background worker ─────────────────────────────────────────────────────
   /** How often the worker looks for due work. */
