@@ -20,11 +20,13 @@ for administrators.
 
 ![Offset Assure dashboard](docs/screenshots/dashboard.png)
 
-![Offset Assure plan: the next step, and a mock audit button at the top of what an auditor would find](docs/screenshots/plan.png)
-
-![Offset Assure control register](docs/screenshots/controls.png)
+![Offset Assure auditor view: one page to walk your certification auditor through, in the order an ISO/IEC 27001 audit reads](docs/screenshots/auditor.png)
 
 ![Offset Assure golden thread: each risk joined to its controls and their evidence](docs/screenshots/golden-thread.png)
+
+![Offset Assure reports: a PDF for the board, for management and for your auditor](docs/screenshots/reports.png)
+
+![Offset Assure plan: the next step, and a mock audit button at the top of what an auditor would find](docs/screenshots/plan.png)
 
 ![Offset Assure settings: a tab for each section, and an overview of what is on](docs/screenshots/settings.png)
 
