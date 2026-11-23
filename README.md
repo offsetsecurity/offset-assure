@@ -1,5 +1,7 @@
 # Offset Assure
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/offset-assure)
+
 **ISO/IEC 27001:2022** compliance software that runs on your own server. No cloud
 account, no per-seat pricing, and nothing leaves the machine you install it on.
 
@@ -23,6 +25,16 @@ for administrators.
 ![Offset Assure golden thread: each risk joined to its controls and their evidence](docs/screenshots/golden-thread.png)
 
 <sub>Screenshots from the current release, filled with the built-in example data. The people and the company are made up.</sub>
+
+## Try it online
+
+Click **Deploy on Railway** above to get your own copy running online in a few minutes. No terminal and no settings to fill in.
+
+1. Click the button and sign in to Railway, for example with your GitHub account.
+2. Click **Deploy** and wait two or three minutes.
+3. Open the web address Railway shows and create the first administrator account.
+
+Railway is a paid hosting service with a free trial. On the free plan the copy sleeps when no one is using it, and stops if the monthly free credit runs out. For real use, install it on your own server from the downloads below.
 
 ## Download it
 
