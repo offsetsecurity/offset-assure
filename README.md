@@ -22,7 +22,7 @@ for administrators.
 
 ![Offset Assure auditor view: one page to walk your certification auditor through, in the order an ISO/IEC 27001 audit reads](docs/screenshots/auditor.png)
 
-![Offset Assure golden thread: each risk joined to its controls and their evidence](docs/screenshots/golden-thread.png)
+![Offset Assure golden thread: each risk joined to its controls and their evidence](docs/screenshots/golden-thread-problems.png)
 
 ![Offset Assure reports: a PDF for the board, for management and for your auditor](docs/screenshots/reports.png)
 
