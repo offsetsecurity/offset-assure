@@ -17,7 +17,9 @@ Every release is numbered x.y.z, for example 1.4.2:
 
 ## [Unreleased]
 
-Planned as version 0.3.0: new features and a new look, nothing you rely on is
+## [0.3.0] - 2026-11-25
+
+New features and a new look. Nothing you rely on is
 taken away except the three items under *Removed* below, and your data moves
 across on its own.
 
@@ -119,6 +121,8 @@ Fixes from the whole-product check of 13 November 2026.
 ### Changed
 - **Offset Assure is now open source,** under the Apache License 2.0. It is still
   free. You may use, change and share it. See `LICENSE`.
+
+## [0.2.47] and earlier
 
 ### Fixed (0.2.47)
 - **Docker: uploaded evidence files survive updates.** The image never told the
