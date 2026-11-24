@@ -27,7 +27,7 @@ decision after it had been repeated nine times.
 ## Editions
 
 **There is one edition: the Community Edition, and it is free.** Decided
-2026-09-10. A paid Enterprise edition was considered and shelved — revisit
+2026-09-10. A separate Enterprise edition was considered and shelved — revisit
 around September 2027, not before.
 
 **Free and open source.** Under the Apache License 2.0 since 2026-11-03;
@@ -429,7 +429,7 @@ No item counts as finished until all of it is true:
   repository stays private.
 - **2026-11-03 — open source, under the Apache License 2.0.** It replaces the
   closed-source `LICENSE`.
-- **2026-09-10 — SSO dropped.** No paid tier to sell it with. This also
+- **2026-09-10 — SSO dropped.** There is no separate edition for it. This also
   removes the need for a JDK and Keycloak on the build machine.
 - Front-end approach: Preact and htm
   ([ADR 0003](adr/0003-preact-and-htm-for-the-front-end.md)).

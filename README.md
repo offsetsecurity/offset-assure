@@ -40,7 +40,7 @@ Click **Deploy on Railway** above to get your own copy running online in a few m
 2. Click **Deploy** and wait two or three minutes.
 3. Open the web address Railway shows and create the first administrator account.
 
-Railway is a paid hosting service with a free trial. On the free plan the copy sleeps when no one is using it, and stops if the monthly free credit runs out. For real use, install it on your own server from the downloads below.
+Railway is an outside hosting service with its own charges; Offset Assure itself is free. On Railway's free plan the copy sleeps when no one is using it, and stops if the monthly free credit runs out. For real use, install it on your own server from the downloads below.
 
 ## Download it
 
