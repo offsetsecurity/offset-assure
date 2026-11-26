@@ -34,11 +34,20 @@ test("Keyboard: a requirement opens with Space from its title cell", async ({ pa
   await expect(page.locator(".modal")).toHaveCount(0);
 });
 
-test("Keyboard: typing in a field inside a row does not open the record", async ({ page }) => {
-  await open(page, "controls");
-  const owner = page.locator("tbody input.owner-input").first();
-  if (await owner.count() === 0) test.skip(true, "No owner field on this screen");
-  await owner.focus();
+test("Keyboard: Enter on a control inside a row is left to that control", async ({ page }) => {
+  // No row holds a button or field today; this puts one in, so a later one
+  // cannot open the record by mistake when someone presses Enter on it.
+  await open(page, "risks");
+  const row = page.locator(".content tbody tr.clickable").first();
+  await expect(row).toHaveAttribute("tabindex", "0");
+  await row.evaluate((tr) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "inner-test"; b.textContent = "Inner";
+    b.addEventListener("click", (e) => e.stopPropagation());
+    tr.querySelector("td")!.append(b);
+  });
+  await page.locator("button.inner-test").focus();
+  await page.keyboard.press("Enter");
   await page.keyboard.press(" ");
   await expect(page.locator(".modal")).toHaveCount(0);
 });
