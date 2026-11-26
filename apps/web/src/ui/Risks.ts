@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import { heatmap } from "./charts.js";
 import { Modal, Field } from "./Modal.js";
 import {
@@ -254,7 +254,8 @@ export function Risks({ canEdit, controls = [], itemLabel = "control" }: {
         <tbody>
           ${shown.map((r) => html`
             <tr key=${r.id} class=${canEdit ? "clickable" : ""}
-                onClick=${canEdit ? () => open(r) : undefined}>
+                onClick=${canEdit ? () => open(r) : undefined}
+                ...${opensOnKey(canEdit ? () => open(r) : undefined)}>
               <td class="muted">${r.seq}</td>
               <td>
                 <div>${r.title}</div>

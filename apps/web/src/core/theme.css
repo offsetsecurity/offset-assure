@@ -308,6 +308,7 @@ tbody tr{transition:background var(--dur-hover)}
 tbody tr:hover{background:#F8F9FC}
 tbody tr:last-child td{border-bottom:0}
 tbody tr.clickable{cursor:pointer}
+tbody tr.clickable:focus-visible,td.clickable:focus-visible{outline:2px solid var(--brand);outline-offset:-2px;border-radius:0}
 tr.saving{opacity:.55}
 
 /* ── pills, chips, refs ────────────────────────────────────────────────── */

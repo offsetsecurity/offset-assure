@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import { toCsv, download, parseCsv, key as headerKey } from "./csv.js";
 import { Modal, Field } from "./Modal.js";
 import type { RegisterApi, RegisterRow, PolicyAcknowledgement, Attachment } from "../persistence/apiClient.js";
@@ -781,7 +781,8 @@ export function Register<T extends RegisterRow>({ spec, canEdit, links, csv }: {
         <tbody>
           ${shown.map((row) => html`
             <tr key=${row.id} class=${canEdit ? "clickable" : ""}
-                onClick=${canEdit ? () => open(row) : undefined}>
+                onClick=${canEdit ? () => open(row) : undefined}
+                ...${opensOnKey(canEdit ? () => open(row) : undefined)}>
               <td class="muted">${row.seq}</td>
               ${spec.columns.map((c) => html`
                 <td style=${c.align === "right" ? "text-align:right" : ""}>${c.cell(row)}</td>`)}

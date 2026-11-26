@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import { SummaryBand, type Slice } from "./pageParts.js";
 import { controls, type Control, type ControlStatus, type Pack } from "../persistence/apiClient.js";
 import { ControlDetail } from "./ControlDetail.js";
@@ -286,7 +286,7 @@ export function Controls({ themes, themeLabel, itemLabel, canEdit, pack }: {
                   ${c.ref}
                 </span>
               </td>
-              <td class="clickable" onClick=${() => setDetail(c)}
+              <td class="clickable" onClick=${() => setDetail(c)} ...${opensOnKey(() => setDetail(c))}
                   title="Open the full record">
                 <div>${c.title}</div>
                 <div class="muted" style="font-size:11.5px">

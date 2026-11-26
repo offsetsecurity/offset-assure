@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { useTarget, settle, goBack, focusFix, type Target } from "./deepLink.js";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import { Modal, Field } from "./Modal.js";
 import {
   evidence, evidenceToInput, controls,
@@ -286,7 +286,8 @@ export function Evidence({ itemLabel, canEdit }: { itemLabel: string; canEdit: b
             const f = meta(e.freshness);
             return html`
               <tr key=${e.id} class=${canEdit ? "clickable" : ""}
-                  onClick=${canEdit ? () => open(e) : undefined}>
+                  onClick=${canEdit ? () => open(e) : undefined}
+                  ...${opensOnKey(canEdit ? () => open(e) : undefined)}>
                 <td>
                   <div>${e.name}</div>
                   ${e.notes
