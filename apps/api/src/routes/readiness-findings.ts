@@ -1,5 +1,5 @@
 import { query } from "../db/pool.js";
-import { hasFeature, themeOrder } from "../lib/pack.js";
+import { hasFeature, packMeta, themeOrder } from "../lib/pack.js";
 import { dayIso, todayIso } from "../lib/time.js";
 import type { FindingLabel, LikelyFinding, QuickWin, ControlRow } from "./readiness-shared.js";
 import { readinessWords, plural, guideRecords, themeNames, controlsInScope, inPlaceTest } from "./readiness-shared.js";
@@ -51,6 +51,9 @@ export async function likelyFindings(): Promise<LikelyFinding[]> {
   }
 
   // Controls not in place yet, one line per theme so the list stays readable.
+  // Called what the framework calls them: a control, a subcategory, a requirement.
+  const one = ((await packMeta()).itemLabel || "Control").toLowerCase();
+  const many = one.endsWith("y") ? `${one.slice(0, -1)}ies` : `${one}s`;
   const notYet = new Map<string, ControlRow[]>();
   for (const c of controls.filter((x) => !inPlace(x))) notYet.set(c.theme, [...(notYet.get(c.theme) ?? []), c]);
   for (const theme of [...notYet.keys()].sort((a, b) => (order.indexOf(a) + 1 || 99) - (order.indexOf(b) + 1 || 99))) {
@@ -58,7 +61,7 @@ export async function likelyFindings(): Promise<LikelyFinding[]> {
     const shown = list.slice(0, 6).map((c) => c.ref).join(", ");
     out.push({
       id: `notyet:${theme}`, ref: theme,
-      title: `${plural(list.length, "control")} in ${names[theme] ?? theme} ${scored ? "below target or not scored yet" : "not in place yet"}`,
+      title: `${plural(list.length, one, many)} in ${names[theme] ?? theme} ${scored ? "below target or not scored yet" : "not in place yet"}`,
       label: "Gap",
       says: `There is no working control yet for ${shown}${list.length > 6 ? ` and ${list.length - 6} more` : ""}.`,
       fix: scored
