@@ -65,6 +65,7 @@ export function goBack(target: Target | null): void {
 export function focusFix(fix: string): void {
   let ticks = 0;
   let steady = 0;
+  let lastTop = Number.NaN;
   const attempt = (): void => {
     const el = document.querySelector<HTMLElement>(`.modal [data-fix="${fix}"]`)
       ?? document.querySelector<HTMLElement>(`[data-fix="${fix}"]`);
@@ -72,7 +73,12 @@ export function focusFix(fix: string): void {
       const input = el.matches("input, select, textarea")
         ? el
         : el.querySelector<HTMLElement>("input, select, textarea") ?? el;
-      if (document.activeElement === input) {
+      // A section with no field cannot take focus, so it is settled once it has
+      // stopped moving: the window can still be growing as its lists load.
+      const top = el.getBoundingClientRect().top;
+      const settled = document.activeElement === input || (input === el && top === lastTop);
+      lastTop = top;
+      if (settled) {
         steady++;
       } else {
         steady = 0;
@@ -81,7 +87,7 @@ export function focusFix(fix: string): void {
       }
       if (steady >= 3) return;
     }
-    if (++ticks < 30) setTimeout(attempt, 100);
+    if (++ticks < 60) setTimeout(attempt, 100);
   };
   setTimeout(attempt, 50);
 }
