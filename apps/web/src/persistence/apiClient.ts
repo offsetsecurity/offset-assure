@@ -1151,8 +1151,22 @@ export interface PackTemplate {
   about: string;
 }
 
+/** Whether this product's pack ships document templates, asked once. */
+let templatesShipped: Promise<boolean> | undefined;
+
 export const templates = {
-  index: () => api.get<{ note: string; documents: PackTemplate[] }>("/pack/templates/index.json"),
+  /**
+   * The templates that ship with the pack. A pack without them answers with an
+   * empty list here, instead of a request that 404s and shows in the browser
+   * console as an error on the Plan page.
+   */
+  index: async (): Promise<{ note: string; documents: PackTemplate[] }> => {
+    templatesShipped ??= api.get<Pack>("/pack/pack.json")
+      .then((p) => Boolean(p.features?.["policyTemplates"]))
+      .catch(() => true);
+    if (!(await templatesShipped)) return { note: "", documents: [] };
+    return api.get<{ note: string; documents: PackTemplate[] }>("/pack/templates/index.json");
+  },
   url: (file: string) => `/pack/templates/${encodeURIComponent(file)}`,
   /** The same file with this organisation's answers and records put in. */
   filledUrl: (file: string) => `/api/v1/templates/filled/${encodeURIComponent(file)}`,
