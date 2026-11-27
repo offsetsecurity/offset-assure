@@ -241,6 +241,8 @@ maybe("evidence attachments", () => {
     // Downloaded, never rendered.
     expect(String(res.headers["content-disposition"])).toMatch(/^attachment;/);
     expect(res.headers["x-content-type-options"]).toBe("nosniff");
+    // Evidence can be confidential; no browser or proxy may keep a copy (L1, 27 Nov 2026).
+    expect(res.headers["cache-control"]).toBe("no-store");
   });
 
   it("refuses a crafted file key rather than reading whatever it points at", async () => {

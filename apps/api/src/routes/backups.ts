@@ -54,6 +54,8 @@ export async function backupRoutes(app: FastifyInstance): Promise<void> {
       .header("content-type", "application/octet-stream")
       .header("content-disposition", `attachment; filename="${name}"`)
       .header("x-content-type-options", "nosniff")
+      // The whole database, password hashes included: no browser or proxy keeps a copy.
+      .header("cache-control", "no-store")
       .send(createReadStream(path));
   });
 

@@ -161,6 +161,8 @@ maybe("backups", () => {
     const res = await app.inject({ url: `/api/v1/backups/${backupName}/download`, headers: h() });
     expect(res.statusCode).toBe(200);
     expect(res.headers["content-disposition"]).toContain(backupName);
+    // A backup is the whole database; no browser or proxy may keep a copy (L1, 27 Nov 2026).
+    expect(res.headers["cache-control"]).toBe("no-store");
     expect(res.rawPayload.equals(readFileSync(join(backupDir, backupName)))).toBe(true);
   });
 
