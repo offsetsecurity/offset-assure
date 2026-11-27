@@ -105,6 +105,8 @@ maybe("security audit findings", () => {
     const res = await send("GET", `/api/v1/attachments/file/${up.attachment.id}`);
     expect(res.status).toBe(200);
     expect(res.headers.get("content-disposition")).toContain(`filename*=UTF-8''${encodeURIComponent("العقد.pdf")}`);
+    // A register's files can be confidential; no browser or proxy may keep a copy (L1, 27 Nov 2026).
+    expect(res.headers.get("cache-control")).toBe("no-store");
   });
 
   // SEC-008

@@ -147,7 +147,9 @@ export async function attachmentRoutes(app: FastifyInstance): Promise<void> {
     reply
       .header("content-type", "application/octet-stream")
       .header("content-disposition", attachmentHeader(row.file_name))
-      .header("x-content-type-options", "nosniff");
+      .header("x-content-type-options", "nosniff")
+      // A register's files can be confidential: no browser or proxy keeps a copy.
+      .header("cache-control", "no-store");
     return reply.send(createReadStream(path));
   });
 

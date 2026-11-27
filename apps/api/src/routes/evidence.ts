@@ -324,7 +324,9 @@ export async function evidenceRoutes(app: FastifyInstance): Promise<void> {
     reply
       .header("content-type", "application/octet-stream")
       .header("content-disposition", attachmentHeader(name))
-      .header("x-content-type-options", "nosniff");
+      .header("x-content-type-options", "nosniff")
+      // Evidence can be confidential: no browser or proxy keeps a copy.
+      .header("cache-control", "no-store");
 
     return reply.send(createReadStream(path));
   });
