@@ -231,6 +231,7 @@ export function Controls({ themes, themeLabel, itemLabel, canEdit, pack }: {
       <div class="toolbar">
         <input
           type="search"
+          aria-label=${`Search ${plural(itemLabel).toLowerCase()}`}
           placeholder=${`Search ${plural(itemLabel).toLowerCase()}…`}
           value=${q}
           onInput=${(e: Event) => setQ((e.target as HTMLInputElement).value)}
@@ -312,6 +313,7 @@ export function Controls({ themes, themeLabel, itemLabel, canEdit, pack }: {
                 ${canEdit
                   ? html`<input
                       class="owner-input"
+                      aria-label=${`Owner of ${c.ref}`}
                       placeholder="Unassigned"
                       value=${c.owner}
                       onBlur=${(e: Event) => {

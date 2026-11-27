@@ -197,7 +197,7 @@ export function AuditTrail({ itemLabel }: { itemLabel: string }): VNode {
       </div>
 
       <div class="toolbar">
-        <input type="search" placeholder="Search actions, people, records, addresses…"
+        <input type="search" aria-label="Search the audit trail" placeholder="Search actions, people, records, addresses…"
           value=${typed} onInput=${(e: Event) => onType((e.target as HTMLInputElement).value)} />
         <select value=${person} onChange=${(e: Event) => setPerson((e.target as HTMLSelectElement).value)}>
           <option value="">Everyone</option>
