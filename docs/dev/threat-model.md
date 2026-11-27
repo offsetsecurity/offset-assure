@@ -67,7 +67,7 @@ graph LR
 | 7 | SQL injection | Zod validation of every body and query; user input only as query parameters. Table and column names come from code, never from a request | `routes/*` |
 | 8 | A low role changing data | Role checked on the server for every route; auditors and read-only users rejected on every write | `auth/rbac.ts`, `test/rbac.test.ts` |
 | 9 | A malicious upload | Size limit; one file per request; always served as an attachment with `nosniff`, never rendered | `routes/evidence.ts` |
-| 10 | Path traversal through backup names | Backup names must match a strict pattern; nothing else in the folder is listed, served or restored | `backup/service.ts` |
+| 10 | Path traversal through backup names | Backup names must match a strict pattern; nothing else in the folder is listed, served or restored | `backup/backup-shared.ts` |
 | 11 | Abusing Forgot password | Same answer for every request; 5 per 15 minutes per address; temporary password works once, for 30 minutes, and only to set a new one; the old password keeps working | `routes/auth.ts`, `auth/temporary.ts` |
 | 12 | Taking over a new install | The first-administrator route closes once an administrator exists | `routes/auth.ts` |
 | 13 | A malicious update | Ed25519 signature over the manifest against keys compiled into the product; SHA-256 per file; image digests; HTTPS only; a backup before installing and automatic rollback | `update/release.ts`, `updater/*` |
@@ -76,10 +76,10 @@ graph LR
 | 16 | The mail password leaking | AES-256-GCM with a key generated per install; never returned by the API | `lib/secrets.ts`, `routes/settings.ts` |
 | 17 | The server's private key leaking | Only an administrator can upload one. Kept in one file beside the database (mode 600 on Linux and Docker; on Windows, under the same folder permissions as the settings file and its secrets), and never returned by the API, written to the audit trail, or put in a backup. A `.pfx` password is AES-256-GCM encrypted like the mail password | `tls/certificate.ts`, `routes/certificate.ts` |
 | 18 | Swapping in the wrong certificate | The key must belong to the certificate and the certificate must be in date, or it is refused. A different name, self-signed or close to expiry is shown to the administrator before it replaces the one in use. Every upload and removal is in the audit trail | `tls/certificate.ts`, `test/certificate.e2e.test.ts` |
-| 17 | A disabled user carrying on | Disabling, or an administrator setting a password, deletes all of that user's sessions at once | `routes/users.ts` |
-| 18 | Secrets or vulnerable dependencies in the code | CI runs gitleaks and Trivy (vulnerabilities, secrets, misconfiguration), failing on high and critical; runtime dependencies pinned to the tested versions | `.github/workflows/ci.yml`, `deploy/runtime-manifest.mjs` |
 | 19 | A process escaping its lane | Linux: own user and systemd sandboxing. Windows: LocalService. Docker: non-root, published on 127.0.0.1 by default | `deploy/*` |
 | 20 | Hiding activity, or the trail leaking | The trail is append-only and has no route that edits or deletes it. It is shown to administrators and auditors only; keys that look like passwords, keys or tokens are hidden; a downloaded cell that starts like a formula is made text; each download is itself recorded | `routes/audit.ts`, `audit/audit.ts` |
+| 21 | A disabled user carrying on | Disabling, or an administrator setting a password, deletes all of that user's sessions at once | `routes/users.ts` |
+| 22 | Secrets or vulnerable dependencies in the code | CI runs gitleaks and Trivy (vulnerabilities, secrets, misconfiguration), failing on high and critical; runtime dependencies pinned to the tested versions | `.github/workflows/ci.yml`, `deploy/runtime-manifest.mjs` |
 
 ## Known gaps
 
@@ -95,11 +95,12 @@ the security overview, the questionnaire or both.
 | G7 | **One signing key** | If it leaks, a malicious update would be accepted by every install whose administrator presses Update | The key lives only in the release workflow's secrets. Rotation is built in: ship a build trusting both keys, then switch |
 | G8 | **No single sign-on** | Accounts are managed separately from the customer's directory, so leavers must be disabled by hand | OIDC or SAML. The `users.auth_source` column is already there |
 | G9 | **Uploads are not scanned** | A user can upload malware that a colleague later downloads and opens | Leave to the customer's endpoint protection, or add an optional ClamAV hook |
-| G10 | **CSP allows inline styles** | Low: inline styles cannot run code | Move the remaining inline styles into the stylesheet |
 | G11 | **No independent penetration test** | Mistakes nobody here thought to look for | Commission one before wide use; every Offset product is free, so this is a choice, not a sale condition |
 
 Closed since this was first written: **G2**, the per-address limit on sign-in
-(threat 1a), and **G3**, the audit trail screen (threat 20). The numbers are
+(threat 1a), **G3**, the audit trail screen (threat 20), and **G10**, inline
+styles: the page policy now allows styles from the product's own stylesheet only
+(`style-src 'self'` in `app.ts`). The numbers are
 kept so older references still point somewhere.
 
 ## When to revisit this
