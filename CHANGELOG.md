@@ -17,6 +17,9 @@ Every release is numbered x.y.z, for example 1.4.2:
 
 ## [Unreleased]
 
+### Fixed
+- A record in a list (risks, controls, evidence, suppliers and the other registers, Applicability, Gap analysis and the audit trail) now opens from the keyboard: Tab to the row, then Enter or Space. Before, it opened only with a mouse.
+
 ## [0.3.0] - 2026-11-25
 
 New features and a new look. Nothing you rely on is

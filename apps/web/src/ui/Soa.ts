@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import {
   programme, controls, risks as risksApi, type Programme, type Control, type Pack,
 } from "../persistence/apiClient.js";
@@ -220,7 +220,7 @@ export function Soa({ themes, itemLabel, canEdit, pack }: {
                   ${c.ref}
                 </span>
               </td>
-              <td class="clickable" onClick=${() => setDetail(c)} title="Open the full record">
+              <td class="clickable" onClick=${() => setDetail(c)} ...${opensOnKey(() => setDetail(c))} title="Open the full record">
                 <div>
                   ${c.title}
                   ${contradicted(c)

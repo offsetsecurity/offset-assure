@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import {
   controls as controlsApi, evidence as evidenceApi, tasks as tasksApi,
   type Control, type Pack,
@@ -213,7 +213,7 @@ export function Gaps({ themes, itemLabel, canEdit, pack }: {
                       ${c.ref}
                     </span>
                   </td>
-                  <td class="clickable" onClick=${() => setDetail(c)} title="Open the full record">
+                  <td class="clickable" onClick=${() => setDetail(c)} ...${opensOnKey(() => setDetail(c))} title="Open the full record">
                     <div>${c.title}</div>
                     ${unproven(c)
                       ? html`<div class="muted" style="font-size:11.5px;color:var(--red)">

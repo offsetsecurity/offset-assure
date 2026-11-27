@@ -28,3 +28,21 @@ const createElement = (
   h((type || Fragment) as any, props as any, ...(children as any[]));
 
 export const html = htm.bind(createElement) as unknown as Template;
+
+/**
+ * Lets a row or cell that opens on a click also open from the keyboard: it
+ * joins the Tab order, and Enter or Space opens it. Keys pressed on a field or
+ * button inside the row are left to that field. Spread it on the element:
+ * `<tr onClick=${go} ...${opensOnKey(go)}>`. Without it a record could be
+ * opened only with a mouse (WCAG 2.1.1).
+ */
+export function opensOnKey(go: (() => void) | undefined): Record<string, unknown> {
+  if (!go) return {};
+  return {
+    tabIndex: 0,
+    onKeyDown: (e: KeyboardEvent) => {
+      if (e.target !== e.currentTarget) return;
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+    },
+  };
+}

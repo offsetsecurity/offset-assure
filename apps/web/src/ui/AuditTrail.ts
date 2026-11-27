@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { VNode } from "preact";
-import { html } from "./html.js";
+import { html, opensOnKey } from "./html.js";
 import {
   auditTrail, type AuditChoices, type AuditEntry, type AuditFilters,
 } from "../persistence/apiClient.js";
@@ -244,7 +244,9 @@ export function AuditTrail({ itemLabel }: { itemLabel: string }): VNode {
             <tbody>
               ${entries.map((e) => html`
                 <tr key=${e.id} class=${`clickable${open === e.id ? " open" : ""}`}
-                    onClick=${() => setOpen(open === e.id ? null : e.id)}>
+                    onClick=${() => setOpen(open === e.id ? null : e.id)}
+                    aria-expanded=${open === e.id}
+                    ...${opensOnKey(() => setOpen(open === e.id ? null : e.id))}>
                   <td>${when(e.ts)}</td>
                   <td>${who(e.person, e.action)}</td>
                   <td>
