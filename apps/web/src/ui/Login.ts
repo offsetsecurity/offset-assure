@@ -12,12 +12,29 @@ const FRAMEWORK = import.meta.env.FRAMEWORK as unknown as string;
  * small moving picture of it, not a stock photo. Each line ticks in turn, the
  * ring fills, and then it rests.
  */
-const PREVIEW = [
-  { ref: "A.5.15", text: "Access reviewed, evidence filed" },
-  { ref: "A.8.8", text: "Technical vulnerabilities managed" },
-  { ref: "A.5.1", text: "Policies approved and published" },
-  { ref: "A.5.19", text: "Suppliers' assurance on file" },
-];
+const PREVIEWS: Record<string, { lbl: string; rows: { ref: string; text: string }[] }> = {
+  assure: { lbl: "ready for certification", rows: [
+    { ref: "A.5.15", text: "Access reviewed, evidence filed" },
+    { ref: "A.8.8", text: "Technical vulnerabilities managed" },
+    { ref: "A.5.1", text: "Policies approved and published" },
+    { ref: "A.5.19", text: "Suppliers' assurance on file" },
+  ] },
+  anchor: { lbl: "ready for assessment", rows: [
+    { ref: "AC-2", text: "Accounts reviewed, evidence filed" },
+    { ref: "RA-5", text: "Vulnerabilities scanned and fixed" },
+    { ref: "PL-1", text: "Policies approved and published" },
+    { ref: "SA-9", text: "External providers' assurance on file" },
+  ] },
+  align: { lbl: "ready for assessment", rows: [
+    { ref: "PR.AA-05", text: "Access reviewed, evidence filed" },
+    { ref: "ID.RA-01", text: "Vulnerabilities identified and recorded" },
+    { ref: "GV.PO-01", text: "Policy approved and published" },
+    { ref: "GV.SC-07", text: "Suppliers' risks known and managed" },
+  ] },
+};
+// The framework's own references, so a NIST product never shows ISO numbers.
+const PREVIEW_SET = PREVIEWS[import.meta.env.PRODUCT as unknown as string] ?? PREVIEWS.assure!;
+const PREVIEW = PREVIEW_SET.rows;
 
 function Showcase(): VNode {
   // Count the ring up once, after the panel has drawn.
@@ -56,7 +73,7 @@ function Showcase(): VNode {
             </svg>
             <div>
               <div class="auth-pct">${pct}%</div>
-              <div class="auth-lbl">ready for certification</div>
+              <div class="auth-lbl">${PREVIEW_SET.lbl}</div>
             </div>
           </div>
           <ul class="auth-ticks">
