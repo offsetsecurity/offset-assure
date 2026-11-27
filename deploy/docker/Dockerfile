@@ -165,7 +165,7 @@ CMD ["node", "dist/server.js"]
 # was checked. Move it forward when Docker publishes a new one: their Go
 # toolchain fixes reach this container only that way, and it is the one that
 # holds the Docker socket.
-FROM docker:29.9.2-cli@sha256:5e6baf67325a79f64ed3bed6863954d5e05d0f3d4e57cbdb14809346814bbfdb AS docker-cli
+FROM docker:29.10.1-cli@sha256:4e60c31615e83523afbb59773b25d055c0da9edcd5f80a4c6a6eebad49de1a25 AS docker-cli
 
 FROM runtime AS updater
 USER root
