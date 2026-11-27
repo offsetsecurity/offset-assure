@@ -186,7 +186,7 @@ export function Soa({ themes, itemLabel, canEdit, pack }: {
 
     <div class="card pad">
       <div class="toolbar">
-        <input type="search" placeholder="Search the statement…" value=${q}
+        <input type="search" aria-label="Search the statement" placeholder="Search the statement…" value=${q}
                onInput=${(e: Event) => setQ((e.target as HTMLInputElement).value)} />
         <select value=${filter}
                 onChange=${(e: Event) => setFilter((e.target as HTMLSelectElement).value as Filter)}>
@@ -254,6 +254,7 @@ export function Soa({ themes, itemLabel, canEdit, pack }: {
               <td>
                 ${canEdit
                   ? html`<input class=${`owner-input${unjustified(c) ? " missing" : ""}`}
+                            aria-label=${`Why ${c.ref} applies or not`}
                             value=${c.justification}
                             placeholder=${excluded(c) ? "Why does this not apply?" : "Why it applies: a risk, law, contract or need"}
                             onBlur=${(e: Event) => {

@@ -731,7 +731,7 @@ export function Register<T extends RegisterRow>({ spec, canEdit, links, csv }: {
         </div>
       </div>
       <div class="toolbar reg-filters">
-        <input type="search" placeholder=${`Search ${midSentence(spec.plural)}…`} value=${q}
+        <input type="search" aria-label=${`Search ${midSentence(spec.plural)}`} placeholder=${`Search ${midSentence(spec.plural)}…`} value=${q}
                onInput=${(e: Event) => setQ((e.target as HTMLInputElement).value)} />
         ${otherFilters.map((f) => html`
           <select value=${picked[f.key] ?? ""}

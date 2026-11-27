@@ -126,7 +126,7 @@ export function Users({ me }: { me: SessionUser }): VNode {
   return html`<>
     <div class="card pad">
       <div class="toolbar">
-        <input type="search" placeholder="Search people…" value=${q}
+        <input type="search" aria-label="Search people" placeholder="Search people…" value=${q}
                onInput=${(e: Event) => setQ((e.target as HTMLInputElement).value)} />
         <div class="toolbar-note muted">
           ${shown.length} of ${rows.length} · ${activeAdmins} administrator${activeAdmins === 1 ? "" : "s"}

@@ -223,7 +223,7 @@ export function Risks({ canEdit, controls = [], itemLabel = "control" }: {
 
     <div class="card pad">
       <div class="toolbar">
-        <input type="search" placeholder="Search risks…" value=${q}
+        <input type="search" aria-label="Search risks" placeholder="Search risks…" value=${q}
                onInput=${(e: Event) => setQ((e.target as HTMLInputElement).value)} />
         <select value=${status} onChange=${(e: Event) => setStatus((e.target as HTMLSelectElement).value)}>
           <option value="">All statuses</option>
